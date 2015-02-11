@@ -27,15 +27,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class makeGroup extends ListActivity {
+public class showGroup extends ListActivity {
 	private String jsonResult;
-	private String url = "http://10.0.2.2/userDetails.php";
+	private String url = "http://10.0.2.2/groupDetails.php";
 	public static  List<Group> user_group =  new groupData().getCars();
 
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.group_list);
+	
 		accessWebService();
 		groupAdapter adapter = new groupAdapter(this,R.layout.user_item,user_group);
 		

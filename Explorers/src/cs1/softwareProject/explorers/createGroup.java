@@ -8,7 +8,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -60,11 +59,7 @@ public class createGroup extends Activity  implements OnClickListener{
 		time =  (EditText)findViewById(R.id.EditText02);
 		description =  (EditText)findViewById(R.id.EditText03);
 		
-		
-		
-		
-		
-		
+
 		createGroup = (Button)findViewById(R.id.createGroup);
 		createGroup.setOnClickListener(this);
 		
@@ -84,7 +79,9 @@ public class createGroup extends Activity  implements OnClickListener{
 		new CreateGroup(nameOfEvent, nameOfLocation ,timeOfEvent, des, ageGroup).execute();
 	//	groupData.user_groups.add(new Group(nameOfEvent, nameOfLocation ,timeOfEvent, des, ageGroup, R.drawable.california_snow ));
 	
-		 Intent i=new Intent(createGroup.this, MainActivity.class);
+		 Intent i=new Intent(createGroup.this, Tabs_menu.class);
+	//	 Intent changePage = new Intent(this, showGroup.class);
+	   //  changePage.putExtra("change",true);
 		// if(go==true){
 	     startActivity(i);
 	//}

@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="cs1.softwareProject.explorers.Login"
+            android:name="cs1.softwareProject.explorers.Tabs_menu"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,14 +29,15 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="cs1.softwareProject.explorers.MainActivity"
+            android:name="cs1.softwareProject.explorers.createGroup"
             android:label="@string/app_name" >
         </activity>
-         <activity android:name="Tabs_menu" >
+         
+        <activity android:name="MainActivity" >
         </activity>
-        <activity android:name="FirstActivity" >
+        <activity android:name="showGroup" >
         </activity>
-        <activity android:name="SecondActivity" >
+         <activity android:name="GroupProfile" >
         </activity>
         <activity android:name="ThirdActivity" >
         </activity>

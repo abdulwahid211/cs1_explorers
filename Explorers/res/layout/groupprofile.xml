@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:layout_marginRight="64dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/california_snow" />
 
     <TextView
         android:id="@+id/textView2"

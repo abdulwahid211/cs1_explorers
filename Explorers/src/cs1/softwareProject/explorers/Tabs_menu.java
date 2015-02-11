@@ -29,7 +29,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         Intent intent;
  
         //first tab
-        intent = new Intent().setClass(this, MainActivity.class);
+        intent = new Intent().setClass(this, showGroup.class);
         spec = tabHost.newTabSpec("First").setIndicator("First")
                 .setContent(intent);
         tabHost.addTab(spec);
@@ -40,7 +40,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
        
      
         //second tab
-        intent = new Intent().setClass(this, SecondActivity.class);
+        intent = new Intent().setClass(this, createGroup.class);
         spec = tabHost.newTabSpec("Second").setIndicator("Second")
                       .setContent(intent);
         tabHost.addTab(spec);
