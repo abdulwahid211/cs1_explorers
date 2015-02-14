@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -30,19 +32,21 @@ import android.widget.Toast;
 public class showGroup extends ListActivity {
 	private String jsonResult;
 	private String url = "http://10.0.2.2/groupDetails.php";
-	public static  List<Group> user_group =  new groupData().getCars();
-
-
+	public static  List<Group> user_group =  new groupData().getGroup();
+	//public static  List<userObject> joined_user =  new userData().getUsers();
+	
+	
+	
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group_list);
 	
-		accessWebService();
-		groupAdapter adapter = new groupAdapter(this,R.layout.user_item,user_group);
+		groupAdapter adapter = new groupAdapter(this,R.layout.group_item,user_group);
 		
 	
 		setListAdapter(adapter);
-		
+		accessWebService();
 	}
 	
 	
@@ -104,16 +108,18 @@ public class showGroup extends ListActivity {
 		try {
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			// name of the table
-			JSONArray jsonUserDetails = jsonResponse.optJSONArray("ted");
+			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userGroups");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
-				// list all the attributes 
+				// list all the attributes of the groups
+		     	int groupId = jsonChildNode.optInt("id");
+				int adminId = jsonChildNode.optInt("admin_id");
 				String eventName = jsonChildNode.optString("eventName");
 				String location = jsonChildNode.optString("location");
 				String time = jsonChildNode.optString("time");
 				String ageGroup = jsonChildNode.optString("ageGroup");
 				String des = jsonChildNode.optString("description");
-				user_group.add(new Group(eventName, location  ,time, des, ageGroup, R.drawable.california_snow ));
+				user_group.add(new Group(groupId,adminId,eventName, location  ,time, des, ageGroup, R.drawable.california_snow ));
 			}
 		} 
 		catch (JSONException e) {
@@ -131,6 +137,8 @@ public class showGroup extends ListActivity {
 		Group c = user_group.get(position);
 		
 		Intent intent = new Intent(this, GroupProfile.class);
+	//	intent.putExtra("groupId", c.groupId);
+		intent.putExtra("adminId", c.adminId);
 		intent.putExtra("EventName", c.nameOfEvent);
 		intent.putExtra("Image", c.image);
 		intent.putExtra("location", c.location);

@@ -6,17 +6,16 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class GroupProfile extends Activity {
+public class userProfile extends Activity {
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.groupprofile);
+		setContentView(R.layout.userprofile);
 		
 	Intent intent = getIntent();
-	int admin_id = intent.getIntExtra("adminId",0);
 	String location = intent.getStringExtra("location");
 	String name = intent.getStringExtra("EventName");
 	String time = intent.getStringExtra("time");
@@ -30,22 +29,14 @@ public class GroupProfile extends Activity {
     tv.setText(name);
     
     TextView tv1 = (TextView) findViewById(R.id.textView2);	
-    String test = "ID "+String.valueOf(admin_id);
-    tv1.setText(test);
+    tv1.setText(location);
     
     TextView tv2 = (TextView) findViewById(R.id.textView3);	
     tv2.setText(time);
     
-    TextView tv3 = (TextView) findViewById(R.id.textView4);	
-    tv3.setText(description);
-    
-    TextView tv4 = (TextView) findViewById(R.id.textView5);	
-    tv4.setText(ageGroup);
     
     ImageView im = (ImageView) findViewById(R.id.imageView1);	
     im.setImageResource(image);
-    
-    
     
     
 	

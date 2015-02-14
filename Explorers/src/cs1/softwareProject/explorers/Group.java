@@ -2,6 +2,8 @@ package cs1.softwareProject.explorers;
 
 public class Group {
 	
+	public int groupId;
+	public int adminId;
 	public String nameOfEvent;
 	public int image;
 	public String description;
@@ -9,7 +11,9 @@ public class Group {
 	public String location;
 	public String ageGroup;
 	
-	public Group(String groupName,String in ,String t,String des ,String age,int im ){
+	public Group(int gid, int aid, String groupName,String in ,String t,String des ,String age,int im ){
+		this.groupId =gid;
+		this.adminId =aid;
 		this.time =t;
 		this.ageGroup = age;
 		this.description = des;

@@ -28,11 +28,12 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         TabHost.TabSpec spec;
         Intent intent;
  
-        //first tab
+       // first tab
         intent = new Intent().setClass(this, showGroup.class);
         spec = tabHost.newTabSpec("First").setIndicator("First")
                 .setContent(intent);
         tabHost.addTab(spec);
+        
         /*
         spec = tabHost.newTabSpec("First").setIndicator(
         		null,getResources().getDrawable(R.drawable.ic_launcher)).setContent(intent);

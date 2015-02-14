@@ -16,13 +16,17 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="cs1.softwareProject.explorers.Tabs_menu"
-            android:label="@string/app_name" >
+            android:name="cs1.softwareProject.explorers.Login"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+          <activity
+            android:name="cs1.softwareProject.explorers.Tabs_menu"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="cs1.softwareProject.explorers.Register"

@@ -3,11 +3,13 @@ package cs1.softwareProject.explorers;
 public class userObject {
 
 	String username;
+	int image;
 	int id;
 	String bio;
 	String interest;
 	
-	userObject(int id, String u, String inter, String b){
+	userObject(int id, String u, int img, String inter, String b){
+		this.image =img;
 		this.id = id;
 		this.username = u;
 		this.interest = inter;

@@ -28,14 +28,6 @@
         android:ems="10"
          />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/location"
-        android:layout_marginTop="72dp"
-        android:text="Name of the Event: " />
-
     <EditText
         android:id="@+id/EditText01"
         android:layout_width="wrap_content"
@@ -101,5 +93,14 @@
         android:layout_below="@+id/EditText02"
         android:layout_marginTop="15dp"
         android:text="Description: " />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/location"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:text="Name of the Event: " />
 
 </RelativeLayout>
