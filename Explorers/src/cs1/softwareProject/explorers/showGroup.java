@@ -137,7 +137,7 @@ public class showGroup extends ListActivity {
 		Group c = user_group.get(position);
 		
 		Intent intent = new Intent(this, GroupProfile.class);
-	//	intent.putExtra("groupId", c.groupId);
+		intent.putExtra("groupId", c.groupId);
 		intent.putExtra("adminId", c.adminId);
 		intent.putExtra("EventName", c.nameOfEvent);
 		intent.putExtra("Image", c.image);

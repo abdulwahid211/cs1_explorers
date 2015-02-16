@@ -41,6 +41,8 @@
         </activity>
         <activity android:name="showGroup" >
         </activity>
+         <activity android:name="userProfile" >
+        </activity>
          <activity android:name="GroupProfile" >
         </activity>
         <activity android:name="ThirdActivity" >

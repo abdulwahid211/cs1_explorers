@@ -15,6 +15,10 @@ public class userObject {
 		this.interest = inter;
 		this.bio =b;
 	}
+	
+	public String getUsername(){
+		return username;
+	}
 
 	
 	

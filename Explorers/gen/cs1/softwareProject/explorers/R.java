@@ -39,10 +39,11 @@ public final class R {
         public static final int TextView04=0x7f08001a;
         public static final int TextView09=0x7f08001d;
         public static final int abzy211=0x7f080005;
-        public static final int action_settings=0x7f08001f;
+        public static final int action_settings=0x7f080020;
         public static final int bio=0x7f08001c;
         public static final int createGroup=0x7f080017;
         public static final int eventName=0x7f080012;
+        public static final int gridview=0x7f08001f;
         public static final int hello=0x7f080001;
         public static final int hello2=0x7f080003;
         public static final int hello3=0x7f080002;
@@ -59,7 +60,7 @@ public final class R {
         public static final int textView4=0x7f080009;
         public static final int textView5=0x7f08000a;
         public static final int txtDisplayedTab=0x7f08001e;
-        public static final int userView1=0x7f08000b;
+        public static final int userView=0x7f08000b;
         public static final int username=0x7f080010;
     }
     public static final class layout {

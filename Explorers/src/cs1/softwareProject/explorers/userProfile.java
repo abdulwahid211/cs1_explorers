@@ -16,23 +16,21 @@ public class userProfile extends Activity {
 		setContentView(R.layout.userprofile);
 		
 	Intent intent = getIntent();
-	String location = intent.getStringExtra("location");
-	String name = intent.getStringExtra("EventName");
-	String time = intent.getStringExtra("time");
-	String description = intent.getStringExtra("description");
-	String ageGroup = intent.getStringExtra("ageGroup");
-	int image = intent.getIntExtra("Image",0);
+	String username = intent.getStringExtra("userName");
+	String interest = intent.getStringExtra("interest");
+	String bio = intent.getStringExtra("bio");
+	int image = intent.getIntExtra("image",0);
 	
 	
 		
     TextView tv = (TextView) findViewById(R.id.abzy211);	
-    tv.setText(name);
+    tv.setText(username);
     
     TextView tv1 = (TextView) findViewById(R.id.textView2);	
-    tv1.setText(location);
+    tv1.setText(interest);
     
     TextView tv2 = (TextView) findViewById(R.id.textView3);	
-    tv2.setText(time);
+    tv2.setText(bio);
     
     
     ImageView im = (ImageView) findViewById(R.id.imageView1);	

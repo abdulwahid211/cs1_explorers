@@ -1,5 +1,4 @@
 package cs1.softwareProject.explorers;
-
 import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
