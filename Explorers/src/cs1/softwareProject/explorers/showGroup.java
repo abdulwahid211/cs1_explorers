@@ -33,7 +33,7 @@ public class showGroup extends ListActivity {
 	private String jsonResult;
 	private String url = "http://10.0.2.2/groupDetails.php";
 	public static  List<Group> user_group =  new groupData().getGroup();
-	//public static  List<userObject> joined_user =  new userData().getUsers();
+	
 	
 	
 	
@@ -147,6 +147,8 @@ public class showGroup extends ListActivity {
 		intent.putExtra("description", c.description);
 		startActivity(intent);
 	}
+	
+	
 
 
 	

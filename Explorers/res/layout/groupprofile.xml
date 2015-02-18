@@ -47,6 +47,17 @@
         android:layout_marginRight="30dp"
         android:text="Age Group:" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:onClick="joinGroup"
+        android:text="Join" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"

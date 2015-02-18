@@ -44,8 +44,7 @@ public class createGroup extends Activity implements OnClickListener {
 	String ageGroup = "";
 	String timeOfEvent = "";
 	String des = "";
-	int adminId;
-	public boolean go = false;
+	public static int adminId;
 
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
@@ -94,6 +93,10 @@ public class createGroup extends Activity implements OnClickListener {
 
 		startActivity(i);
 
+	}
+	
+	public int getUserId(){
+		return adminId;
 	}
 
 	class CreateGroup extends AsyncTask<String, String, String> {
@@ -159,7 +162,6 @@ public class createGroup extends Activity implements OnClickListener {
 					Log.d("Group Created!", json.toString());
 
 					finish();
-					go = true;
 					return json.getString(TAG_MESSAGE);
 				} else {
 					Log.d("Login Failure!", json.getString(TAG_MESSAGE));

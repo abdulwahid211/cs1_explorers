@@ -22,6 +22,10 @@ public class Group {
 		this.location = in;
 	}
 	
+	public int getIDs(){
+		return this.groupId;
+	}
+	
 	
 
 }
