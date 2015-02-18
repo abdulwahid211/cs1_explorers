@@ -49,8 +49,8 @@ public class createGroup extends Activity implements OnClickListener {
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
-	private static final String LOGIN_URL = "http://10.0.2.2/groups.php";
-	private static final String LOGIN_URL_user = "http://10.0.2.2/userDetails.php";
+	private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/groups.php";
+	private static final String LOGIN_URL_user = "http://doc.gold.ac.uk/~ma301ma/IgorFile/userDetails.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
 

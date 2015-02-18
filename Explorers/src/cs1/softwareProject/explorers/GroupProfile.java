@@ -42,18 +42,16 @@ public class GroupProfile extends Activity {
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
-	private String jsonResult2;
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
-	private static final String url = "http://10.0.2.2/mrX.php";
-	private static final String LOGIN_URL_userJoined = "http://10.0.2.2/submitUserJoined.php";
+	private static final String url = "http://doc.gold.ac.uk/~ma301ma/IgorFile/mrX.php";
+	private static final String LOGIN_URL_userJoined = "http://doc.gold.ac.uk/~ma301ma/IgorFile/submitUserJoined.php";
 
 	public static List<userObject> joined_user = new userData().getUsers();
 
 	ArrayList<Integer> map = new ArrayList<Integer>();
 	ArrayList<Integer> value = new ArrayList<Integer>();
 
-	
 	List<userObject> oragnisedUsers;
 	ListView userList;
 	int user_id;
@@ -63,13 +61,12 @@ public class GroupProfile extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.groupprofile);
-	/*
-		map.add(76);
-		value.add(4);
-	
-		*/
+		
+		
+		accessWebService();
 		Intent intent = getIntent();
-		group_id = intent.getIntExtra("groupId", 0);;
+		
+		group_id = intent.getIntExtra("groupId", 0);
 		String location = intent.getStringExtra("location");
 		String name = intent.getStringExtra("EventName");
 		String time = intent.getStringExtra("time");
@@ -77,10 +74,10 @@ public class GroupProfile extends Activity {
 		String ageGroup = intent.getStringExtra("ageGroup");
 		int image = intent.getIntExtra("Image", 0);
 
-		accessWebService();
 		
-		//oragnisedUsers =	oragnisedUserId(group_id,userJoint,joined_user);
-	//	joined_user =	oragnisedUserId(74,userJoint,joined_user);
+
+		// oragnisedUsers = oragnisedUserId(group_id,userJoint,joined_user);
+		// joined_user = oragnisedUserId(74,userJoint,joined_user);
 		userAdapter adapter = new userAdapter(this, R.layout.user_item,
 				joined_user);
 		userList = (ListView) findViewById(R.id.userView);
@@ -113,7 +110,7 @@ public class GroupProfile extends Activity {
 				userObject c = joined_user.get(position);
 
 				Intent intent = new Intent(GroupProfile.this, userProfile.class);
-			    intent.putExtra("userId", c.id);
+				intent.putExtra("userId", c.id);
 				intent.putExtra("userName", c.username);
 				intent.putExtra("bio", c.bio);
 				intent.putExtra("interest", c.interest);
@@ -126,72 +123,70 @@ public class GroupProfile extends Activity {
 
 	public void joinGroup(View v) {
 		
-		new JoinedGroup(group_id,user_id).execute();
-		
+		new JoinedGroup(group_id, user_id).execute();
+
 	}
 
-	
 	@SuppressWarnings("null")
-	public List<userObject> oragnisedUserId(int groupId, List<userObject> relUsers) {
-		List<userObject> oragnisedUsers= relUsers;
-		
-	
-	
+	public List<userObject> oragnisedUserId(int groupId,
+			List<userObject> relUsers) {
+		List<userObject> oragnisedUsers = relUsers;
+
 		HashSet<Integer> newSet = new HashSet<Integer>();
-	
-		
+
 		for (int i = 0; i < map.size(); i++) {
-			if (map.get(i)==groupId) {
+			if (map.get(i) == groupId) {
 				newSet.add(value.get(i));
+
+			}
+		}
+
+		
+
+		for (int i = 0; i < oragnisedUsers.size(); i++) {
+			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
+				/*
+				Log.d("THIS IS THE TEST:",
+						String.valueOf(oragnisedUsers.get(i).getIDs()) + " "
+								+ oragnisedUsers.get(i).getUsername());
+				Log.d("this is the value", "Wadz:" + "true baby");*/
+				oragnisedUsers.remove(i);
 				
 			}
+
 		}
-		
-		
-		Log.d("THIS IS THE tahmid:",String.valueOf(oragnisedUsers.get(2).getIDs())+" "+oragnisedUsers.get(2).getUsername());
-   	
+
 		for (int i = 0; i < oragnisedUsers.size(); i++) {
-		if(!newSet.contains(oragnisedUsers.get(i).getIDs())){
-			Log.d("THIS IS THE TEST:",String.valueOf(oragnisedUsers.get(i).getIDs())+" "+oragnisedUsers.get(i).getUsername());
-			Log.d("this is the value","Wadz:" +"true baby");
-			oragnisedUsers.remove(i);
-			//continue;
-		}
-		
-		
-		}
-		
-		for (int i = 0; i < oragnisedUsers.size(); i++) {
-			if(!newSet.contains(oragnisedUsers.get(i).getIDs())){
+			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
 				oragnisedUsers.remove(i);
 			}
-			}
-		
+		}
 		for (int i = 0; i < oragnisedUsers.size(); i++) {
-			if(oragnisedUsers.get(i).getIDs()==0){
+			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
 				oragnisedUsers.remove(i);
 			}
+		}
+		for (int i = 0; i < oragnisedUsers.size(); i++) {
+			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
+				oragnisedUsers.remove(i);
 			}
+		}
 		
+/// remove unknown ids 
 	
 
-		
-  
-       
-       return oragnisedUsers;
+		return oragnisedUsers;
 
 	}
-	
+
 	class JoinedGroup extends AsyncTask<String, String, String> {
 
 		public String groupId;
 		public String userId;
-		
-		
 
 		JoinedGroup(int gId, int uId) {
-        this.groupId = String.valueOf(gId);
-        this.userId = String.valueOf(uId);
+			this.groupId = String.valueOf(gId);
+			this.userId = String.valueOf(uId);
 		}
 
 		@Override
@@ -212,14 +207,14 @@ public class GroupProfile extends Activity {
 			try {
 
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("group_id",groupId));
-				params.add(new BasicNameValuePair("user_id",userId));
-				
+				params.add(new BasicNameValuePair("group_id", groupId));
+				params.add(new BasicNameValuePair("user_id", userId));
+
 				Log.d("request!", "starting");
 
 				// Posting user data to script
-				JSONObject json = jsonParser.makeHttpRequest(LOGIN_URL_userJoined, "POST",
-						params);
+				JSONObject json = jsonParser.makeHttpRequest(
+						LOGIN_URL_userJoined, "POST", params);
 
 				// full json response
 				Log.d("Login attempt", json.toString());
@@ -230,7 +225,7 @@ public class GroupProfile extends Activity {
 					Log.d("Sucessfully joined!", json.toString());
 
 					finish();
-					
+
 					return json.getString(TAG_MESSAGE);
 				} else {
 					Log.d("Login Failure!", json.getString(TAG_MESSAGE));
@@ -267,7 +262,7 @@ public class GroupProfile extends Activity {
 				HttpResponse response = httpclient.execute(httppost);
 				jsonResult = inputStreamToString(
 						response.getEntity().getContent()).toString();
-				
+
 			}
 
 			catch (ClientProtocolException e) {
@@ -300,80 +295,67 @@ public class GroupProfile extends Activity {
 		@Override
 		protected void onPostExecute(String result) {
 			DisplayData();
-			
+
 		}
 	}
 
 	public void accessWebService() {
 		// create the json data
 		JsonObjectData task = new JsonObjectData();
-		task.execute(new String[] { url});
+		task.execute(new String[] { url });
 	}
-	  
 
 	public void DisplayData() {
 		joined_user.clear();
 		map.clear();
-	    value.clear();
+		value.clear();
 		try {
-			
+
 			JSONObject jsonResponse = new JSONObject(jsonResult);
-			
-		
+
 			// name of the user group
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("abz");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
-				
-				
+
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
-				
-				
+
 				String userName = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 				String bio = jsonChildNode.optString("bio");
 				String interest = jsonChildNode.optString("interest");
 				int userId = jsonChildNode.optInt("id");
-				
-				
+
 				int maps = jsonChildNode.optInt("group_id");
 				int values = jsonChildNode.optInt("user_id");
 				// list all the attributes of the group
-			
-				
-				
-				
+
 				// list all the attributes of the group
-				
+				if(userId !=0){
 				joined_user.add(new userObject(userId, userName,
 						R.drawable.california_snow, bio, interest));
-				
-				
-				
+				}
+				if(maps !=0 && values !=0){
 				map.add(maps);
 				value.add(values);
-			//	Log.d("THIS IS THE GANSTA:",String.valueOf(values) );
-				
-				//Log.d("this is the value","My beautiful wife:" +String.valueOf(joined_user.get(0).getIDs()));
-				
-			//	if(Login.getRealUser().equals(userName) && Login.getRealPass().equals(password)){
-			//		user_id = userId ;
-			//	}
-	
+				}
+				// Log.d("THIS IS THE GANSTA:",String.valueOf(values) );
+
+				// Log.d("this is the value","My beautiful wife:"
+				// +String.valueOf(joined_user.get(0).getIDs()));
+
+				 if(Login.getRealUser().equals(userName) &&
+				 Login.getRealPass().equals(password)){
+				 user_id = userId ;
+				 }
+
 			}
-			
-		
-			
-		
-		
-			
+
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					"Failed to display data! " + e.toString(),
 					Toast.LENGTH_SHORT).show();
 		}
-		joined_user =	oragnisedUserId(group_id,joined_user);
+		joined_user = oragnisedUserId(group_id, joined_user);
 	}
-	
-	
-	
+
 }
