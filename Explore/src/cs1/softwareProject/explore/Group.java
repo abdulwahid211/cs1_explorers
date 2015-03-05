@@ -10,9 +10,13 @@ public class Group {
 	public String time;
 	public String location;
 	public String ageGroup;
+	public String postCode;
+	public String language;
 	
-	public Group(int gid, int aid, String groupName,String in ,String t,String des ,String age,int im ){
+	public Group(int gid, int aid, String groupName,String in ,String pos,String t,String des ,String age,int im, String lan ){
 		this.groupId =gid;
+		this.language = lan;
+		this.postCode = pos;
 		this.adminId =aid;
 		this.time =t;
 		this.ageGroup = age;

@@ -20,7 +20,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import android.app.Activity;
 //import android.app.Activity;
 import android.app.ListActivity;
@@ -112,15 +111,38 @@ public class GroupProfile extends Activity {
 				Intent intent = new Intent(GroupProfile.this, userProfile.class);
 				intent.putExtra("userId", c.id);
 				intent.putExtra("userName", c.username);
-				intent.putExtra("bio", c.bio);
-				intent.putExtra("interest", c.interest);
+				intent.putExtra("firstName", c.fname);
+				intent.putExtra("lastName", c.lname);
+				intent.putExtra("age", c.age);
+				intent.putExtra("about", c.about);
+				intent.putExtra("nationality", c.nationality);
+				intent.putExtra("occupation", c.occupation);
 				intent.putExtra("image", c.image);
 				startActivity(intent);
 			}
 		});
+		
+		
+		
+		
 
 	}
-
+	/*
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		accessWebService();
+		Log.d("MainActivity", "onResumeGP()");
+	}
+	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+	//	user_group.clear();
+		Log.d("MainActivity", "onPauseGP()");
+	}
+*/
 	public void joinGroup(View v) {
 		
 		new JoinedGroup(group_id, user_id).execute();
@@ -131,6 +153,7 @@ public class GroupProfile extends Activity {
 	public List<userObject> oragnisedUserId(int groupId,
 			List<userObject> relUsers) {
 		List<userObject> oragnisedUsers = relUsers;
+		List<userObject> oragnisedUsers2 = null;
 
 		HashSet<Integer> newSet = new HashSet<Integer>();
 
@@ -314,15 +337,19 @@ public class GroupProfile extends Activity {
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 
 			// name of the user group
-			JSONArray jsonUserDetails = jsonResponse.optJSONArray("abz");
+			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
 
 				String userName = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
-				String bio = jsonChildNode.optString("bio");
-				String interest = jsonChildNode.optString("interest");
+				String fname = jsonChildNode.optString("FirstName");
+				String lname = jsonChildNode.optString("LastName");
+				String professional = jsonChildNode.optString("Occupation");
+				String nation = jsonChildNode.optString("Nationality");
+				String age = jsonChildNode.optString("Age");
+				String about  = jsonChildNode.optString("About"); 
 				int userId = jsonChildNode.optInt("id");
 
 				int maps = jsonChildNode.optInt("group_id");
@@ -331,8 +358,8 @@ public class GroupProfile extends Activity {
 
 				// list all the attributes of the group
 				if(userId !=0){
-				joined_user.add(new userObject(userId, userName,
-						R.drawable.california_snow, bio, interest));
+				joined_user.add(new userObject(userId, userName,fname, lname,
+						R.drawable.california_snow, age, nation, professional,about));
 				}
 				if(maps !=0 && values !=0){
 				map.add(maps);

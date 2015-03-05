@@ -120,7 +120,9 @@ public class showGroup extends ListActivity {
 				String time = jsonChildNode.optString("time");
 				String ageGroup = jsonChildNode.optString("ageGroup");
 				String des = jsonChildNode.optString("description");
-				user_group.add(new Group(groupId,adminId,eventName, location  ,time, des, ageGroup, R.drawable.california_snow ));
+				String pos = jsonChildNode.optString("postCode");
+				String lan = jsonChildNode.optString("language");
+				user_group.add(new Group(groupId,adminId,eventName, location,pos,time, des, ageGroup, R.drawable.california_snow,lan ));
 			}
 		} 
 		catch (JSONException e) {

@@ -4,21 +4,35 @@ package cs1.softwareProject.explore;
 public class userObject {
 
 	public String username;
+	public String fname;
+	public String lname;
+	public String age;
+	public String nationality;
+	public String about;
+	public String occupation;
 	public int image;
 	public int id;
-	public String bio;
-	public String interest;
 
-	userObject(int id, String u, int img, String inter, String b) {
+	userObject(int id, String u, String fname, String lname, int img,
+			String age, String nationality, String occu, String about) {
 		this.image = img;
+		this.about = about;
 		this.id = id;
 		this.username = u;
-		this.interest = inter;
-		this.bio = b;
+		this.fname = fname;
+		this.lname = lname;
+		this.age = age;
+		this.nationality = nationality;
+		this.occupation = occu;
+
 	}
 
 	public String getUsername() {
 		return username;
+	}
+
+	public String getFullName() {
+		return fname +" "+ lname;
 	}
 
 	public int getIDs() {

@@ -37,6 +37,7 @@ public class createGroup extends Activity implements OnClickListener {
 	EditText age;
 	EditText time;
 	EditText description;
+	EditText ps;
 	Button createGroup;
 
 	String nameOfEvent = "";
@@ -44,6 +45,7 @@ public class createGroup extends Activity implements OnClickListener {
 	String ageGroup = "";
 	String timeOfEvent = "";
 	String des = "";
+	String post="";
 	public static int adminId;
 
 	private ProgressDialog pDialog;
@@ -57,14 +59,16 @@ public class createGroup extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.makegroup);
+		setContentView(R.layout.creategroup);
 
 		nameEvent = (EditText) findViewById(R.id.eventName);
 		location = (EditText) findViewById(R.id.location);
-		age = (EditText) findViewById(R.id.EditText01);
-		time = (EditText) findViewById(R.id.EditText02);
-		description = (EditText) findViewById(R.id.EditText03);
+		age = (EditText) findViewById(R.id.age);
+		time = (EditText) findViewById(R.id.time);
+		description = (EditText) findViewById(R.id.des);
+		ps = (EditText) findViewById(R.id.postcode);
 		createGroup = (Button) findViewById(R.id.createGroup);
+		
 		createGroup.setOnClickListener(this);
 		accessWebService();
 		
@@ -77,14 +81,14 @@ public class createGroup extends Activity implements OnClickListener {
 		ageGroup = age.getText().toString();
 		timeOfEvent = time.getText().toString();
 		des = description.getText().toString();
-		
+		post = ps.getText().toString();
 		showGroup.user_group.clear();// clear the previous list, so we dont have
 		// duplicates
 		
 		
 		
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
-				ageGroup).execute();
+				ageGroup,post).execute();
 		
 		accessWebService();
 		
@@ -108,12 +112,13 @@ public class createGroup extends Activity implements OnClickListener {
 		String ageGroup;
 		String timeOfEvent;
 		String des;
+		String post;
 
 		boolean failure = false;
 
 		CreateGroup(int adId, String groupName, String in, String t,
-				String des, String age) {
-
+				String des, String age, String p) {
+            this.post =p;
 			this.nameOfEvent = groupName;
 			this.nameOfLocation = in;
 			this.ageGroup = age;
@@ -147,6 +152,8 @@ public class createGroup extends Activity implements OnClickListener {
 				params.add(new BasicNameValuePair("time", timeOfEvent));
 				params.add(new BasicNameValuePair("description", des));
 				params.add(new BasicNameValuePair("ageGroup", ageGroup));
+				params.add(new BasicNameValuePair("postCode", post));
+				params.add(new BasicNameValuePair("language", "Bengali"));
 				Log.d("request!", "starting");
 
 				// Posting user data to script
@@ -248,7 +255,7 @@ public class createGroup extends Activity implements OnClickListener {
 		try {
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			// name of the table
-			JSONArray jsonUserDetails = jsonResponse.optJSONArray("abz");
+			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
 
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);

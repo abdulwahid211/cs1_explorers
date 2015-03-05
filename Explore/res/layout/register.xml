@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="619dp" >
 
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
+        android:hint="e.g 'explore92'"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
@@ -29,58 +34,135 @@
         android:ems="10"
         android:inputType="textPassword" />
 
+    <EditText
+        android:id="@+id/postcode"
+        android:layout_width="wrap_content"
+        android:hint="e.g 'Jones'"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/password"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:freezesText="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="e.g 'Smith'"
+        android:layout_alignLeft="@+id/postcode"
+        android:layout_below="@+id/postcode"
+        android:layout_marginTop="21dp"
+        android:ems="10" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password"
-        android:layout_marginTop="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
         android:text="Username" />
 
     <EditText
-        android:id="@+id/interest"
+        android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="16dp"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/password"
-        android:text="Interest" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/EditText01"
-        android:layout_marginBottom="30dp"
-        android:text="Register" />
-
-    <EditText
-        android:id="@+id/bio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/interest"
-        android:layout_below="@+id/interest"
-        android:layout_marginTop="21dp"
+        android:hint="e.g '34'"
+        android:layout_alignRight="@+id/password"
+        android:layout_below="@+id/time"
+        android:layout_marginTop="23dp"
         android:ems="10" />
 
     <TextView
         android:id="@+id/TextView09"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/interest"
-        android:text="Bio" />
+        android:layout_alignLeft="@+id/time"
+        android:layout_below="@+id/postcode"
+        android:text="Last Name" />
+
+    <EditText
+        android:id="@+id/nation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="e.g 'British'"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="22dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/password"
+        android:text="First Name" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/time"
+        android:text="Age" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/TextView04"
+        android:text="Register" />
+
+    <EditText
+        android:id="@+id/occu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="e.g 'Engineer'"
+        android:layout_alignLeft="@+id/TextView04"
+        android:layout_below="@+id/nation"
+        android:layout_marginTop="18dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/age"
+        android:text="Nationality" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/time"
+        android:layout_below="@+id/nation"
+        android:text="Occupation" />
+
+    <TextView
+        android:id="@+id/TextView06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView05"
+        android:layout_below="@+id/occu"
+        android:text="About" />
+
+    <EditText
+        android:id="@+id/about"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/TextView06"
+        android:layout_alignRight="@+id/time"
+        android:layout_below="@+id/TextView06"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Feel free to explain about yourself........" />
 
 </RelativeLayout>
+</ScrollView>

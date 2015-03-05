@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/abzy211"
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -22,12 +22,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="72dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-190dp"
         android:layout_marginLeft="-18dp"
         android:layout_marginRight="-90dp"
-        android:text="Interest" />
+        android:layout_marginTop="-190dp"
+        android:text="Nationality" />
 
     <TextView
         android:id="@+id/textView3"
@@ -36,6 +36,24 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="-33dp"
-        android:text="Bio" />
+        android:text="Age" />
+
+    <TextView
+        android:id="@+id/occu"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="-33dp"
+        android:text="Occupation" />
+
+    <TextView
+        android:id="@+id/descrip"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="-33dp"
+        android:text="Description" />
 
 </LinearLayout>

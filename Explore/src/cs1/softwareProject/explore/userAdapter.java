@@ -38,10 +38,10 @@ public class userAdapter extends ArrayAdapter<userObject> {
 		image.setImageResource(c.image);
 		
 		TextView tv = (TextView) view.findViewById(R.id.hello2);
-		tv.setText(c.username);
+		tv.setText(c.getFullName());
 		
 		TextView tv1 = (TextView) view.findViewById(R.id.hello3);
-		tv1.setText(c.interest);
+		tv1.setText(c.nationality);
 		
 		
 		return view;		

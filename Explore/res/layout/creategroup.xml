@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="498dp" >
+
+    <EditText
+        android:id="@+id/eventName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:hint="e.g YourEventName"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/eventName"
+        android:layout_below="@+id/eventName"
+        android:text="Location Name:" />
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView01"
+        android:hint="e.g 'New Cross'"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/postcode"
+        android:layout_width="wrap_content"
+        android:hint="e.g 'SW1 78Q'"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/location"
+        android:layout_below="@+id/location"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:freezesText="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="e.g '10:00pm, 05/06/15'"
+        android:layout_alignLeft="@+id/postcode"
+        android:layout_below="@+id/postcode"
+        android:layout_marginTop="21dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/location"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="Name of the Event" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:hint="e.g '21+'"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/location"
+        android:layout_below="@+id/time"
+        android:layout_marginTop="23dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/time"
+        android:layout_below="@+id/postcode"
+        android:text="Time and Date:" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/location"
+        android:text="Post Code:" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/time"
+        android:text="Age Groups" />
+
+    <Button
+        android:id="@+id/createGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="createGroupObject"
+        android:layout_toRightOf="@+id/TextView04"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/age"
+        android:layout_below="@+id/age"
+        android:text="Description of the Event:" />
+
+    <EditText
+        android:id="@+id/des"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+         android:hint="'Write a few description about your event....'"
+        android:layout_alignLeft="@+id/TextView04"
+        android:layout_alignRight="@+id/age"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="23dp"
+        android:ems="10" />
+
+</RelativeLayout>
+
+</ScrollView>
