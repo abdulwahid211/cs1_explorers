@@ -11,10 +11,10 @@ https://www.youtube.com/watch?v=mQGQADq3iOQ
 error_reporting(E_ALL ^ E_DEPRECATED); // show errors 
     
  // variable to define mySQL database 
-    $username = "ma301ma"; 
-    $password = "wahid92"; 
+    $username = "root"; 
+    $password = "Ronix152"; 
     $host = "localhost"; 
-    $dbname = "ma301ma_...cs1"; 
+    $dbname = "user_system"; 
     $dbTable ="userInfo";
 
 
