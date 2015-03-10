@@ -32,8 +32,12 @@ import android.widget.Toast;
 public class showGroup extends ListActivity {
 	private String jsonResult;
 	//private String url = "http://10.0.2.2/groupDetails.php";
+<<<<<<< HEAD
 	private String url = "http://doc.gold.ac.uk/~ma301ma/IgorFile/groupDetails.php";
 	
+=======
+	private String url = "http://10.0.2.2/PhpFiles/groupDetails.php";
+>>>>>>> 134623620c1f44d043ce8372e14712b540482e21
 	public static  List<Group> user_group =  new groupData().getGroup();
 	
 	
