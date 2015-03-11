@@ -17,7 +17,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -28,6 +27,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class createGroup extends Activity implements OnClickListener {
@@ -38,14 +38,17 @@ public class createGroup extends Activity implements OnClickListener {
 	EditText time;
 	EditText description;
 	EditText ps;
+	EditText other;
 	Button createGroup;
-
+	Spinner spinner1;
 	String nameOfEvent = "";
 	String nameOfLocation = "";
 	String ageGroup = "";
 	String timeOfEvent = "";
 	String des = "";
 	String post="";
+	String otherLanguage= "";
+	String Language="";
 	public static int adminId;
 
 	private ProgressDialog pDialog;
@@ -73,17 +76,19 @@ public class createGroup extends Activity implements OnClickListener {
 		description = (EditText) findViewById(R.id.des);
 		ps = (EditText) findViewById(R.id.postcode);
 		createGroup = (Button) findViewById(R.id.createGroup);
-		
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
 		createGroup.setOnClickListener(this);
+	    other = (EditText) findViewById(R.id.OtherText);
+	
+		//accessWebService();
+	   spinner1.setOnItemSelectedListener(new CustomOtherCall());
+	
 		
-		
-		
-		accessWebService();
 		
 	}
 
 	public void onClick(View v) {
-		System.out.println("Hi");
+		
 
 		nameOfEvent = nameEvent.getText().toString();
 		nameOfLocation = location.getText().toString();
@@ -91,13 +96,18 @@ public class createGroup extends Activity implements OnClickListener {
 		timeOfEvent = time.getText().toString();
 		des = description.getText().toString();
 		post = ps.getText().toString();
-		//showGroup.user_group.clear();// clear the previous list, so we dont have
-		// duplicates
+	
 		
+		if(spinner1.getSelectedItem().equals("Other")){
+			otherLanguage=other.getText().toString();
+		}
+		else{
+			otherLanguage=String.valueOf(spinner1.getSelectedItem());
+		}
 		
-		
+
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
-				ageGroup,post).execute();
+				ageGroup,post,otherLanguage).execute();
 		
 		accessWebService();
 		nameEvent.clearComposingText();
@@ -108,9 +118,10 @@ public class createGroup extends Activity implements OnClickListener {
 
 	}
 	
-	protected void onPause() {
+	@Override
+	protected void onResume() {
 		// TODO Auto-generated method stub
-		super.onPause();
+		super.onResume();
 		accessWebService();
 	}
 	
@@ -128,11 +139,12 @@ public class createGroup extends Activity implements OnClickListener {
 		String timeOfEvent;
 		String des;
 		String post;
-
+		String language;
 		boolean failure = false;
 
 		CreateGroup(int adId, String groupName, String in, String t,
-				String des, String age, String p) {
+				String des, String age, String p, String lanuage) {
+			this.language = lanuage;
             this.post =p;
 			this.nameOfEvent = groupName;
 			this.nameOfLocation = in;
@@ -168,7 +180,7 @@ public class createGroup extends Activity implements OnClickListener {
 				params.add(new BasicNameValuePair("description", des));
 				params.add(new BasicNameValuePair("ageGroup", ageGroup));
 				params.add(new BasicNameValuePair("postCode", post));
-				params.add(new BasicNameValuePair("language", "Bengali"));
+				params.add(new BasicNameValuePair("language", language));
 				Log.d("request!", "starting");
 
 				// Posting user data to script

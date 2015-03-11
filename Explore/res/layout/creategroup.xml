@@ -6,7 +6,7 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="498dp" >
+    android:layout_height="715dp" >
 
     <EditText
         android:id="@+id/eventName"
@@ -101,15 +101,6 @@
         android:layout_below="@+id/time"
         android:text="Age Groups" />
 
-    <Button
-        android:id="@+id/createGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:onClick="createGroupObject"
-        android:layout_toRightOf="@+id/TextView04"
-        android:text="Next" />
-
     <TextView
         android:id="@+id/TextView04"
         android:layout_width="wrap_content"
@@ -128,6 +119,52 @@
         android:layout_below="@+id/age"
         android:layout_marginTop="23dp"
         android:ems="10" />
+
+     <TextView
+         android:id="@+id/TextView05"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/des"
+         android:layout_below="@+id/des"
+         android:text="Please choose a Language " />
+
+     <Button
+         android:id="@+id/createGroup"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="38dp"
+         android:onClick="createGroupObject"
+         android:text="Submit" />
+
+     <TextView
+         android:id="@+id/TextView06"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/OtherText"
+         android:layout_below="@+id/spinner1"
+         android:layout_marginTop="23dp"
+         android:text="If Other, please enter" />
+
+     <EditText
+         android:id="@+id/OtherText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/TextView05"
+         android:layout_below="@+id/TextView06"
+         android:ems="10"
+         android:hint="e.g &apos;Russain&apos;" />
+
+     <Spinner
+         android:id="@+id/spinner1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/TextView05"
+         android:layout_marginTop="14dp"
+         android:entries="@array/language_arrays"
+         android:prompt="@string/language_prompt" />
 
 </RelativeLayout>
 

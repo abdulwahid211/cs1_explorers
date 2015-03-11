@@ -1,4 +1,5 @@
 package cs1.softwareProject.explore;
+
 //https://github.com/chrisbanes/Android-PullToRefresh
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +40,6 @@ public class showGroup extends ListActivity {
 	static final int MENU_DEMO = 3;
 
 	private PullToRefreshListView mPullRefreshListView;
-	
 
 	private String jsonResult;
 	// private String url = "http://10.0.2.2/groupDetails.php";
@@ -51,16 +51,15 @@ public class showGroup extends ListActivity {
 
 	public static List<Group> user_group = new groupData().getGroup();
 	groupAdapter adapter;
-	
 
-	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group_list);
 		adapter = new groupAdapter(this, R.layout.group_item, user_group);
+		accessWebService();
+		setListAdapter(adapter);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
-		
-		
+
 		// Set a listener to be invoked when the list should be refreshed.
 		mPullRefreshListView
 				.setOnRefreshListener(new OnRefreshListener<ListView>() {
@@ -74,17 +73,15 @@ public class showGroup extends ListActivity {
 								DateUtils.FORMAT_SHOW_TIME
 										| DateUtils.FORMAT_SHOW_DATE
 										| DateUtils.FORMAT_ABBREV_ALL);
-						
-					
 
 						// Update the LastUpdatedLabel
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 
 						// Do work to refresh the list here.
-						 new GetDataTask().execute();
-							accessWebService();
-							setListAdapter(adapter);
+						new GetDataTask().execute();
+						accessWebService();
+						setListAdapter(adapter);
 					}
 				});
 
@@ -98,36 +95,32 @@ public class showGroup extends ListActivity {
 								Toast.LENGTH_SHORT).show();
 					}
 				});
-		
-		
-		
+
 		/**
 		 * Add Sound Event Listener
 		 */
-		
-		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
+
+		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(
+				this);
 		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
 		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
 		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
 		mPullRefreshListView.setOnPullEventListener(soundListener);
-		
-		
-		
 
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 
 		// Need to use the Actual ListView when registering for Context Menu
 		registerForContextMenu(actualListView);
-		
+
 		// setListAdapter(adapter);
-		 //accessWebService();
+		// accessWebService();
 	}
-	
+
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		super.onListItemClick(l, v, position, id);
-        int pos = position-1;
-        System.out.println("size "+user_group.size()+ "pos: "+pos);
+		int pos = position - 1;
+		System.out.println("size " + user_group.size() + "pos: " + pos);
 		Group c = user_group.get(pos);
 
 		Intent intent = new Intent(this, GroupProfile.class);
@@ -141,15 +134,12 @@ public class showGroup extends ListActivity {
 		intent.putExtra("description", c.description);
 		startActivity(intent);
 	}
-	
-
-	
 
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-	
+
 		accessWebService();
 		setListAdapter(adapter);
 		Log.d("YouView ", "Its Resume baby");
@@ -157,20 +147,21 @@ public class showGroup extends ListActivity {
 	}
 
 	private class GetDataTask extends AsyncTask<List<Group>, Void, List<Group>> {
-      
+
 		@Override
 		protected List<Group> doInBackground(List<Group>... params) {
 			// Simulates a background job.
 			try {
-				Thread.sleep(4000);	
-				//setListAdapter(adapter);
+				Thread.sleep(4000);
+				// setListAdapter(adapter);
 			} catch (InterruptedException e) {
 			}
 			return user_group;
 		}
 
 		protected void onPostExecute(List<Group> result) {
-			//((LinkedList<Group>) user_group).addFirst("Added after refresh...");
+			// ((LinkedList<Group>)
+			// user_group).addFirst("Added after refresh...");
 			adapter.notifyDataSetChanged();
 
 			// Call onRefreshComplete when the list has been refreshed.
@@ -260,6 +251,5 @@ public class showGroup extends ListActivity {
 		}
 
 	}
-
 
 }

@@ -204,14 +204,14 @@ public class GroupProfile extends Activity {
 		
 
 	}
-	/*
+	
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		accessWebService();
 		Log.d("MainActivity", "onResumeGP()");
 	}
-	
+	/*
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub

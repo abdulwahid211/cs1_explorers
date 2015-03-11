@@ -14,6 +14,9 @@ public final class R {
         public static final int slide_out_to_bottom=0x7f040002;
         public static final int slide_out_to_top=0x7f040003;
     }
+    public static final class array {
+        public static final int language_arrays=0x7f0c0000;
+    }
     public static final class attr {
         /** 
     The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
@@ -626,15 +629,16 @@ containing a value of this type.
         public static final int spanish=0x7f020032;
     }
     public static final class id {
+        public static final int OtherText=0x7f070035;
         public static final int TextView01=0x7f070028;
         public static final int TextView02=0x7f07002e;
         public static final int TextView03=0x7f07002f;
-        public static final int TextView04=0x7f070031;
-        public static final int TextView05=0x7f07004c;
-        public static final int TextView06=0x7f07004d;
+        public static final int TextView04=0x7f070030;
+        public static final int TextView05=0x7f070032;
+        public static final int TextView06=0x7f070034;
         public static final int TextView09=0x7f07002d;
-        public static final int about=0x7f07004e;
-        public static final int abzy211=0x7f070038;
+        public static final int about=0x7f070050;
+        public static final int abzy211=0x7f07003c;
         public static final int adjust_height=0x7f07000c;
         public static final int adjust_width=0x7f07000d;
         public static final int age=0x7f07002c;
@@ -645,71 +649,72 @@ containing a value of this type.
         public static final int buy_now=0x7f07001d;
         public static final int buy_with_google=0x7f07001e;
         public static final int classic=0x7f070020;
-        public static final int createGroup=0x7f070030;
-        public static final int des=0x7f070032;
-        public static final int descrip=0x7f070051;
+        public static final int createGroup=0x7f070033;
+        public static final int des=0x7f070031;
+        public static final int descrip=0x7f070053;
         public static final int disabled=0x7f070004;
         public static final int donate_with_google=0x7f07001f;
         public static final int editText1=0x7f070024;
         public static final int eventName=0x7f070027;
-        public static final int fl_inner=0x7f070045;
+        public static final int fl_inner=0x7f070049;
         public static final int flip=0x7f07000a;
         public static final int grayscale=0x7f070021;
         public static final int gridview=0x7f070000;
-        public static final int hello=0x7f070033;
-        public static final int hello2=0x7f070035;
-        public static final int hello3=0x7f070034;
+        public static final int hello=0x7f070037;
+        public static final int hello2=0x7f070039;
+        public static final int hello3=0x7f070038;
         public static final int holo_dark=0x7f070013;
         public static final int holo_light=0x7f070014;
         public static final int hybrid=0x7f07000f;
-        public static final int imageView1=0x7f070039;
-        public static final int layout=0x7f070036;
+        public static final int imageView1=0x7f07003d;
+        public static final int layout=0x7f07003a;
         public static final int location=0x7f070029;
-        public static final int login=0x7f070042;
+        public static final int login=0x7f070046;
         public static final int manualOnly=0x7f070005;
         public static final int map=0x7f070026;
-        public static final int mapTypeHybrid=0x7f070055;
-        public static final int mapTypeNormal=0x7f070052;
-        public static final int mapTypeSatellite=0x7f070053;
-        public static final int mapTypeTerrain=0x7f070054;
+        public static final int mapTypeHybrid=0x7f070057;
+        public static final int mapTypeNormal=0x7f070054;
+        public static final int mapTypeSatellite=0x7f070055;
+        public static final int mapTypeTerrain=0x7f070056;
         public static final int match_parent=0x7f07001a;
         public static final int monochrome=0x7f070022;
-        public static final int nation=0x7f07004a;
+        public static final int nation=0x7f07004e;
         public static final int none=0x7f07000e;
         public static final int normal=0x7f070010;
-        public static final int occu=0x7f07004b;
-        public static final int password=0x7f070043;
+        public static final int occu=0x7f07004f;
+        public static final int password=0x7f070047;
         public static final int postcode=0x7f07002a;
         public static final int production=0x7f070015;
         public static final int pullDownFromTop=0x7f070006;
         public static final int pullFromEnd=0x7f070007;
         public static final int pullFromStart=0x7f070008;
         public static final int pullUpFromBottom=0x7f070009;
-        public static final int pull_refresh_list=0x7f070037;
-        public static final int pull_to_refresh_image=0x7f070046;
-        public static final int pull_to_refresh_progress=0x7f070047;
-        public static final int pull_to_refresh_sub_text=0x7f070049;
-        public static final int pull_to_refresh_text=0x7f070048;
-        public static final int register=0x7f070041;
+        public static final int pull_refresh_list=0x7f07003b;
+        public static final int pull_to_refresh_image=0x7f07004a;
+        public static final int pull_to_refresh_progress=0x7f07004b;
+        public static final int pull_to_refresh_sub_text=0x7f07004d;
+        public static final int pull_to_refresh_text=0x7f07004c;
+        public static final int register=0x7f070045;
         public static final int rotate=0x7f07000b;
         public static final int sandbox=0x7f070016;
         public static final int satellite=0x7f070011;
         public static final int scrollview=0x7f070002;
         public static final int selectionDetails=0x7f070019;
+        public static final int spinner1=0x7f070036;
         public static final int strict_sandbox=0x7f070017;
         public static final int terrain=0x7f070012;
         public static final int textView1=0x7f070023;
-        public static final int textView2=0x7f07003a;
-        public static final int textView3=0x7f07003b;
-        public static final int textView4=0x7f07003c;
-        public static final int textView5=0x7f07003d;
+        public static final int textView2=0x7f07003e;
+        public static final int textView3=0x7f07003f;
+        public static final int textView4=0x7f070040;
+        public static final int textView5=0x7f070041;
         public static final int time=0x7f07002b;
-        public static final int tv_des=0x7f070040;
-        public static final int tv_name=0x7f07003f;
-        public static final int txtDisplayedTab=0x7f07004f;
-        public static final int userName=0x7f070050;
-        public static final int userView=0x7f07003e;
-        public static final int username=0x7f070044;
+        public static final int tv_des=0x7f070044;
+        public static final int tv_name=0x7f070043;
+        public static final int txtDisplayedTab=0x7f070051;
+        public static final int userName=0x7f070052;
+        public static final int userView=0x7f070042;
+        public static final int username=0x7f070048;
         public static final int webview=0x7f070001;
         public static final int wrap_content=0x7f07001b;
     }
@@ -735,7 +740,7 @@ containing a value of this type.
         public static final int userprofile=0x7f03000f;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int main=0x7f0d0000;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f050000;
@@ -850,6 +855,7 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f08000a;
         public static final int decline=0x7f080009;
         public static final int hello_world=0x7f08002b;
+        public static final int language_prompt=0x7f08002c;
         /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
          */

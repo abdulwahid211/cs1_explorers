@@ -4,5 +4,23 @@
     <string name="app_name">Explore</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="language_prompt">Pick a Language</string>
+    
+      <string-array name="language_arrays">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>German</item>
+        <item>Portuguese</item>
+        <item>Arabic</item>
+        <item>Mandarin</item>
+        <item>Japanese</item>
+        <item>Hindi</item>
+        <item>Other</item>
+        </string-array>
+   
+    
+    
+    
 </resources>
