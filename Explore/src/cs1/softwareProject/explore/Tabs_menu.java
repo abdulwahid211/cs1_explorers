@@ -20,7 +20,7 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
  
-@SuppressWarnings("deprecation")
+
 public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
     /** Called when the activity is first created. */
     @Override
@@ -30,12 +30,12 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
  
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
-        Intent intent;
+        Intent intent [] = new Intent[3];
  
        // first tab
-        intent = new Intent().setClass(this, showGroup.class);
+        intent[0] = new Intent().setClass(this, showGroup.class);
         spec = tabHost.newTabSpec("First").setIndicator("First")
-                .setContent(intent);
+                .setContent(intent[0]);
         tabHost.addTab(spec);
         
         /*
@@ -45,16 +45,20 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
        
      
         //second tab
-        intent = new Intent().setClass(this, createGroup.class);
+        intent[1] = new Intent().setClass(this, createGroup.class);
         spec = tabHost.newTabSpec("Second").setIndicator("Second")
-                      .setContent(intent);
+                      .setContent(intent[1]);
         tabHost.addTab(spec);
         //Third tab
-        /*
-        intent = new Intent().setClass(this, MainActivity.class);
+        
+        intent[2] = new Intent().setClass(this, ExploreMap.class);
         spec = tabHost.newTabSpec("Third").setIndicator("Third")
-                      .setContent(intent);
+                      .setContent(intent[2]);
         tabHost.addTab(spec);
+     
+        
+        
+        
  
         /*
         intent = new Intent().setClass(this, FourthActivity.class);
@@ -68,6 +72,13 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
      //  tabHost.setOnTabChangedListener(this);
         
         
+    }
+    
+    @Override
+    protected void onPause() {
+    	
+    	super.onPause();
+    	
     }
 
     
@@ -83,16 +94,16 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.mapTypeNormal:
-			MainActivity.eMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+			ExploreMap.eMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 			break;
 		case R.id.mapTypeSatellite:
-			MainActivity.eMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+			ExploreMap.eMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 			break;
 		case R.id.mapTypeTerrain:
-			MainActivity.eMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+			ExploreMap.eMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 			break;
 		case R.id.mapTypeHybrid:
-			MainActivity.eMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+			ExploreMap.eMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 			break;
 		default:
 			break;

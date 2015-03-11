@@ -1,12 +1,9 @@
 package cs1.softwareProject.explore;
-
-
+//https://github.com/chrisbanes/Android-PullToRefresh
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -18,45 +15,171 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
+import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class showGroup extends ListActivity {
+	static final int MENU_MANUAL_REFRESH = 0;
+	static final int MENU_DISABLE_SCROLL = 1;
+	static final int MENU_SET_MODE = 2;
+	static final int MENU_DEMO = 3;
+
+	private PullToRefreshListView mPullRefreshListView;
+	
+
 	private String jsonResult;
-	//private String url = "http://10.0.2.2/groupDetails.php";
-<<<<<<< HEAD
+	// private String url = "http://10.0.2.2/groupDetails.php";
+
 	private String url = "http://doc.gold.ac.uk/~ma301ma/IgorFile/groupDetails.php";
+	// PullToRefreshListView mNewsList;
+
+	// private String url = "http://10.0.2.2/PhpFiles/groupDetails.php";
+
+	public static List<Group> user_group = new groupData().getGroup();
+	groupAdapter adapter;
 	
-=======
-	private String url = "http://10.0.2.2/PhpFiles/groupDetails.php";
->>>>>>> 134623620c1f44d043ce8372e14712b540482e21
-	public static  List<Group> user_group =  new groupData().getGroup();
-	
-	
-	
-	
+
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group_list);
-	
-		groupAdapter adapter = new groupAdapter(this,R.layout.group_item,user_group);
+		adapter = new groupAdapter(this, R.layout.group_item, user_group);
+		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 		
-	
-		setListAdapter(adapter);
-		accessWebService();
+		
+		// Set a listener to be invoked when the list should be refreshed.
+		mPullRefreshListView
+				.setOnRefreshListener(new OnRefreshListener<ListView>() {
+					@SuppressWarnings("unchecked")
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						String label = DateUtils.formatDateTime(
+								getApplicationContext(),
+								System.currentTimeMillis(),
+								DateUtils.FORMAT_SHOW_TIME
+										| DateUtils.FORMAT_SHOW_DATE
+										| DateUtils.FORMAT_ABBREV_ALL);
+						
+					
+
+						// Update the LastUpdatedLabel
+						refreshView.getLoadingLayoutProxy()
+								.setLastUpdatedLabel(label);
+
+						// Do work to refresh the list here.
+						 new GetDataTask().execute();
+							accessWebService();
+							setListAdapter(adapter);
+					}
+				});
+
+		// Add an end-of-list listener
+		mPullRefreshListView
+				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+
+					@Override
+					public void onLastItemVisible() {
+						Toast.makeText(showGroup.this, "End of Event List!",
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+		
+		
+		
+		/**
+		 * Add Sound Event Listener
+		 */
+		
+		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
+		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
+		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
+		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
+		mPullRefreshListView.setOnPullEventListener(soundListener);
+		
+		
+		
+
+		ListView actualListView = mPullRefreshListView.getRefreshableView();
+
+		// Need to use the Actual ListView when registering for Context Menu
+		registerForContextMenu(actualListView);
+		
+		// setListAdapter(adapter);
+		 //accessWebService();
 	}
 	
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+
+		super.onListItemClick(l, v, position, id);
+        int pos = position-1;
+        System.out.println("size "+user_group.size()+ "pos: "+pos);
+		Group c = user_group.get(pos);
+
+		Intent intent = new Intent(this, GroupProfile.class);
+		intent.putExtra("groupId", c.groupId);
+		intent.putExtra("adminId", c.adminId);
+		intent.putExtra("EventName", c.nameOfEvent);
+		intent.putExtra("Image", c.image);
+		intent.putExtra("location", c.location);
+		intent.putExtra("time", c.time);
+		intent.putExtra("ageGroup", c.ageGroup);
+		intent.putExtra("description", c.description);
+		startActivity(intent);
+	}
 	
+
 	
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	
+		accessWebService();
+		setListAdapter(adapter);
+		Log.d("YouView ", "Its Resume baby");
+		// accessWebService();
+	}
+
+	private class GetDataTask extends AsyncTask<List<Group>, Void, List<Group>> {
+      
+		@Override
+		protected List<Group> doInBackground(List<Group>... params) {
+			// Simulates a background job.
+			try {
+				Thread.sleep(4000);	
+				//setListAdapter(adapter);
+			} catch (InterruptedException e) {
+			}
+			return user_group;
+		}
+
+		protected void onPostExecute(List<Group> result) {
+			//((LinkedList<Group>) user_group).addFirst("Added after refresh...");
+			adapter.notifyDataSetChanged();
+
+			// Call onRefreshComplete when the list has been refreshed.
+			mPullRefreshListView.onRefreshComplete();
+
+			super.onPostExecute(result);
+		}
+	}
+
 	private class JsonObjectData extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... params) {
@@ -100,7 +223,6 @@ public class showGroup extends ListActivity {
 			DisplayData();
 		}
 	}// end async task
-	
 
 	public void accessWebService() {
 		// create the json data
@@ -108,17 +230,17 @@ public class showGroup extends ListActivity {
 		task.execute(new String[] { url });
 	}
 
-	
 	public void DisplayData() {
 
 		try {
+			user_group.clear();
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			// name of the table
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userGroups");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
 				// list all the attributes of the groups
-		     	int groupId = jsonChildNode.optInt("id");
+				int groupId = jsonChildNode.optInt("id");
 				int adminId = jsonChildNode.optInt("admin_id");
 				String eventName = jsonChildNode.optString("eventName");
 				String location = jsonChildNode.optString("location");
@@ -127,38 +249,17 @@ public class showGroup extends ListActivity {
 				String des = jsonChildNode.optString("description");
 				String pos = jsonChildNode.optString("postCode");
 				String lan = jsonChildNode.optString("language");
-				user_group.add(new Group(groupId,adminId,eventName, location,pos,time, des, ageGroup, R.drawable.california_snow,lan ));
+				user_group.add(new Group(groupId, adminId, eventName, location,
+						pos, time, des, ageGroup, R.drawable.california_snow,
+						lan));
 			}
-		} 
-		catch (JSONException e) {
-			Toast.makeText(getApplicationContext(), "Failed to display data! " + e.toString(),
+		} catch (JSONException e) {
+			Toast.makeText(getApplicationContext(),
+					"Failed to display data! " + e.toString(),
 					Toast.LENGTH_SHORT).show();
 		}
 
 	}
-	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-	
-		super.onListItemClick(l, v, position, id);
-		
-		Group c = user_group.get(position);
-		
-		Intent intent = new Intent(this, GroupProfile.class);
-		intent.putExtra("groupId", c.groupId);
-		intent.putExtra("adminId", c.adminId);
-		intent.putExtra("EventName", c.nameOfEvent);
-		intent.putExtra("Image", c.image);
-		intent.putExtra("location", c.location);
-		intent.putExtra("time", c.time);
-		intent.putExtra("ageGroup", c.ageGroup);
-		intent.putExtra("description", c.description);
-		startActivity(intent);
-	}
-	
-	
 
-
-	
 
 }

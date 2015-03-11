@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdate;
@@ -23,16 +25,17 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends FragmentActivity {
+public class ExploreMap extends FragmentActivity {
 
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	private static final double lat = 51.5095422;
 	private static final double lng = -0.0294027;
-	private static final float zoom = 15;
+	private static final float zoom = 10;
 	static GoogleMap eMap;
 	Marker marker;
 	Marker marker2;
@@ -43,6 +46,49 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
  
+	
+	//	flagsImg.put("Other", R.drawable.other);
+		super.onCreate(savedInstanceState);
+		StartExploreMap();
+		
+
+	}
+	
+	
+	
+	public void StartExploreMap(){
+		setFlagImage();
+		if (servicesOK()) {
+			setContentView(R.layout.activity_map);
+
+			if (myMap()) {
+				Toast.makeText(this, "Explore's Map ready!", Toast.LENGTH_SHORT)
+						.show();
+				try {
+					UserGeoLocate();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			//	gotoUserLocation(lat, lng, zoom);
+				try {
+					goTODefaultLocation();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				eMap.setMyLocationEnabled(true);
+			} else {
+				Toast.makeText(this, "Ready to map!", Toast.LENGTH_SHORT)
+						.show();
+			}
+
+		} else {
+			setContentView(R.layout.activity_main);
+		}
+	}
+	
+	public void setFlagImage(){
 		flagsImg.put("English", R.drawable.english);
 		flagsImg.put("French", R.drawable.french);
 		flagsImg.put("Spanish", R.drawable.spanish);
@@ -53,35 +99,8 @@ public class MainActivity extends FragmentActivity {
 		flagsImg.put("Hindi", R.drawable.hindi);
 		flagsImg.put("Japanese", R.drawable.japanese);
 		flagsImg.put("Mandarin", R.drawable.mandarin);
-	//	flagsImg.put("Other", R.drawable.other);
-		super.onCreate(savedInstanceState);
-
-		if (servicesOK()) {
-			setContentView(R.layout.activity_map);
-
-			if (myMap()) {
-				Toast.makeText(this, "Explore's map ready!", Toast.LENGTH_SHORT)
-						.show();
-				try {
-					UserGeoLocate();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				gotoUserLocation(lat, lng, zoom);
-				eMap.setMyLocationEnabled(true);
-			} else {
-				Toast.makeText(this, "Ready to map!", Toast.LENGTH_SHORT)
-						.show();
-			}
-
-		} else {
-			setContentView(R.layout.activity_main);
-		}
-
 	}
-
-	@Override
+	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -153,7 +172,7 @@ public class MainActivity extends FragmentActivity {
 	// find the location
 	public void geoLocate(View v) throws IOException {
 		hideSoftKeyboard(v);
-
+		float zoom2 = 14;
 		EditText et = (EditText) findViewById(R.id.editText1);
 		String location = et.getText().toString();
 
@@ -171,7 +190,29 @@ public class MainActivity extends FragmentActivity {
 		String locationName = add.getLocality();
 		//String country = add.getCountryName();
 		//String postCode = add.getPostalCode();
-		Toast.makeText(this, locationName, Toast.LENGTH_LONG).show();
+		Toast.makeText(this, location, Toast.LENGTH_LONG).show();
+
+		double lat1 = add.getLatitude();
+		double lng1 = add.getLongitude();
+
+		gotoUserLocation(lat1, lng1, zoom2);
+		
+
+
+	}
+	
+	public void goTODefaultLocation() throws IOException {
+		
+		
+		String location = "London";
+
+		Geocoder gc = new Geocoder(this);
+		// 1 represents single address
+		List<android.location.Address> list = gc.getFromLocationName(location,
+				1);
+		android.location.Address add = list.get(0);
+		
+		Toast.makeText(this, location, Toast.LENGTH_LONG).show();
 
 		double lat1 = add.getLatitude();
 		double lng1 = add.getLongitude();
@@ -269,6 +310,8 @@ public class MainActivity extends FragmentActivity {
 		marker2 = eMap.addMarker(userMarker);
 
 	}
+	
+
 	
 
 }

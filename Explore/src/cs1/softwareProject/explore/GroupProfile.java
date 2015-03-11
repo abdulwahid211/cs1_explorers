@@ -43,8 +43,12 @@ public class GroupProfile extends Activity {
 	private String jsonResult;
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
+	/*
 	private static final String url = "http://10.0.2.2/PhpFiles/mrX.php";
 	private static final String LOGIN_URL_userJoined = "http://10.0.2.2/PhpFiles/submitUserJoined.php";
+	*/
+	private static final String url = "http://doc.gold.ac.uk/~ma301ma/IgorFile/mrX.php";
+	private static final String LOGIN_URL_userJoined = "http://doc.gold.ac.uk/~ma301ma/IgorFile/submitUserJoined.php";
 
 	public static List<userObject> joined_user = new userData().getUsers();
 

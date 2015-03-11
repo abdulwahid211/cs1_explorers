@@ -8,6 +8,12 @@
 package cs1.softwareProject.explore;
 
 public final class R {
+    public static final class anim {
+        public static final int slide_in_from_bottom=0x7f040000;
+        public static final int slide_in_from_top=0x7f040001;
+        public static final int slide_out_to_bottom=0x7f040002;
+        public static final int slide_out_to_top=0x7f040003;
+    }
     public static final class attr {
         /** 
     The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
@@ -21,7 +27,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adSize=0x7f010000;
+        public static final int adSize=0x7f010013;
         /** 
     A comma-separated list of the supported ad sizes. The sizes must be one of
     BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
@@ -34,7 +40,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adSizes=0x7f010001;
+        public static final int adSizes=0x7f010014;
         /**  The ad unit ID. 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -43,7 +49,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adUnitId=0x7f010002;
+        public static final int adUnitId=0x7f010015;
         /**  Theme to be used for the Wallet selector 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -55,7 +61,7 @@ containing a value of this type.
 <tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int appTheme=0x7f010016;
+        public static final int appTheme=0x7f010029;
         /**  The appearance of the buy button 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -68,7 +74,7 @@ containing a value of this type.
 <tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonAppearance=0x7f01001d;
+        public static final int buyButtonAppearance=0x7f010030;
         /**  Height of the buy button. This includes an 8dp padding (4dp on each side) used for
              pressed and focused states of the button. The value can be a specific height, e.g.
              "48dp", or special values "match_parent" and "wrap_content". 
@@ -90,7 +96,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonHeight=0x7f01001a;
+        public static final int buyButtonHeight=0x7f01002d;
         /**  The text on the buy button 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -104,7 +110,7 @@ containing a value of this type.
 <tr><td><code>donate_with_google</code></td><td>4</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonText=0x7f01001c;
+        public static final int buyButtonText=0x7f01002f;
         /**  Width of the buy button. This includes an 8dp padding (4dp on each side) used for
              pressed and focused states of the button. The value can be a specific width, e.g.
              "300dp", or special values "match_parent" and "wrap_content". 
@@ -126,7 +132,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonWidth=0x7f01001b;
+        public static final int buyButtonWidth=0x7f01002e;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -134,7 +140,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraBearing=0x7f010007;
+        public static final int cameraBearing=0x7f01001a;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -142,7 +148,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLat=0x7f010008;
+        public static final int cameraTargetLat=0x7f01001b;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -150,7 +156,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLng=0x7f010009;
+        public static final int cameraTargetLng=0x7f01001c;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -158,7 +164,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTilt=0x7f01000a;
+        public static final int cameraTilt=0x7f01001d;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -166,7 +172,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraZoom=0x7f01000b;
+        public static final int cameraZoom=0x7f01001e;
         /** 
         Whether or not this view should have a circular clip applied
         
@@ -177,7 +183,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int circleCrop=0x7f010005;
+        public static final int circleCrop=0x7f010018;
         /**  Google Wallet environment to use 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -190,7 +196,7 @@ containing a value of this type.
 <tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int environment=0x7f010017;
+        public static final int environment=0x7f01002a;
         /**  Fragment mode 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -202,12 +208,12 @@ containing a value of this type.
 <tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int fragmentMode=0x7f010019;
+        public static final int fragmentMode=0x7f01002c;
         /**  A style resource specifing attributes to customize the look and feel of WalletFragment 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int fragmentStyle=0x7f010018;
+        public static final int fragmentStyle=0x7f01002b;
         /** 
         The fixed aspect ratio to use in aspect ratio adjustments.
         
@@ -218,7 +224,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int imageAspectRatio=0x7f010004;
+        public static final int imageAspectRatio=0x7f010017;
         /** 
         What kind of aspect ratio adjustment to do.  It must be one of "none", "adjust_width",
         or "adjust_height".
@@ -234,7 +240,7 @@ containing a value of this type.
 <tr><td><code>adjust_height</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int imageAspectRatioAdjust=0x7f010003;
+        public static final int imageAspectRatioAdjust=0x7f010016;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -242,7 +248,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int liteMode=0x7f01000c;
+        public static final int liteMode=0x7f01001f;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -256,31 +262,31 @@ containing a value of this type.
 <tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
          */
-        public static final int mapType=0x7f010006;
+        public static final int mapType=0x7f010019;
         /**  Masked wallet details background 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsBackground=0x7f010020;
+        public static final int maskedWalletDetailsBackground=0x7f010033;
         /**  "Change" button background in masked wallet details view 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsButtonBackground=0x7f010022;
+        public static final int maskedWalletDetailsButtonBackground=0x7f010035;
         /**  TextAppearance for the "Change" button in masked wallet details view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsButtonTextAppearance=0x7f010021;
+        public static final int maskedWalletDetailsButtonTextAppearance=0x7f010034;
         /**  TextAppearance for headers describing masked wallet details 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01001f;
+        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f010032;
         /**  Type of the wallet logo image in masked wallet details view 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -292,7 +298,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int maskedWalletDetailsLogoImageType=0x7f010024;
+        public static final int maskedWalletDetailsLogoImageType=0x7f010037;
         /**  Color of the Google Wallet logo text in masked wallet details view 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -302,12 +308,146 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int maskedWalletDetailsLogoTextColor=0x7f010023;
+        public static final int maskedWalletDetailsLogoTextColor=0x7f010036;
         /**  TextAppearance for masked wallet details 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsTextAppearance=0x7f01001e;
+        public static final int maskedWalletDetailsTextAppearance=0x7f010031;
+        /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrAdapterViewBackground=0x7f010010;
+        /**  Style of Animation should be used displayed when pulling. 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>rotate</code></td><td>0x0</td><td></td></tr>
+<tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
+</table>
+         */
+        public static final int ptrAnimationStyle=0x7f01000c;
+        /**  Drawable to use as Loading Indicator. Changes both Header and Footer. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrDrawable=0x7f010006;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrDrawableBottom=0x7f010012;
+        /**  Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrDrawableEnd=0x7f010008;
+        /**  Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrDrawableStart=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrDrawableTop=0x7f010011;
+        /**  A drawable to use as the background of the Header and Footer Loading Views 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrHeaderBackground=0x7f010001;
+        /**  Text Color of the Header and Footer Loading Views Sub Header 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrHeaderSubTextColor=0x7f010003;
+        /**  Base text color, typeface, size, and style for Header and Footer Loading Views 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrHeaderTextAppearance=0x7f01000a;
+        /**  Text Color of the Header and Footer Loading Views 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrHeaderTextColor=0x7f010002;
+        /** 
+        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
+        	able to scroll while refreshing, and behaves better. It acheives this by adding
+        	Header and/or Footer Views to the ListView.
+        
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int ptrListViewExtrasEnabled=0x7f01000e;
+        /**  Mode of Pull-to-Refresh that should be used 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>disabled</code></td><td>0x0</td><td></td></tr>
+<tr><td><code>pullFromStart</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>pullFromEnd</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>both</code></td><td>0x3</td><td></td></tr>
+<tr><td><code>manualOnly</code></td><td>0x4</td><td></td></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td> These last two are depreacted </td></tr>
+<tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
+</table>
+         */
+        public static final int ptrMode=0x7f010004;
+        /**  Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int ptrOverScroll=0x7f010009;
+        /**  A drawable to use as the background of the Refreshable View 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrRefreshableViewBackground=0x7f010000;
+        /** 
+        	Whether the Drawable should be continually rotated as you pull. This only
+        	takes effect when using the 'Rotate' Animation Style.
+        
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int ptrRotateDrawableWhilePulling=0x7f01000f;
+        /**  Whether the user can scroll while the View is Refreshing 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int ptrScrollingWhileRefreshingEnabled=0x7f01000d;
+        /**  Whether the Indicator overlay(s) should be used 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int ptrShowIndicator=0x7f010005;
+        /**  Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int ptrSubHeaderTextAppearance=0x7f01000b;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -315,7 +455,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiCompass=0x7f01000d;
+        public static final int uiCompass=0x7f010020;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -323,7 +463,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiMapToolbar=0x7f010015;
+        public static final int uiMapToolbar=0x7f010028;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -331,7 +471,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiRotateGestures=0x7f01000e;
+        public static final int uiRotateGestures=0x7f010021;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -339,7 +479,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiScrollGestures=0x7f01000f;
+        public static final int uiScrollGestures=0x7f010022;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -347,7 +487,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiTiltGestures=0x7f010010;
+        public static final int uiTiltGestures=0x7f010023;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -355,7 +495,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomControls=0x7f010011;
+        public static final int uiZoomControls=0x7f010024;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -363,7 +503,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomGestures=0x7f010012;
+        public static final int uiZoomGestures=0x7f010025;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -371,7 +511,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int useViewLifecycle=0x7f010013;
+        public static final int useViewLifecycle=0x7f010026;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -379,43 +519,43 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int zOrderOnTop=0x7f010014;
+        public static final int zOrderOnTop=0x7f010027;
     }
     public static final class color {
-        public static final int common_action_bar_splitter=0x7f070009;
+        public static final int common_action_bar_splitter=0x7f0a0009;
         /**  Sign-in Button Colors 
          */
-        public static final int common_signin_btn_dark_text_default=0x7f070000;
-        public static final int common_signin_btn_dark_text_disabled=0x7f070002;
-        public static final int common_signin_btn_dark_text_focused=0x7f070003;
-        public static final int common_signin_btn_dark_text_pressed=0x7f070001;
-        public static final int common_signin_btn_default_background=0x7f070008;
-        public static final int common_signin_btn_light_text_default=0x7f070004;
-        public static final int common_signin_btn_light_text_disabled=0x7f070006;
-        public static final int common_signin_btn_light_text_focused=0x7f070007;
-        public static final int common_signin_btn_light_text_pressed=0x7f070005;
-        public static final int common_signin_btn_text_dark=0x7f070017;
-        public static final int common_signin_btn_text_light=0x7f070018;
-        public static final int wallet_bright_foreground_disabled_holo_light=0x7f07000f;
+        public static final int common_signin_btn_dark_text_default=0x7f0a0000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f0a0002;
+        public static final int common_signin_btn_dark_text_focused=0x7f0a0003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f0a0001;
+        public static final int common_signin_btn_default_background=0x7f0a0008;
+        public static final int common_signin_btn_light_text_default=0x7f0a0004;
+        public static final int common_signin_btn_light_text_disabled=0x7f0a0006;
+        public static final int common_signin_btn_light_text_focused=0x7f0a0007;
+        public static final int common_signin_btn_light_text_pressed=0x7f0a0005;
+        public static final int common_signin_btn_text_dark=0x7f0a0017;
+        public static final int common_signin_btn_text_light=0x7f0a0018;
+        public static final int wallet_bright_foreground_disabled_holo_light=0x7f0a000f;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
          regardless of the theme and device type
     
          */
-        public static final int wallet_bright_foreground_holo_dark=0x7f07000a;
-        public static final int wallet_bright_foreground_holo_light=0x7f070010;
-        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f07000c;
-        public static final int wallet_dim_foreground_holo_dark=0x7f07000b;
-        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f07000e;
-        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f07000d;
-        public static final int wallet_highlighted_text_holo_dark=0x7f070014;
-        public static final int wallet_highlighted_text_holo_light=0x7f070013;
-        public static final int wallet_hint_foreground_holo_dark=0x7f070012;
-        public static final int wallet_hint_foreground_holo_light=0x7f070011;
-        public static final int wallet_holo_blue_light=0x7f070015;
-        public static final int wallet_link_text_light=0x7f070016;
-        public static final int wallet_primary_text_holo_light=0x7f070019;
-        public static final int wallet_secondary_text_holo_dark=0x7f07001a;
+        public static final int wallet_bright_foreground_holo_dark=0x7f0a000a;
+        public static final int wallet_bright_foreground_holo_light=0x7f0a0010;
+        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f0a000c;
+        public static final int wallet_dim_foreground_holo_dark=0x7f0a000b;
+        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f0a000e;
+        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f0a000d;
+        public static final int wallet_highlighted_text_holo_dark=0x7f0a0014;
+        public static final int wallet_highlighted_text_holo_light=0x7f0a0013;
+        public static final int wallet_hint_foreground_holo_dark=0x7f0a0012;
+        public static final int wallet_hint_foreground_holo_light=0x7f0a0011;
+        public static final int wallet_holo_blue_light=0x7f0a0015;
+        public static final int wallet_link_text_light=0x7f0a0016;
+        public static final int wallet_primary_text_holo_light=0x7f0a0019;
+        public static final int wallet_secondary_text_holo_dark=0x7f0a001a;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -424,8 +564,13 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f090000;
-        public static final int activity_vertical_margin=0x7f090001;
+        public static final int activity_horizontal_margin=0x7f060005;
+        public static final int activity_vertical_margin=0x7f060006;
+        public static final int header_footer_left_right_padding=0x7f060003;
+        public static final int header_footer_top_bottom_padding=0x7f060004;
+        public static final int indicator_corner_radius=0x7f060001;
+        public static final int indicator_internal_padding=0x7f060002;
+        public static final int indicator_right_padding=0x7f060000;
     }
     public static final class drawable {
         public static final int arabic=0x7f020000;
@@ -456,98 +601,120 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020019;
         public static final int common_signin_btn_text_pressed_dark=0x7f02001a;
         public static final int common_signin_btn_text_pressed_light=0x7f02001b;
-        public static final int english=0x7f02001c;
-        public static final int french=0x7f02001d;
-        public static final int german=0x7f02001e;
-        public static final int hindi=0x7f02001f;
-        public static final int ic_launcher=0x7f020020;
-        public static final int ic_mapmarker=0x7f020021;
-        public static final int ic_plusone_medium_off_client=0x7f020022;
-        public static final int ic_plusone_small_off_client=0x7f020023;
-        public static final int ic_plusone_standard_off_client=0x7f020024;
-        public static final int ic_plusone_tall_off_client=0x7f020025;
-        public static final int italian=0x7f020026;
-        public static final int japanese=0x7f020027;
-        public static final int mandarin=0x7f020028;
-        public static final int other=0x7f020029;
-        public static final int portoguese=0x7f02002a;
-        public static final int powered_by_google_dark=0x7f02002b;
-        public static final int powered_by_google_light=0x7f02002c;
-        public static final int spanish=0x7f02002d;
+        public static final int default_ptr_flip=0x7f02001c;
+        public static final int default_ptr_rotate=0x7f02001d;
+        public static final int english=0x7f02001e;
+        public static final int french=0x7f02001f;
+        public static final int german=0x7f020020;
+        public static final int hindi=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int ic_mapmarker=0x7f020023;
+        public static final int ic_plusone_medium_off_client=0x7f020024;
+        public static final int ic_plusone_small_off_client=0x7f020025;
+        public static final int ic_plusone_standard_off_client=0x7f020026;
+        public static final int ic_plusone_tall_off_client=0x7f020027;
+        public static final int indicator_arrow=0x7f020028;
+        public static final int indicator_bg_bottom=0x7f020029;
+        public static final int indicator_bg_top=0x7f02002a;
+        public static final int italian=0x7f02002b;
+        public static final int japanese=0x7f02002c;
+        public static final int mandarin=0x7f02002d;
+        public static final int other=0x7f02002e;
+        public static final int portoguese=0x7f02002f;
+        public static final int powered_by_google_dark=0x7f020030;
+        public static final int powered_by_google_light=0x7f020031;
+        public static final int spanish=0x7f020032;
     }
     public static final class id {
-        public static final int TextView01=0x7f0b001c;
-        public static final int TextView02=0x7f0b0022;
-        public static final int TextView03=0x7f0b0023;
-        public static final int TextView04=0x7f0b0025;
-        public static final int TextView05=0x7f0b003a;
-        public static final int TextView06=0x7f0b003b;
-        public static final int TextView09=0x7f0b0021;
-        public static final int about=0x7f0b003c;
-        public static final int abzy211=0x7f0b002b;
-        public static final int adjust_height=0x7f0b0000;
-        public static final int adjust_width=0x7f0b0001;
-        public static final int age=0x7f0b0020;
-        public static final int book_now=0x7f0b0010;
-        public static final int button1=0x7f0b0019;
-        public static final int buyButton=0x7f0b000c;
-        public static final int buy_now=0x7f0b0011;
-        public static final int buy_with_google=0x7f0b0012;
-        public static final int classic=0x7f0b0014;
-        public static final int createGroup=0x7f0b0024;
-        public static final int des=0x7f0b0026;
-        public static final int descrip=0x7f0b0040;
-        public static final int donate_with_google=0x7f0b0013;
-        public static final int editText1=0x7f0b0018;
-        public static final int eventName=0x7f0b001b;
-        public static final int grayscale=0x7f0b0015;
-        public static final int gridview=0x7f0b003e;
-        public static final int hello=0x7f0b0027;
-        public static final int hello2=0x7f0b0029;
-        public static final int hello3=0x7f0b0028;
-        public static final int holo_dark=0x7f0b0007;
-        public static final int holo_light=0x7f0b0008;
-        public static final int hybrid=0x7f0b0003;
-        public static final int imageView1=0x7f0b002c;
-        public static final int layout=0x7f0b002a;
-        public static final int location=0x7f0b001d;
-        public static final int login=0x7f0b0035;
-        public static final int map=0x7f0b001a;
-        public static final int mapTypeHybrid=0x7f0b0044;
-        public static final int mapTypeNormal=0x7f0b0041;
-        public static final int mapTypeSatellite=0x7f0b0042;
-        public static final int mapTypeTerrain=0x7f0b0043;
-        public static final int match_parent=0x7f0b000e;
-        public static final int monochrome=0x7f0b0016;
-        public static final int nation=0x7f0b0038;
-        public static final int none=0x7f0b0002;
-        public static final int normal=0x7f0b0004;
-        public static final int occu=0x7f0b0039;
-        public static final int password=0x7f0b0036;
-        public static final int postcode=0x7f0b001e;
-        public static final int production=0x7f0b0009;
-        public static final int register=0x7f0b0034;
-        public static final int sandbox=0x7f0b000a;
-        public static final int satellite=0x7f0b0005;
-        public static final int selectionDetails=0x7f0b000d;
-        public static final int strict_sandbox=0x7f0b000b;
-        public static final int terrain=0x7f0b0006;
-        public static final int textView1=0x7f0b0017;
-        public static final int textView2=0x7f0b002d;
-        public static final int textView3=0x7f0b002e;
-        public static final int textView4=0x7f0b002f;
-        public static final int textView5=0x7f0b0030;
-        public static final int time=0x7f0b001f;
-        public static final int tv_des=0x7f0b0033;
-        public static final int tv_name=0x7f0b0032;
-        public static final int txtDisplayedTab=0x7f0b003d;
-        public static final int userName=0x7f0b003f;
-        public static final int userView=0x7f0b0031;
-        public static final int username=0x7f0b0037;
-        public static final int wrap_content=0x7f0b000f;
+        public static final int TextView01=0x7f070028;
+        public static final int TextView02=0x7f07002e;
+        public static final int TextView03=0x7f07002f;
+        public static final int TextView04=0x7f070031;
+        public static final int TextView05=0x7f07004c;
+        public static final int TextView06=0x7f07004d;
+        public static final int TextView09=0x7f07002d;
+        public static final int about=0x7f07004e;
+        public static final int abzy211=0x7f070038;
+        public static final int adjust_height=0x7f07000c;
+        public static final int adjust_width=0x7f07000d;
+        public static final int age=0x7f07002c;
+        public static final int book_now=0x7f07001c;
+        public static final int both=0x7f070003;
+        public static final int button1=0x7f070025;
+        public static final int buyButton=0x7f070018;
+        public static final int buy_now=0x7f07001d;
+        public static final int buy_with_google=0x7f07001e;
+        public static final int classic=0x7f070020;
+        public static final int createGroup=0x7f070030;
+        public static final int des=0x7f070032;
+        public static final int descrip=0x7f070051;
+        public static final int disabled=0x7f070004;
+        public static final int donate_with_google=0x7f07001f;
+        public static final int editText1=0x7f070024;
+        public static final int eventName=0x7f070027;
+        public static final int fl_inner=0x7f070045;
+        public static final int flip=0x7f07000a;
+        public static final int grayscale=0x7f070021;
+        public static final int gridview=0x7f070000;
+        public static final int hello=0x7f070033;
+        public static final int hello2=0x7f070035;
+        public static final int hello3=0x7f070034;
+        public static final int holo_dark=0x7f070013;
+        public static final int holo_light=0x7f070014;
+        public static final int hybrid=0x7f07000f;
+        public static final int imageView1=0x7f070039;
+        public static final int layout=0x7f070036;
+        public static final int location=0x7f070029;
+        public static final int login=0x7f070042;
+        public static final int manualOnly=0x7f070005;
+        public static final int map=0x7f070026;
+        public static final int mapTypeHybrid=0x7f070055;
+        public static final int mapTypeNormal=0x7f070052;
+        public static final int mapTypeSatellite=0x7f070053;
+        public static final int mapTypeTerrain=0x7f070054;
+        public static final int match_parent=0x7f07001a;
+        public static final int monochrome=0x7f070022;
+        public static final int nation=0x7f07004a;
+        public static final int none=0x7f07000e;
+        public static final int normal=0x7f070010;
+        public static final int occu=0x7f07004b;
+        public static final int password=0x7f070043;
+        public static final int postcode=0x7f07002a;
+        public static final int production=0x7f070015;
+        public static final int pullDownFromTop=0x7f070006;
+        public static final int pullFromEnd=0x7f070007;
+        public static final int pullFromStart=0x7f070008;
+        public static final int pullUpFromBottom=0x7f070009;
+        public static final int pull_refresh_list=0x7f070037;
+        public static final int pull_to_refresh_image=0x7f070046;
+        public static final int pull_to_refresh_progress=0x7f070047;
+        public static final int pull_to_refresh_sub_text=0x7f070049;
+        public static final int pull_to_refresh_text=0x7f070048;
+        public static final int register=0x7f070041;
+        public static final int rotate=0x7f07000b;
+        public static final int sandbox=0x7f070016;
+        public static final int satellite=0x7f070011;
+        public static final int scrollview=0x7f070002;
+        public static final int selectionDetails=0x7f070019;
+        public static final int strict_sandbox=0x7f070017;
+        public static final int terrain=0x7f070012;
+        public static final int textView1=0x7f070023;
+        public static final int textView2=0x7f07003a;
+        public static final int textView3=0x7f07003b;
+        public static final int textView4=0x7f07003c;
+        public static final int textView5=0x7f07003d;
+        public static final int time=0x7f07002b;
+        public static final int tv_des=0x7f070040;
+        public static final int tv_name=0x7f07003f;
+        public static final int txtDisplayedTab=0x7f07004f;
+        public static final int userName=0x7f070050;
+        public static final int userView=0x7f07003e;
+        public static final int username=0x7f070044;
+        public static final int webview=0x7f070001;
+        public static final int wrap_content=0x7f07001b;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f080000;
+        public static final int google_play_services_version=0x7f0b0000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -559,131 +726,145 @@ containing a value of this type.
         public static final int info_window=0x7f030006;
         public static final int login=0x7f030007;
         public static final int main=0x7f030008;
-        public static final int register=0x7f030009;
-        public static final int tab_test=0x7f03000a;
-        public static final int test=0x7f03000b;
-        public static final int user_item=0x7f03000c;
-        public static final int userprofile=0x7f03000d;
+        public static final int pull_to_refresh_header_horizontal=0x7f030009;
+        public static final int pull_to_refresh_header_vertical=0x7f03000a;
+        public static final int register=0x7f03000b;
+        public static final int tab_test=0x7f03000c;
+        public static final int test=0x7f03000d;
+        public static final int user_item=0x7f03000e;
+        public static final int userprofile=0x7f03000f;
     }
     public static final class menu {
-        public static final int main=0x7f0a0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class raw {
-        public static final int gtm_analytics=0x7f040000;
+        public static final int gtm_analytics=0x7f050000;
+        public static final int pull_event=0x7f050001;
+        public static final int refreshing_sound=0x7f050002;
+        public static final int reset_sound=0x7f050003;
     }
     public static final class string {
-        public static final int accept=0x7f060002;
-        public static final int action_settings=0x7f060024;
-        public static final int app_name=0x7f060023;
+        public static final int accept=0x7f080008;
+        public static final int action_settings=0x7f08002a;
+        public static final int app_name=0x7f080029;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
-        public static final int common_android_wear_notification_needs_update_text=0x7f060009;
+        public static final int common_android_wear_notification_needs_update_text=0x7f08000f;
         /**  Message in confirmation dialog informing user that they need to update
         the Android Wear app [CHAR LIMIT=NONE] 
          */
-        public static final int common_android_wear_update_text=0x7f060016;
+        public static final int common_android_wear_update_text=0x7f08001c;
         /**  Title of confirmation dialog informing user that they need to update
         the Android Wear app (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_android_wear_update_title=0x7f060014;
+        public static final int common_android_wear_update_title=0x7f08001a;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f060012;
+        public static final int common_google_play_services_enable_button=0x7f080018;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f060011;
+        public static final int common_google_play_services_enable_text=0x7f080017;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f060010;
+        public static final int common_google_play_services_enable_title=0x7f080016;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f06000b;
+        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f080011;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f06000f;
+        public static final int common_google_play_services_install_button=0x7f080015;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f06000d;
+        public static final int common_google_play_services_install_text_phone=0x7f080013;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f06000e;
+        public static final int common_google_play_services_install_text_tablet=0x7f080014;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f06000c;
+        public static final int common_google_play_services_install_title=0x7f080012;
         /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_invalid_account_text=0x7f06001a;
+        public static final int common_google_play_services_invalid_account_text=0x7f080020;
         /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_invalid_account_title=0x7f060019;
+        public static final int common_google_play_services_invalid_account_title=0x7f08001f;
         /**   Title for notification shown when GooglePlayServices needs to be enabled for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_needs_enabling_title=0x7f06000a;
+        public static final int common_google_play_services_needs_enabling_title=0x7f080010;
         /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_network_error_text=0x7f060018;
+        public static final int common_google_play_services_network_error_text=0x7f08001e;
         /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_network_error_title=0x7f060017;
+        public static final int common_google_play_services_network_error_title=0x7f08001d;
         /**   Title for notification shown when GooglePlayServices needs to be installed
         for an application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_notification_needs_installation_title=0x7f060007;
+        public static final int common_google_play_services_notification_needs_installation_title=0x7f08000d;
         /**   Title for notification shown when GooglePlayServices needs to be updated for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_notification_needs_update_title=0x7f060008;
+        public static final int common_google_play_services_notification_needs_update_title=0x7f08000e;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int common_google_play_services_notification_ticker=0x7f060006;
+        public static final int common_google_play_services_notification_ticker=0x7f08000c;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f06001b;
+        public static final int common_google_play_services_unknown_issue=0x7f080021;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f06001d;
+        public static final int common_google_play_services_unsupported_text=0x7f080023;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f06001c;
+        public static final int common_google_play_services_unsupported_title=0x7f080022;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f06001e;
+        public static final int common_google_play_services_update_button=0x7f080024;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f060015;
+        public static final int common_google_play_services_update_text=0x7f08001b;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f060013;
+        public static final int common_google_play_services_update_title=0x7f080019;
         /**  Label for an action to open a notifications content on the phone [CHAR LIMIT=25] 
          */
-        public static final int common_open_on_phone=0x7f060021;
+        public static final int common_open_on_phone=0x7f080027;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static final int common_signin_button_text=0x7f06001f;
+        public static final int common_signin_button_text=0x7f080025;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static final int common_signin_button_text_long=0x7f060020;
-        public static final int create_calendar_message=0x7f060005;
-        public static final int create_calendar_title=0x7f060004;
-        public static final int decline=0x7f060003;
-        public static final int hello_world=0x7f060025;
-        public static final int store_picture_message=0x7f060001;
-        public static final int store_picture_title=0x7f060000;
+        public static final int common_signin_button_text_long=0x7f080026;
+        public static final int create_calendar_message=0x7f08000b;
+        public static final int create_calendar_title=0x7f08000a;
+        public static final int decline=0x7f080009;
+        public static final int hello_world=0x7f08002b;
+        /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
+ Just use standard Pull Down String when pulling up. These can be set for languages which require it 
+         */
+        public static final int pull_to_refresh_from_bottom_pull_label=0x7f080003;
+        public static final int pull_to_refresh_from_bottom_refreshing_label=0x7f080005;
+        public static final int pull_to_refresh_from_bottom_release_label=0x7f080004;
+        public static final int pull_to_refresh_pull_label=0x7f080000;
+        public static final int pull_to_refresh_refreshing_label=0x7f080002;
+        public static final int pull_to_refresh_release_label=0x7f080001;
+        public static final int store_picture_message=0x7f080007;
+        public static final int store_picture_title=0x7f080006;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
-        public static final int wallet_buy_button_place_holder=0x7f060022;
+        public static final int wallet_buy_button_place_holder=0x7f080028;
     }
     public static final class style {
         /** 
@@ -707,21 +888,21 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050005;
+        public static final int AppBaseTheme=0x7f090005;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050006;
-        public static final int Theme_IAPTheme=0x7f050000;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f050003;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f050002;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f050001;
+        public static final int AppTheme=0x7f090006;
+        public static final int Theme_IAPTheme=0x7f090000;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f090003;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f090002;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f090001;
         /** 
          Default style of the wallet fragment that will be used if not set explicitly
          when fragment is created
     
          */
-        public static final int WalletFragmentDefaultStyle=0x7f050004;
+        public static final int WalletFragmentDefaultStyle=0x7f090004;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
@@ -741,7 +922,7 @@ containing a value of this type.
            @see #AdsAttrs_adUnitId
          */
         public static final int[] AdsAttrs = {
-            0x7f010000, 0x7f010001, 0x7f010002
+            0x7f010013, 0x7f010014, 0x7f010015
         };
         /**
           <p>
@@ -818,7 +999,7 @@ containing a value of this type.
            @see #LoadingImageView_imageAspectRatioAdjust
          */
         public static final int[] LoadingImageView = {
-            0x7f010003, 0x7f010004, 0x7f010005
+            0x7f010016, 0x7f010017, 0x7f010018
         };
         /**
           <p>
@@ -920,10 +1101,10 @@ containing a value of this type.
            @see #MapAttrs_zOrderOnTop
          */
         public static final int[] MapAttrs = {
-            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
-            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d,
-            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
-            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015
+            0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c,
+            0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020,
+            0x7f010021, 0x7f010022, 0x7f010023, 0x7f010024,
+            0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028
         };
         /**
           <p>This symbol is the offset where the {@link cs1.softwareProject.explore.R.attr#cameraBearing}
@@ -1155,6 +1336,326 @@ containing a value of this type.
           @attr name cs1.softwareProject.explore:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 14;
+        /** Attributes that can be used with a PullToRefresh.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAdapterViewBackground cs1.softwareProject.explore:ptrAdapterViewBackground}</code></td><td> BELOW HERE ARE DEPRECEATED.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAnimationStyle cs1.softwareProject.explore:ptrAnimationStyle}</code></td><td> Style of Animation should be used displayed when pulling.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawable cs1.softwareProject.explore:ptrDrawable}</code></td><td> Drawable to use as Loading Indicator.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableBottom cs1.softwareProject.explore:ptrDrawableBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableEnd cs1.softwareProject.explore:ptrDrawableEnd}</code></td><td> Drawable to use as Loading Indicator in the Footer View.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableStart cs1.softwareProject.explore:ptrDrawableStart}</code></td><td> Drawable to use as Loading Indicator in the Header View.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableTop cs1.softwareProject.explore:ptrDrawableTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground cs1.softwareProject.explore:ptrHeaderBackground}</code></td><td> A drawable to use as the background of the Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderSubTextColor cs1.softwareProject.explore:ptrHeaderSubTextColor}</code></td><td> Text Color of the Header and Footer Loading Views Sub Header </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextAppearance cs1.softwareProject.explore:ptrHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor cs1.softwareProject.explore:ptrHeaderTextColor}</code></td><td> Text Color of the Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrListViewExtrasEnabled cs1.softwareProject.explore:ptrListViewExtrasEnabled}</code></td><td>
+        	Whether PullToRefreshListView has it's extras enabled.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrMode cs1.softwareProject.explore:ptrMode}</code></td><td> Mode of Pull-to-Refresh that should be used </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrOverScroll cs1.softwareProject.explore:ptrOverScroll}</code></td><td> Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRefreshableViewBackground cs1.softwareProject.explore:ptrRefreshableViewBackground}</code></td><td> A drawable to use as the background of the Refreshable View </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRotateDrawableWhilePulling cs1.softwareProject.explore:ptrRotateDrawableWhilePulling}</code></td><td>
+        	Whether the Drawable should be continually rotated as you pull.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrScrollingWhileRefreshingEnabled cs1.softwareProject.explore:ptrScrollingWhileRefreshingEnabled}</code></td><td> Whether the user can scroll while the View is Refreshing </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrShowIndicator cs1.softwareProject.explore:ptrShowIndicator}</code></td><td> Whether the Indicator overlay(s) should be used </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrSubHeaderTextAppearance cs1.softwareProject.explore:ptrSubHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header </td></tr>
+           </table>
+           @see #PullToRefresh_ptrAdapterViewBackground
+           @see #PullToRefresh_ptrAnimationStyle
+           @see #PullToRefresh_ptrDrawable
+           @see #PullToRefresh_ptrDrawableBottom
+           @see #PullToRefresh_ptrDrawableEnd
+           @see #PullToRefresh_ptrDrawableStart
+           @see #PullToRefresh_ptrDrawableTop
+           @see #PullToRefresh_ptrHeaderBackground
+           @see #PullToRefresh_ptrHeaderSubTextColor
+           @see #PullToRefresh_ptrHeaderTextAppearance
+           @see #PullToRefresh_ptrHeaderTextColor
+           @see #PullToRefresh_ptrListViewExtrasEnabled
+           @see #PullToRefresh_ptrMode
+           @see #PullToRefresh_ptrOverScroll
+           @see #PullToRefresh_ptrRefreshableViewBackground
+           @see #PullToRefresh_ptrRotateDrawableWhilePulling
+           @see #PullToRefresh_ptrScrollingWhileRefreshingEnabled
+           @see #PullToRefresh_ptrShowIndicator
+           @see #PullToRefresh_ptrSubHeaderTextAppearance
+         */
+        public static final int[] PullToRefresh = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
+            0x7f010010, 0x7f010011, 0x7f010012
+        };
+        /**
+          <p>
+          @attr description
+           BELOW HERE ARE DEPRECEATED. DO NOT USE. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrAdapterViewBackground
+        */
+        public static final int PullToRefresh_ptrAdapterViewBackground = 16;
+        /**
+          <p>
+          @attr description
+           Style of Animation should be used displayed when pulling. 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>rotate</code></td><td>0x0</td><td></td></tr>
+<tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrAnimationStyle
+        */
+        public static final int PullToRefresh_ptrAnimationStyle = 12;
+        /**
+          <p>
+          @attr description
+           Drawable to use as Loading Indicator. Changes both Header and Footer. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrDrawable
+        */
+        public static final int PullToRefresh_ptrDrawable = 6;
+        /**
+          <p>This symbol is the offset where the {@link cs1.softwareProject.explore.R.attr#ptrDrawableBottom}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name cs1.softwareProject.explore:ptrDrawableBottom
+        */
+        public static final int PullToRefresh_ptrDrawableBottom = 18;
+        /**
+          <p>
+          @attr description
+           Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrDrawableEnd
+        */
+        public static final int PullToRefresh_ptrDrawableEnd = 8;
+        /**
+          <p>
+          @attr description
+           Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrDrawableStart
+        */
+        public static final int PullToRefresh_ptrDrawableStart = 7;
+        /**
+          <p>This symbol is the offset where the {@link cs1.softwareProject.explore.R.attr#ptrDrawableTop}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name cs1.softwareProject.explore:ptrDrawableTop
+        */
+        public static final int PullToRefresh_ptrDrawableTop = 17;
+        /**
+          <p>
+          @attr description
+           A drawable to use as the background of the Header and Footer Loading Views 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrHeaderBackground
+        */
+        public static final int PullToRefresh_ptrHeaderBackground = 1;
+        /**
+          <p>
+          @attr description
+           Text Color of the Header and Footer Loading Views Sub Header 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrHeaderSubTextColor
+        */
+        public static final int PullToRefresh_ptrHeaderSubTextColor = 3;
+        /**
+          <p>
+          @attr description
+           Base text color, typeface, size, and style for Header and Footer Loading Views 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrHeaderTextAppearance
+        */
+        public static final int PullToRefresh_ptrHeaderTextAppearance = 10;
+        /**
+          <p>
+          @attr description
+           Text Color of the Header and Footer Loading Views 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrHeaderTextColor
+        */
+        public static final int PullToRefresh_ptrHeaderTextColor = 2;
+        /**
+          <p>
+          @attr description
+          
+        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
+        	able to scroll while refreshing, and behaves better. It acheives this by adding
+        	Header and/or Footer Views to the ListView.
+        
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrListViewExtrasEnabled
+        */
+        public static final int PullToRefresh_ptrListViewExtrasEnabled = 14;
+        /**
+          <p>
+          @attr description
+           Mode of Pull-to-Refresh that should be used 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>disabled</code></td><td>0x0</td><td></td></tr>
+<tr><td><code>pullFromStart</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>pullFromEnd</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>both</code></td><td>0x3</td><td></td></tr>
+<tr><td><code>manualOnly</code></td><td>0x4</td><td></td></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td> These last two are depreacted </td></tr>
+<tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrMode
+        */
+        public static final int PullToRefresh_ptrMode = 4;
+        /**
+          <p>
+          @attr description
+           Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrOverScroll
+        */
+        public static final int PullToRefresh_ptrOverScroll = 9;
+        /**
+          <p>
+          @attr description
+           A drawable to use as the background of the Refreshable View 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrRefreshableViewBackground
+        */
+        public static final int PullToRefresh_ptrRefreshableViewBackground = 0;
+        /**
+          <p>
+          @attr description
+          
+        	Whether the Drawable should be continually rotated as you pull. This only
+        	takes effect when using the 'Rotate' Animation Style.
+        
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrRotateDrawableWhilePulling
+        */
+        public static final int PullToRefresh_ptrRotateDrawableWhilePulling = 15;
+        /**
+          <p>
+          @attr description
+           Whether the user can scroll while the View is Refreshing 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrScrollingWhileRefreshingEnabled
+        */
+        public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled = 13;
+        /**
+          <p>
+          @attr description
+           Whether the Indicator overlay(s) should be used 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrShowIndicator
+        */
+        public static final int PullToRefresh_ptrShowIndicator = 5;
+        /**
+          <p>
+          @attr description
+           Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name cs1.softwareProject.explore:ptrSubHeaderTextAppearance
+        */
+        public static final int PullToRefresh_ptrSubHeaderTextAppearance = 11;
         /**  Attributes for the WalletFragment &lt;fragment&gt; tag 
            <p>Includes the following attributes:</p>
            <table>
@@ -1172,7 +1673,7 @@ containing a value of this type.
            @see #WalletFragmentOptions_fragmentStyle
          */
         public static final int[] WalletFragmentOptions = {
-            0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019
+            0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c
         };
         /**
           <p>
@@ -1276,9 +1777,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #WalletFragmentStyle_maskedWalletDetailsTextAppearance
          */
         public static final int[] WalletFragmentStyle = {
-            0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d,
-            0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021,
-            0x7f010022, 0x7f010023, 0x7f010024
+            0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030,
+            0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034,
+            0x7f010035, 0x7f010036, 0x7f010037
         };
         /**
           <p>

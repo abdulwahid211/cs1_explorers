@@ -51,8 +51,13 @@ public class createGroup extends Activity implements OnClickListener {
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
+	/*
 	private static final String LOGIN_URL = "http://10.0.2.2/PhpFiles/groups.php";
 	private static final String LOGIN_URL_user = "http://10.0.2.2/PhpFiles/userDetails.php";
+	*/
+	private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/groups.php";
+	private static final String LOGIN_URL_user = "http://doc.gold.ac.uk/~ma301ma/IgorFile/userDetails.php";
+	
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
 	
@@ -70,11 +75,15 @@ public class createGroup extends Activity implements OnClickListener {
 		createGroup = (Button) findViewById(R.id.createGroup);
 		
 		createGroup.setOnClickListener(this);
+		
+		
+		
 		accessWebService();
 		
 	}
 
 	public void onClick(View v) {
+		System.out.println("Hi");
 
 		nameOfEvent = nameEvent.getText().toString();
 		nameOfLocation = location.getText().toString();
@@ -82,7 +91,7 @@ public class createGroup extends Activity implements OnClickListener {
 		timeOfEvent = time.getText().toString();
 		des = description.getText().toString();
 		post = ps.getText().toString();
-		showGroup.user_group.clear();// clear the previous list, so we dont have
+		//showGroup.user_group.clear();// clear the previous list, so we dont have
 		// duplicates
 		
 		
@@ -91,12 +100,18 @@ public class createGroup extends Activity implements OnClickListener {
 				ageGroup,post).execute();
 		
 		accessWebService();
+		nameEvent.clearComposingText();
+
+	///Intent i = new Intent(createGroup.this, Tabs_menu.class);
+		//startActivity(i);
 		
 
-		Intent i = new Intent(createGroup.this, Tabs_menu.class);
-
-		startActivity(i);
-
+	}
+	
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		accessWebService();
 	}
 	
 	public int getUserId(){
@@ -168,7 +183,7 @@ public class createGroup extends Activity implements OnClickListener {
 				if (success == 1) {
 					Log.d("Group Created!", json.toString());
 
-					finish();
+				//	finish();
 					return json.getString(TAG_MESSAGE);
 				} else {
 					Log.d("Login Failure!", json.getString(TAG_MESSAGE));

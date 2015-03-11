@@ -42,9 +42,9 @@ public class Login extends Activity implements OnClickListener{
     public static String real_user ="";
     public static String real_pass ="";
     
-    
-    private static final String LOGIN_URL = "http://10.0.2.2/PhpFiles/login.php";
- //   private static final String LOGIN_URL = "http://10.0.2.2/login.php";
+    private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/login.php";
+  //  private static final String LOGIN_URL = "http://10.0.2.2/PhpFiles/login.php";
+
   
     //JSON element ids from repsonse of php script:
     private static final String TAG_SUCCESS = "success";
