@@ -9,7 +9,6 @@ import android.app.Dialog;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,13 +38,13 @@ public class ExploreMap extends FragmentActivity {
 	static GoogleMap eMap;
 	Marker marker;
 	Marker marker2;
-	ArrayList<Group> t = (ArrayList<Group>) showGroup.user_group;
+	public ArrayList<Group> t = (ArrayList<Group>) showGroup.user_group;
 	HashMap <String,Integer> flagsImg = new HashMap <String,Integer>();
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
- 
+		
 	
 	//	flagsImg.put("Other", R.drawable.other);
 		super.onCreate(savedInstanceState);
@@ -54,7 +53,26 @@ public class ExploreMap extends FragmentActivity {
 
 	}
 	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		 t = (ArrayList<Group>) showGroup.user_group;
+	}
 	
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		 t = (ArrayList<Group>) showGroup.user_group;
+		 try {
+			UserGeoLocate();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public void StartExploreMap(){
 		setFlagImage();

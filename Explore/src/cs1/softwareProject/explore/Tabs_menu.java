@@ -43,20 +43,17 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         		null,getResources().getDrawable(R.drawable.ic_launcher)).setContent(intent);
         		*/
        
-     
-        //second tab
-        intent[1] = new Intent().setClass(this, createGroup.class);
+        //Third tab
+        
+        intent[1] = new Intent().setClass(this, ExploreMap.class);
         spec = tabHost.newTabSpec("Second").setIndicator("Second")
                       .setContent(intent[1]);
         tabHost.addTab(spec);
-        //Third tab
-        
-        intent[2] = new Intent().setClass(this, ExploreMap.class);
+     
+        intent[2] = new Intent().setClass(this, createGroup.class);
         spec = tabHost.newTabSpec("Third").setIndicator("Third")
                       .setContent(intent[2]);
         tabHost.addTab(spec);
-     
-        
         
         
  
