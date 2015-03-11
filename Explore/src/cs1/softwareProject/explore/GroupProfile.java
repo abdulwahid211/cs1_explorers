@@ -20,6 +20,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
+import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
+
 import android.app.Activity;
 //import android.app.Activity;
 import android.app.ListActivity;
@@ -27,6 +34,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,6 +51,8 @@ public class GroupProfile extends Activity {
 	private String jsonResult;
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
+	private PullToRefreshListView mPullRefreshListView;
+	userAdapter adapter;
 	/*
 	private static final String url = "http://10.0.2.2/PhpFiles/mrX.php";
 	private static final String LOGIN_URL_userJoined = "http://10.0.2.2/PhpFiles/submitUserJoined.php";
@@ -68,7 +78,7 @@ public class GroupProfile extends Activity {
 		
 		accessWebService();
 		Intent intent = getIntent();
-		
+		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.userView);
 		group_id = intent.getIntExtra("groupId", 0);
 		String location = intent.getStringExtra("location");
 		String name = intent.getStringExtra("EventName");
@@ -81,10 +91,10 @@ public class GroupProfile extends Activity {
 
 		// oragnisedUsers = oragnisedUserId(group_id,userJoint,joined_user);
 		// joined_user = oragnisedUserId(74,userJoint,joined_user);
-		userAdapter adapter = new userAdapter(this, R.layout.user_item,
+		 adapter = new userAdapter(this, R.layout.user_item,
 				joined_user);
-		userList = (ListView) findViewById(R.id.userView);
-		userList.setAdapter(adapter);
+		//userList = (ListView) findViewById(R.id.userView);
+		mPullRefreshListView.setAdapter(adapter);
 
 		TextView tv = (TextView) findViewById(R.id.abzy211);
 		tv.setText(name);
@@ -105,12 +115,12 @@ public class GroupProfile extends Activity {
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
 		im.setImageResource(image);
 
-		userList.setOnItemClickListener(new OnItemClickListener() {
+		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view,
 					int position, long arg) {
-				userObject c = joined_user.get(position);
+				userObject c = joined_user.get(position-1);
 
 				Intent intent = new Intent(GroupProfile.this, userProfile.class);
 				intent.putExtra("userId", c.id);
@@ -125,6 +135,69 @@ public class GroupProfile extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		// Set a listener to be invoked when the list should be refreshed.
+		mPullRefreshListView
+				.setOnRefreshListener(new OnRefreshListener<ListView>() {
+					@SuppressWarnings("unchecked")
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						String label = DateUtils.formatDateTime(
+								getApplicationContext(),
+								System.currentTimeMillis(),
+								DateUtils.FORMAT_SHOW_TIME
+										| DateUtils.FORMAT_SHOW_DATE
+										| DateUtils.FORMAT_ABBREV_ALL);
+						
+					
+
+						// Update the LastUpdatedLabel
+						refreshView.getLoadingLayoutProxy()
+								.setLastUpdatedLabel(label);
+
+						// Do work to refresh the list here.
+						 new GetDataTask().execute();
+							accessWebService();
+							//setListAdapter(adapter);
+					}
+				});
+
+		// Add an end-of-list listener
+		mPullRefreshListView
+				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+
+					@Override
+					public void onLastItemVisible() {
+						Toast.makeText(GroupProfile.this, "End of Event List!",
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+		
+		
+		
+		/**
+		 * Add Sound Event Listener
+		 */
+		
+		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
+		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
+		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
+		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
+		mPullRefreshListView.setOnPullEventListener(soundListener);
+		
+		
+		
+
+		ListView actualListView = mPullRefreshListView.getRefreshableView();
+
+		// Need to use the Actual ListView when registering for Context Menu
+		registerForContextMenu(actualListView);
+		
+		
+		
+		
+		
 		
 		
 		
@@ -152,6 +225,45 @@ public class GroupProfile extends Activity {
 		new JoinedGroup(group_id, user_id).execute();
 
 	}
+	
+	private class GetDataTask extends AsyncTask<List<userObject>, Void, List<userObject>> {
+	      
+		@Override
+		protected List<userObject> doInBackground(List<userObject>... params) {
+			// Simulates a background job.
+			try {
+				Thread.sleep(4000);	
+				//setListAdapter(adapter);
+			} catch (InterruptedException e) {
+			}
+			return joined_user;
+		}
+
+		protected void onPostExecute(List<userObject> result) {
+			//((LinkedList<Group>) user_group).addFirst("Added after refresh...");
+			adapter.notifyDataSetChanged();
+
+			// Call onRefreshComplete when the list has been refreshed.
+			mPullRefreshListView.onRefreshComplete();
+
+			super.onPostExecute(result);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@SuppressWarnings("null")
 	public List<userObject> oragnisedUserId(int groupId,
