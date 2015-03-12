@@ -27,6 +27,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 
+import android.app.ActionBar;
 import android.app.Activity;
 //import android.app.Activity;
 import android.app.ListActivity;
@@ -74,7 +75,8 @@ public class GroupProfile extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.groupprofile);
-		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayUseLogoEnabled(false);
 		
 		accessWebService();
 		Intent intent = getIntent();
@@ -88,16 +90,13 @@ public class GroupProfile extends Activity {
 		int image = intent.getIntExtra("Image", 0);
 
 		
-
+		actionBar.setTitle(name);
 		// oragnisedUsers = oragnisedUserId(group_id,userJoint,joined_user);
 		// joined_user = oragnisedUserId(74,userJoint,joined_user);
 		 adapter = new userAdapter(this, R.layout.user_item,
 				joined_user);
 		//userList = (ListView) findViewById(R.id.userView);
 		mPullRefreshListView.setAdapter(adapter);
-
-		TextView tv = (TextView) findViewById(R.id.abzy211);
-		tv.setText(name);
 
 		TextView tv1 = (TextView) findViewById(R.id.textView2);
 		String test = "ID " + String.valueOf(user_id);

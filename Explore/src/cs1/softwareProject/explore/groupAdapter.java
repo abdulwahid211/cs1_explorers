@@ -39,14 +39,17 @@ public class groupAdapter extends ArrayAdapter<Group> {
 		
 		View view = layin.inflate(R.layout.group_item, null);
 		// image for the group profile
-		ImageView image = (ImageView) view.findViewById(R.id.hello);
+		ImageView image = (ImageView) view.findViewById(R.id.list_image);
 		image.setImageResource(c.image);
 		
-		TextView tv = (TextView) view.findViewById(R.id.hello2);
+		TextView tv = (TextView) view.findViewById(R.id.title);
 		tv.setText(c.nameOfEvent+" ("+c.language+")");
 		
-		TextView tv1 = (TextView) view.findViewById(R.id.hello3);
+		TextView tv1 = (TextView) view.findViewById(R.id.locationname);
 		tv1.setText(c.location);
+		
+		TextView tv2 = (TextView) view.findViewById(R.id.lan);
+		tv2.setText(c.postCode);
 		
 		
 		return view;		

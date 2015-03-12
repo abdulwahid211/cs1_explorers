@@ -7,6 +7,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -55,7 +56,14 @@ public class Login extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
-
+        /// remove the action bar 
+		//ActionBar actionBar = getActionBar();
+        //actionBar.hide();
+		
+		
+		
+		
+		
 		//setup input fields
 		user = (EditText)findViewById(R.id.username);
 		pass = (EditText)findViewById(R.id.password);

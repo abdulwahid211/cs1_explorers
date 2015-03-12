@@ -2,12 +2,12 @@ package cs1.softwareProject.explore;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -51,12 +51,22 @@ public class Register extends Activity implements OnClickListener {
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
 
-	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
 
+		
+		 /// remove the action bar 
+	//	ActionBar actionBar = getActionBar();
+		//actionBar.setTitle("Please Register Your Details");
+	//	actionBar.setLogo(R.drawable.arrow);
+      // actionBar.hide();
+		
+		
+		
+		
 		user = (EditText) findViewById(R.id.username);
 		pass = (EditText) findViewById(R.id.password);
 		fname = (EditText) findViewById(R.id.postcode);
