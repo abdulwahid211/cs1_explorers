@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bng"
    >
 
     <Button
@@ -31,7 +32,8 @@
         android:layout_above="@+id/login"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPassword" >
+        android:inputType="textPassword" 
+        android:background="#DFFFDF"  >
 
         <requestFocus />
     </EditText>
@@ -42,7 +44,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/TextView01"
         android:layout_centerHorizontal="true"
-        android:ems="10" />
+        android:ems="10" 
+       android:background="#DFFFDF"  
+        />
 
     <TextView
         android:id="@+id/textView1"
@@ -50,7 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/username"
         android:layout_alignLeft="@+id/username"
-        android:text="Username" />
+        android:text="Username" 
+        android:textColor="#FFFFFF"
+        />
 
     <TextView
         android:id="@+id/TextView01"
@@ -58,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
         android:layout_alignRight="@+id/textView1"
+        android:textColor="#FFFFFF"
         android:text="Password" />
 
     <TextView
@@ -68,9 +75,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
         android:gravity="center"
-        android:text="The Explorers "
+        android:text="Explore App "
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+         />
 
     <ImageView
         android:id="@+id/imageView1"

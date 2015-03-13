@@ -11,11 +11,14 @@ package cs1.softwareProject.explore;
 
 import com.google.android.gms.maps.GoogleMap;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,12 +28,12 @@ import android.widget.TabHost.OnTabChangeListener;
 
 public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
     /** Called when the activity is first created. */
-    @Override
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-       // ActionBar actionBar = getActionBar();
-     //   actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#19751F")));
+        ActionBar actionBar = getActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#19751F")));
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent [] = new Intent[3];

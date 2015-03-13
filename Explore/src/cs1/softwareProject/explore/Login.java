@@ -57,8 +57,8 @@ public class Login extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
         /// remove the action bar 
-		//ActionBar actionBar = getActionBar();
-        //actionBar.hide();
+		ActionBar actionBar = getActionBar();
+        actionBar.hide();
 		
 		
 		

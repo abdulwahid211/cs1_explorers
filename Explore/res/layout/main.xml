@@ -11,6 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="5dp"
+        android:background="#F5FFF5"
         
         >
 
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:layout_marginBottom="-4dp"
-            android:background="@drawable/list_selector"
+            android:background="@drawable/tab_selector"
             />
 
     </LinearLayout>

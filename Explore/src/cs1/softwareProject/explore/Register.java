@@ -7,10 +7,12 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Register extends Activity implements OnClickListener {
+@SuppressLint("NewApi") public class Register extends Activity implements OnClickListener {
 
 	private EditText user, pass, fname, lname, nation, occup, about, age;
 	private Button mRegister;
@@ -52,16 +54,16 @@ public class Register extends Activity implements OnClickListener {
 	private static final String TAG_MESSAGE = "message";
 
 	
-	protected void onCreate(Bundle savedInstanceState) {
+	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) @SuppressLint("NewApi") protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
 
 		
 		 /// remove the action bar 
-	//	ActionBar actionBar = getActionBar();
-		//actionBar.setTitle("Please Register Your Details");
-	//	actionBar.setLogo(R.drawable.arrow);
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("Please Register Your Details");
+		actionBar.setLogo(R.drawable.arrow);
       // actionBar.hide();
 		
 		
