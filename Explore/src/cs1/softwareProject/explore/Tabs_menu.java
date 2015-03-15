@@ -33,7 +33,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#19751F")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(43, 172, 181)));
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent [] = new Intent[3];

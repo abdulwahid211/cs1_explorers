@@ -75,7 +75,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
         android:gravity="center"
-        android:text="Explore App "
+        android:text="Explore "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
         android:textColor="#FFFFFF"

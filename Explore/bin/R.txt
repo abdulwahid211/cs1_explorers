@@ -263,10 +263,11 @@ int layout test 0x7f03000d
 int layout user_item 0x7f03000e
 int layout userprofile 0x7f03000f
 int menu main 0x7f0d0000
-int raw gtm_analytics 0x7f050000
-int raw pull_event 0x7f050001
-int raw refreshing_sound 0x7f050002
-int raw reset_sound 0x7f050003
+int raw actionbng 0x7f050000
+int raw gtm_analytics 0x7f050001
+int raw pull_event 0x7f050002
+int raw refreshing_sound 0x7f050003
+int raw reset_sound 0x7f050004
 int string accept 0x7f080008
 int string action_settings 0x7f08002a
 int string app_name 0x7f080029
