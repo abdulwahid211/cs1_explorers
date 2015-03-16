@@ -7,6 +7,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,10 @@ public class groupAdapter extends ArrayAdapter<Group> {
 		LayoutInflater layin = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		
 		View view = layin.inflate(R.layout.group_item, null);
+		if(position%2==0)
+        {
+            view.setBackgroundColor(Color.parseColor("#BBC5CC"));
+        }
 		// image for the group profile
 		ImageView image = (ImageView) view.findViewById(R.id.list_image);
 		image.setImageResource(c.image);

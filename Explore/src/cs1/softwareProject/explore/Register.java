@@ -2,10 +2,12 @@ package cs1.softwareProject.explore;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -14,7 +16,9 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -63,7 +67,7 @@ import android.widget.Toast;
 		 /// remove the action bar 
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("Please Register Your Details");
-		actionBar.setLogo(R.drawable.arrow);
+	//	actionBar.setLogo(R.drawable.arrow);
       // actionBar.hide();
 		
 		
@@ -77,10 +81,9 @@ import android.widget.Toast;
 		nation = (EditText) findViewById(R.id.nation);
 		occup = (EditText) findViewById(R.id.occu);
 		about = (EditText) findViewById(R.id.about);
-
 		mRegister = (Button) findViewById(R.id.register);
 		mRegister.setOnClickListener(this);
-
+		  getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -89,6 +92,11 @@ import android.widget.Toast;
 
 		new CreateUser().execute();
 
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    onBackPressed();
+	    return true;
 	}
 
 	class CreateUser extends AsyncTask<String, String, String> {

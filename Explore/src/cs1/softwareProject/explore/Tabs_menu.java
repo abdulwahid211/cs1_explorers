@@ -16,24 +16,34 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
  
 
 public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
-    /** Called when the activity is first created. */
+	ActionBar actionBar;
+	View someView;
+	 View root;
     @TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(43, 172, 181)));
+        actionBar = getActionBar();
+        actionBar.setTitle("All Events");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(24, 41, 59)));
+       someView = findViewById(R.id.mylayout);
+     // Find the root view
+    //   root = someView.getRootView();
+
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent [] = new Intent[3];
@@ -42,6 +52,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         intent[0] = new Intent().setClass(this, showGroup.class);
         spec = tabHost.newTabSpec("First").setIndicator("First")
                 .setContent(intent[0]);
+        
         tabHost.addTab(spec);
         
         /*
@@ -72,7 +83,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         */
      //  setTabColor( tabHost) ;
      //  tabHost.setCurrentTab(2);
-     //  tabHost.setOnTabChangedListener(this);
+       tabHost.setOnTabChangedListener(this);
         
         
     }
@@ -120,10 +131,25 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 	}
 
 
-	public void onTabChanged(String tabId ) {
+	@SuppressLint("NewApi") public void onTabChanged(String tabId ) {
+		@SuppressWarnings("deprecation")
 		TabHost tabhost = getTabHost() ;
+		if(tabId.equals("First")){
+	//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
+		actionBar.setTitle("All Events");
+		someView.setBackgroundColor(Color.parseColor("#F7F7F7"));
+		}
 		if(tabId.equals("Second")){
-		tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
+		//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
+			actionBar.setTitle("Map");
+			someView.setBackgroundColor(Color.parseColor("#F7F7F7"));
+			}
+		if(tabId.equals("Third")){
+		//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
+			//root.setBackgroundColor(getResources().getColor(Color.parseColor("#FFFFFF")));
+			
+			actionBar.setTitle("Create an Event");
+			someView.setBackgroundColor(Color.parseColor("#18293B"));
 		}
 		
 	}

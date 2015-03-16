@@ -7,11 +7,12 @@
      >
 
     <LinearLayout
+        android:id="@+id/mylayout"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="0dp"
-        android:background="#F5FFF5"
+       
+        android:background="#F7F7F7"
         
         >
 
@@ -19,10 +20,8 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_weight="1"
-            
-            />
+            android:layout_weight="0.90"
+            android:padding="5dp" />
 
         <TabWidget
             android:id="@android:id/tabs"

@@ -23,9 +23,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -52,10 +56,12 @@ public class showGroup extends ListActivity {
 	public static List<Group> user_group = new groupData().getGroup();
 	groupAdapter adapter;
 
-	protected void onCreate(Bundle savedInstanceState) {
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group_list);
 		adapter = new groupAdapter(this, R.layout.group_item, user_group);
+		ActionBar actionBar = getActionBar();
+		//actionBar.setTitle("All Events");
 		accessWebService();
 		setListAdapter(adapter);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);

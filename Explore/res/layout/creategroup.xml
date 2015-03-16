@@ -2,141 +2,25 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#18293B"
+     >
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="715dp" >
-
-    <EditText
-        android:id="@+id/eventName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:hint="e.g YourEventName"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/eventName"
-        android:layout_below="@+id/eventName"
-        android:text="Location Name:" />
-
-    <EditText
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView01"
-        android:hint="e.g 'New Cross'"
-        android:layout_centerHorizontal="true"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/postcode"
-        android:layout_width="wrap_content"
-        android:hint="e.g 'SW1 78Q'"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/location"
-        android:layout_below="@+id/location"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:freezesText="true" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="e.g '10:00pm, 05/06/15'"
-        android:layout_alignLeft="@+id/postcode"
-        android:layout_below="@+id/postcode"
-        android:layout_marginTop="21dp"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/location"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="Name of the Event" />
-
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="wrap_content"
-        android:hint="e.g '21+'"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/location"
-        android:layout_below="@+id/time"
-        android:layout_marginTop="23dp"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/TextView09"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/time"
-        android:layout_below="@+id/postcode"
-        android:text="Time and Date:" />
-
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/location"
-        android:text="Post Code:" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/time"
-        android:text="Age Groups" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/age"
-        android:text="Description of the Event:" />
+    android:layout_height="638dp" >
 
     <EditText
         android:id="@+id/des"
         android:layout_width="250dp"
         android:layout_height="100dp"
-         android:hint="'Write a few description about your event....'"
-        android:layout_alignLeft="@+id/TextView04"
+        android:layout_alignLeft="@+id/age"
         android:layout_alignRight="@+id/age"
         android:layout_below="@+id/age"
         android:layout_marginTop="23dp"
-        android:ems="10" />
-
-     <TextView
-         android:id="@+id/TextView05"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/des"
-         android:layout_below="@+id/des"
-         android:text="Please choose a Language " />
-
-     <Button
-         android:id="@+id/createGroup"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginBottom="38dp"
-         android:onClick="createGroupObject"
-         android:text="Submit" />
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint=" Description about the  event" />
 
      <TextView
          android:id="@+id/TextView06"
@@ -145,26 +29,112 @@
          android:layout_alignLeft="@+id/OtherText"
          android:layout_below="@+id/spinner1"
          android:layout_marginTop="23dp"
+         android:textColor="#FFFFFF"
          android:text="If Other, please enter" />
 
      <EditText
          android:id="@+id/OtherText"
          android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
+         android:layout_height="30dp"
          android:layout_alignLeft="@+id/TextView05"
+         android:background="#FFFFFF"
          android:layout_below="@+id/TextView06"
          android:ems="10"
-         android:hint="e.g &apos;Russain&apos;" />
+         android:hint=" Language" />
 
      <Spinner
          android:id="@+id/spinner1"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
+         android:layout_alignLeft="@+id/TextView05"
+         android:layout_alignRight="@+id/OtherText"
          android:layout_below="@+id/TextView05"
          android:layout_marginTop="14dp"
+         android:background="#FFFFFF"
          android:entries="@array/language_arrays"
          android:prompt="@string/language_prompt" />
+
+     <EditText
+         android:id="@+id/location"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_below="@+id/eventName"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="18dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint=" Location Name" />
+
+     <EditText
+         android:id="@+id/postcode"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/location"
+         android:layout_below="@+id/location"
+         android:layout_marginTop="19dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:freezesText="true"
+         android:hint=" Post Code" >
+
+         <requestFocus />
+     </EditText>
+
+     <EditText
+         android:id="@+id/time"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/postcode"
+         android:layout_below="@+id/postcode"
+         android:layout_marginTop="18dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint=" Time and Date" />
+
+     <EditText
+         android:id="@+id/age"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/time"
+         android:layout_below="@+id/time"
+         android:layout_marginTop="18dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint="Age Group" />
+
+     <Button
+         android:id="@+id/createGroup"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/OtherText"
+         android:layout_alignRight="@+id/TextView05"
+         android:layout_below="@+id/OtherText"
+         android:layout_marginLeft="18dp"
+         android:layout_marginTop="25dp"
+         android:onClick="createGroupObject"
+         android:text="Submit"
+         android:textColor="#FFFFFF" />
+
+     <TextView
+         android:id="@+id/TextView05"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/des"
+         android:layout_below="@+id/des"
+         android:layout_marginTop="14dp"
+         android:text="Please choose a Language "
+         android:textColor="#FFFFFF" />
+
+     <EditText
+         android:id="@+id/eventName"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/location"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="46dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint=" Event Name" />
 
 </RelativeLayout>
 

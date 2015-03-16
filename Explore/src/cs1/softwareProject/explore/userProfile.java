@@ -1,15 +1,19 @@
 package cs1.softwareProject.explore;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class userProfile extends Activity {
 	
 	
-	@Override
+	@SuppressLint("NewApi") @TargetApi(Build.VERSION_CODES.HONEYCOMB) @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -45,12 +49,16 @@ public class userProfile extends Activity {
     ImageView im = (ImageView) findViewById(R.id.imageView1);	
     im.setImageResource(image);
     
-    
+    getActionBar().setDisplayHomeAsUpEnabled(true);
+	
 	
 	}
 	
 	
-	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    onBackPressed();
+	    return true;
+	}
 	
 	
 

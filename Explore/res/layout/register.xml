@@ -1,168 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#18293B" >
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="619dp" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="619dp" >
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:hint="e.g 'explore92'"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/password"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/about"
+            android:layout_marginTop="28dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="  Username" />
 
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/username"
-        android:layout_below="@+id/username"
-        android:text="Password" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/postcode"
+            android:layout_alignRight="@+id/about"
+            android:layout_below="@+id/username"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint=" Password"
+            android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView01"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/postcode"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/time"
+            android:layout_alignRight="@+id/time"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="18dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:freezesText="true"
+            android:hint="  First Name" >
 
-    <EditText
-        android:id="@+id/postcode"
-        android:layout_width="wrap_content"
-        android:hint="e.g 'Jones'"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:freezesText="true" >
+            <requestFocus />
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/age"
+            android:layout_alignRight="@+id/about"
+            android:layout_below="@+id/postcode"
+            android:layout_marginTop="21dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint=" Last Name" />
 
-    <EditText
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="e.g 'Smith'"
-        android:layout_alignLeft="@+id/postcode"
-        android:layout_below="@+id/postcode"
-        android:layout_marginTop="21dp"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/nation"
+            android:layout_alignRight="@+id/about"
+            android:layout_below="@+id/time"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint=" Age" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="Username" />
+        <EditText
+            android:id="@+id/nation"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/occu"
+            android:layout_alignRight="@+id/about"
+            android:layout_below="@+id/age"
+            android:layout_marginTop="18dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint=" Nationality" />
 
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="e.g '34'"
-        android:layout_alignRight="@+id/password"
-        android:layout_below="@+id/time"
-        android:layout_marginTop="23dp"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/occu"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/about"
+            android:layout_alignRight="@+id/about"
+            android:layout_below="@+id/nation"
+            android:layout_marginTop="22dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint=" Occupation" />
 
-    <TextView
-        android:id="@+id/TextView09"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/time"
-        android:layout_below="@+id/postcode"
-        android:text="Last Name" />
+        <EditText
+            android:id="@+id/about"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/occu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Feel free to explain about yourself........" />
 
-    <EditText
-        android:id="@+id/nation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="e.g 'British'"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/age"
-        android:layout_marginTop="22dp"
-        android:ems="10" />
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Register" />
 
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/password"
-        android:text="First Name" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/time"
-        android:text="Age" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/TextView04"
-        android:text="Register" />
-
-    <EditText
-        android:id="@+id/occu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="e.g 'Engineer'"
-        android:layout_alignLeft="@+id/TextView04"
-        android:layout_below="@+id/nation"
-        android:layout_marginTop="18dp"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/age"
-        android:layout_below="@+id/age"
-        android:text="Nationality" />
-
-    <TextView
-        android:id="@+id/TextView05"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/time"
-        android:layout_below="@+id/nation"
-        android:text="Occupation" />
-
-    <TextView
-        android:id="@+id/TextView06"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView05"
-        android:layout_below="@+id/occu"
-        android:text="About" />
-
-    <EditText
-        android:id="@+id/about"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/TextView06"
-        android:layout_alignRight="@+id/time"
-        android:layout_below="@+id/TextView06"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Feel free to explain about yourself........" />
-
-</RelativeLayout>
 </ScrollView>

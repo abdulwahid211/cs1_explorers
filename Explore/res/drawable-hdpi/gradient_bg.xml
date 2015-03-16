@@ -3,8 +3,8 @@
     android:shape="rectangle">
   <!-- http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/ -->
  <gradient
-      android:startColor="#FCFAE1"
-      android:centerColor="#FCFAE1"
-      android:endColor="#FCFAE1"
+      android:startColor="#F7F7F7"
+      android:centerColor="#F7F7F7"
+      android:endColor="#F7F7F7"
       android:angle="270" />
 </shape>
