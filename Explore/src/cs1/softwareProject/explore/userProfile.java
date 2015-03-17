@@ -2,8 +2,11 @@ package cs1.softwareProject.explore;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,20 +34,23 @@ public class userProfile extends Activity {
 	
 	
 		
-    TextView tv = (TextView) findViewById(R.id.userName);	
-    tv.setText("Full Name: "+fname+" "+lname);
+	ActionBar actionBar = getActionBar();
+	actionBar.setTitle(fname+" "+lname);
+    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(24, 41, 59)));
     
-    TextView tv1 = (TextView) findViewById(R.id.textView2);	
-    tv1.setText("Nationality: "+nationality);
+    //TextView tv1 = (TextView) findViewById(R.id.nation);	
+    //tv1.setText(nationality);
     
-    TextView tv2 = (TextView) findViewById(R.id.textView3);	
-    tv2.setText("Age: "+age+" years old");
+    TextView tv2 = (TextView) findViewById(R.id.age);	
+    tv2.setText("Age: "+age+" years old\n\n"+"Occupation: "+occupation+"\n\n"+"Nationality: "+nationality);
     
-    TextView tv3 = (TextView) findViewById(R.id.occu);	
-    tv3.setText("Occupation: "+occupation);
+   // TextView tv3 = (TextView) findViewById(R.id.occu);	
+    //tv3.setText("Occupation: "+occupation);
     
-    TextView tv4 = (TextView) findViewById(R.id.descrip);	
-    tv4.setText("About: "+about);
+    TextView tv4 = (TextView) findViewById(R.id.about);	
+    tv4.append(about);
+    
+    
     
     ImageView im = (ImageView) findViewById(R.id.imageView1);	
     im.setImageResource(image);

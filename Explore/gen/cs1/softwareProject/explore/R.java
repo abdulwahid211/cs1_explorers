@@ -626,14 +626,16 @@ containing a value of this type.
         public static final int indicator_bg_top=0x7f02002f;
         public static final int italian=0x7f020030;
         public static final int japanese=0x7f020031;
-        public static final int list_selector=0x7f020032;
-        public static final int mandarin=0x7f020033;
-        public static final int other=0x7f020034;
-        public static final int portoguese=0x7f020035;
-        public static final int powered_by_google_dark=0x7f020036;
-        public static final int powered_by_google_light=0x7f020037;
-        public static final int spanish=0x7f020038;
-        public static final int tab_selector=0x7f020039;
+        public static final int layout_bg=0x7f020032;
+        public static final int list_selector=0x7f020033;
+        public static final int mandarin=0x7f020034;
+        public static final int momo=0x7f020035;
+        public static final int other=0x7f020036;
+        public static final int portoguese=0x7f020037;
+        public static final int powered_by_google_dark=0x7f020038;
+        public static final int powered_by_google_light=0x7f020039;
+        public static final int spanish=0x7f02003a;
+        public static final int tab_selector=0x7f02003b;
     }
     public static final class id {
         public static final int OtherText=0x7f07002a;
@@ -653,7 +655,6 @@ containing a value of this type.
         public static final int classic=0x7f070020;
         public static final int createGroup=0x7f070031;
         public static final int des=0x7f070027;
-        public static final int descrip=0x7f070054;
         public static final int disabled=0x7f070004;
         public static final int donate_with_google=0x7f07001f;
         public static final int editText1=0x7f070024;
@@ -677,10 +678,10 @@ containing a value of this type.
         public static final int login=0x7f070042;
         public static final int manualOnly=0x7f070005;
         public static final int map=0x7f070026;
-        public static final int mapTypeHybrid=0x7f070058;
-        public static final int mapTypeNormal=0x7f070055;
-        public static final int mapTypeSatellite=0x7f070056;
-        public static final int mapTypeTerrain=0x7f070057;
+        public static final int mapTypeHybrid=0x7f070056;
+        public static final int mapTypeNormal=0x7f070053;
+        public static final int mapTypeSatellite=0x7f070054;
+        public static final int mapTypeTerrain=0x7f070055;
         public static final int match_parent=0x7f07001a;
         public static final int monochrome=0x7f070022;
         public static final int mylayout=0x7f070046;
@@ -720,7 +721,6 @@ containing a value of this type.
         public static final int tv_des=0x7f070041;
         public static final int tv_name=0x7f070040;
         public static final int txtDisplayedTab=0x7f07004f;
-        public static final int userName=0x7f070053;
         public static final int userView=0x7f07003f;
         public static final int username=0x7f070045;
         public static final int webview=0x7f070001;

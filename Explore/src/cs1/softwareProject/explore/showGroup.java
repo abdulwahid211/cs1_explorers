@@ -149,7 +149,7 @@ public class showGroup extends ListActivity {
 		accessWebService();
 		setListAdapter(adapter);
 		Log.d("YouView ", "Its Resume baby");
-		// accessWebService();
+		 accessWebService();
 	}
 
 	private class GetDataTask extends AsyncTask<List<Group>, Void, List<Group>> {

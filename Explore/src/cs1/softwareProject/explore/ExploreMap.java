@@ -57,7 +57,7 @@ public class ExploreMap extends FragmentActivity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		 t = (ArrayList<Group>) showGroup.user_group;
+		// t = (ArrayList<Group>) showGroup.user_group;
 	}
 	
 	
@@ -65,8 +65,9 @@ public class ExploreMap extends FragmentActivity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		 t = (ArrayList<Group>) showGroup.user_group;
+		
 		 try {
+			 t = (ArrayList<Group>) showGroup.user_group;
 			UserGeoLocate();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
