@@ -76,9 +76,11 @@
           <activity android:name=".maleImage" >
         </activity>
         
-           <activity android:name="femaleImage" >
+           <activity android:name=".femaleImage" >
         </activity>
-        
+        <activity android:name=".userImage" >
+        </activity>
+       
             <activity android:name=".previewProfile" >
         </activity>
         

@@ -221,7 +221,7 @@ public class createGroup extends Activity implements OnClickListener {
 
 		}
 
-	}
+	}// end shit 
 
 	private class JsonObjectData extends AsyncTask<String, Void, String> {
 

@@ -1,6 +1,7 @@
 package cs1.softwareProject.explore;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -18,12 +20,14 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -32,10 +36,12 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -449,29 +455,50 @@ public class GroupProfile extends Activity {
 		task.execute(new String[] { url });
 	}
 
+	private String getStringFromBitmap(Bitmap bitmapPicture) {
+		 /*
+		 * This functions converts Bitmap picture to a string which can be
+		 * JSONified.
+		 * */
+		 final int COMPRESSION_QUALITY = 100;
+		 String encodedImage;
+		 ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
+		 bitmapPicture.compress(Bitmap.CompressFormat.PNG, COMPRESSION_QUALITY,
+		 byteArrayBitmapStream);
+		 byte[] b = byteArrayBitmapStream.toByteArray();
+		 encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+		 return encodedImage;
+		 }
+	
+	
+	
 	public void DisplayData() {
 		joined_user.clear();
 		map.clear();
 		value.clear();
 		try {
-
+String m ="";
 			JSONObject jsonResponse = new JSONObject(jsonResult);
-
+			
 			// name of the user group
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
-
+			//	m =jsonChildNode.optString("Arsenal");
+				//JSONObject jsonObject = new JSONObject(jsonChildNode.optString(m));
+			//	String encodedImage = getStringFromBitmap(jsonChildNode.optString(m));
 				String userName = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 				String fname = jsonChildNode.optString("FirstName");
 				String lname = jsonChildNode.optString("LastName");
+				String image_no = jsonChildNode.optString("image_no");
 				String professional = jsonChildNode.optString("Occupation");
 				String nation = jsonChildNode.optString("Nationality");
 				String age = jsonChildNode.optString("Age");
 				String about  = jsonChildNode.optString("About"); 
-				String arsenal = jsonChildNode.optString("Arsenal"); 
+				
+			//	String arsenal = jsonObject.toString(); 
 				int userId = jsonChildNode.optInt("id");
 
 				int maps = jsonChildNode.optInt("group_id");
@@ -480,7 +507,7 @@ public class GroupProfile extends Activity {
 
 				// list all the attributes of the group
 				if(userId !=0){
-				joined_user.add(new userObject(userId, userName,fname, lname,
+				joined_user.add(new userObject(userId, userName,fname + image_no, lname,
 						R.drawable.california_snow, age, nation, professional,about));
 				}
 				if(maps !=0 && values !=0){
