@@ -13,6 +13,7 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -91,7 +92,15 @@ import android.widget.Toast;
 		// TODO Auto-generated method stub
 
 		new CreateUser().execute();
+		
+		click(v);
 
+	}
+	
+	public void click(View v)
+	{
+		Intent intent = new Intent(v.getContext(), ImageChooser.class);
+		startActivityForResult(intent, 0);
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item) {

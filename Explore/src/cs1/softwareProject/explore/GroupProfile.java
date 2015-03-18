@@ -471,6 +471,7 @@ public class GroupProfile extends Activity {
 				String nation = jsonChildNode.optString("Nationality");
 				String age = jsonChildNode.optString("Age");
 				String about  = jsonChildNode.optString("About"); 
+				String arsenal = jsonChildNode.optString("Arsenal"); 
 				int userId = jsonChildNode.optInt("id");
 
 				int maps = jsonChildNode.optInt("group_id");
