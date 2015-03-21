@@ -53,7 +53,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class GroupProfile extends Activity {
-
+    public 	HashMap <String,Integer> userImg;
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
@@ -84,7 +84,7 @@ public class GroupProfile extends Activity {
 		setContentView(R.layout.groupprofile);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayUseLogoEnabled(false);
-		
+		 userImg = new HashMap <String,Integer>();
 		accessWebService();
 		Intent intent = getIntent();
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.userView);
@@ -207,9 +207,20 @@ public class GroupProfile extends Activity {
 		
 		
 		
-		
+		setUserImage();
 		 getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
+	
+	public void setUserImage(){
+		userImg.put("0",R.drawable.img1);
+		userImg.put("1",R.drawable.img2);
+		userImg.put("2",R.drawable.img3);
+		userImg.put("3",R.drawable.img0);
+		
+	}
+	
+	
+	
 	
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    onBackPressed();
@@ -507,8 +518,8 @@ String m ="";
 
 				// list all the attributes of the group
 				if(userId !=0){
-				joined_user.add(new userObject(userId, userName,fname + image_no, lname,
-						R.drawable.california_snow, age, nation, professional,about));
+				joined_user.add(new userObject(userId, userName,fname, lname,
+						userImg.get(image_no), age, nation, professional,about));
 				}
 				if(maps !=0 && values !=0){
 				map.add(maps);

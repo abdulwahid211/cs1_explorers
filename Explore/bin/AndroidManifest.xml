@@ -68,23 +68,17 @@
         </activity>
         <activity android:name="GroupProfile" >
         </activity>
-        
-        
-         <activity android:name=".ImageChooser" >
+        <activity android:name=".imageGallery" >
         </activity>
         
-          <activity android:name=".maleImage" >
-        </activity>
-        
-           <activity android:name=".femaleImage" >
-        </activity>
-        <activity android:name=".userImage" >
-        </activity>
-       
-            <activity android:name=".previewProfile" >
-        </activity>
-        
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCt9Wzv8orGF1G_1fbJlLyQmecFQNkliO8" />
     </application>
+
+   
 
 </manifest>
