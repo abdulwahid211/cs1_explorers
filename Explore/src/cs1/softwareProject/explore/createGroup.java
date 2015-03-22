@@ -79,8 +79,8 @@ public class createGroup extends Activity implements OnClickListener {
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
 		createGroup.setOnClickListener(this);
 	    other = (EditText) findViewById(R.id.OtherText);
-	
-		//accessWebService();
+	    
+	   accessWebService();
 	   spinner1.setOnItemSelectedListener(new CustomOtherCall());
 	
 		
@@ -106,11 +106,26 @@ public class createGroup extends Activity implements OnClickListener {
 		}
 		
 
+		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
+				des.length() >1 && post.length()>1){
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
 				ageGroup,post,otherLanguage).execute();
 		
 		accessWebService();
-		nameEvent.clearComposingText();
+		nameEvent.setText("");
+		location.setText("");
+		age.setText("");
+		time.setText("");
+		description.setText("");
+		ps.setText("");
+		other.setText("");
+		
+		}
+		else{
+			Toast.makeText(getApplicationContext(),
+					"You must enter fill everything!",
+					Toast.LENGTH_SHORT).show();
+		}
 
 	///Intent i = new Intent(createGroup.this, Tabs_menu.class);
 		//startActivity(i);

@@ -56,12 +56,14 @@ public class showGroup extends ListActivity {
 	public static List<Group> user_group = new groupData().getGroup();
 	groupAdapter adapter;
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") protected void onCreate(Bundle savedInstanceState) {
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressLint("NewApi")
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group_list);
 		adapter = new groupAdapter(this, R.layout.group_item, user_group);
 		ActionBar actionBar = getActionBar();
-		//actionBar.setTitle("All Events");
+		// actionBar.setTitle("All Events");
 		accessWebService();
 		setListAdapter(adapter);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
@@ -87,7 +89,9 @@ public class showGroup extends ListActivity {
 						// Do work to refresh the list here.
 						new GetDataTask().execute();
 						accessWebService();
+						BubbleSort(user_group);
 						setListAdapter(adapter);
+						
 					}
 				});
 
@@ -149,7 +153,7 @@ public class showGroup extends ListActivity {
 		accessWebService();
 		setListAdapter(adapter);
 		Log.d("YouView ", "Its Resume baby");
-		 accessWebService();
+		accessWebService();
 	}
 
 	private class GetDataTask extends AsyncTask<List<Group>, Void, List<Group>> {
@@ -247,14 +251,37 @@ public class showGroup extends ListActivity {
 				String image_no = jsonChildNode.optString("image_no");
 				String pos = jsonChildNode.optString("postCode");
 				String lan = jsonChildNode.optString("language");
-				user_group.add(new Group(groupId, adminId, eventName , location,
+				user_group.add(new Group(groupId, adminId, eventName, location,
 						pos, time, des, ageGroup, R.drawable.california_snow,
 						lan));
 			}
+
+			BubbleSort(user_group);
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					"Failed to display data! " + e.toString(),
 					Toast.LENGTH_SHORT).show();
+		}
+
+	}
+
+	public static void BubbleSort(List<Group> list) {
+		Group a;
+
+		for (int i = list.size() - 1; i > 0; i--) {
+
+			for (int j = 0; j < i; j++) {
+
+				if (list.get(j).nameOfEvent
+						.compareTo(list.get(j + 1).nameOfEvent) > 0) {
+					a = list.get(j);
+
+					list.set(j, list.get(j + 1));
+					list.set(j + 1, a);
+
+				}
+			}
+
 		}
 
 	}
