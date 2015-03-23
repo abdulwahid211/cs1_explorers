@@ -89,8 +89,8 @@ public class showGroup extends ListActivity {
 						// Do work to refresh the list here.
 						new GetDataTask().execute();
 						accessWebService();
-						BubbleSort(user_group);
-						setListAdapter(adapter);
+						//BubbleSort(user_group);
+					  setListAdapter(adapter);
 						
 					}
 				});
@@ -112,18 +112,29 @@ public class showGroup extends ListActivity {
 
 		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(
 				this);
-		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
-		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
-		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
-		mPullRefreshListView.setOnPullEventListener(soundListener);
+	//	soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
+	//	soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
+	//	soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
+	//	mPullRefreshListView.setOnPullEventListener(soundListener);
 
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 
 		// Need to use the Actual ListView when registering for Context Menu
 		registerForContextMenu(actualListView);
 
-		// setListAdapter(adapter);
-		// accessWebService();
+		
+	}
+	
+	
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		accessWebService();
+		setListAdapter(adapter);
+		Log.d("YouView ", "Its Resume baby");
+		accessWebService();
+		
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -145,16 +156,8 @@ public class showGroup extends ListActivity {
 		startActivity(intent);
 	}
 
-	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
+	
 
-		accessWebService();
-		setListAdapter(adapter);
-		Log.d("YouView ", "Its Resume baby");
-		accessWebService();
-	}
 
 	private class GetDataTask extends AsyncTask<List<Group>, Void, List<Group>> {
 
@@ -256,7 +259,7 @@ public class showGroup extends ListActivity {
 						lan));
 			}
 
-			BubbleSort(user_group);
+		//	BubbleSort(user_group);
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					"Failed to display data! " + e.toString(),

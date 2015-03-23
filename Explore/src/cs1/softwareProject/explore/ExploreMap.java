@@ -50,12 +50,7 @@ public class ExploreMap extends FragmentActivity {
 
 	}
 	
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		// t = (ArrayList<Group>) showGroup.user_group;
-	}
+	
 	
 	
 	@Override

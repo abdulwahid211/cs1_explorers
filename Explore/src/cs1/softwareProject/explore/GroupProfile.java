@@ -120,11 +120,11 @@ public class GroupProfile extends Activity {
 		tv4.setText(ageGroup);
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
-		/*
+		
 		byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
 		Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
 		im.setImageBitmap(bit);
-*/      im.setImageResource(R.drawable.california_snow);
+     // im.setImageResource(R.drawable.california_snow);
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -169,6 +169,7 @@ public class GroupProfile extends Activity {
 						// Do work to refresh the list here.
 						 new GetDataTask().execute();
 							accessWebService();
+							mPullRefreshListView.setAdapter(adapter);
 							//setListAdapter(adapter);
 					}
 				});
@@ -222,17 +223,19 @@ public class GroupProfile extends Activity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		accessWebService();
+		//mPullRefreshListView.setAdapter(adapter);
 		Log.d("MainActivity", "onResumeGP()");
+		//accessWebService();
 	}
-	/*
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
 	//	user_group.clear();
+	//	accessWebService();
 		Log.d("MainActivity", "onPauseGP()");
 	}
-*/
+
 	public void joinGroup(View v) {
 		
 		new JoinedGroup(group_id, user_id).execute();
@@ -245,7 +248,7 @@ public class GroupProfile extends Activity {
 		protected List<userObject> doInBackground(List<userObject>... params) {
 			// Simulates a background job.
 			try {
-				Thread.sleep(4000);	
+				Thread.sleep(2000);	
 				//setListAdapter(adapter);
 			} catch (InterruptedException e) {
 			}
@@ -475,6 +478,7 @@ public class GroupProfile extends Activity {
 	
 	
 	public void DisplayData() {
+	//	adapter.clear();
 		joined_user.clear();
 		map.clear();
 		value.clear();
@@ -487,9 +491,7 @@ String m ="";
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
-			//	m =jsonChildNode.optString("Arsenal");
-				//JSONObject jsonObject = new JSONObject(jsonChildNode.optString(m));
-			//	String encodedImage = getStringFromBitmap(jsonChildNode.optString(m));
+		
 				String userName = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 				String fname = jsonChildNode.optString("FirstName");
@@ -500,7 +502,7 @@ String m ="";
 				String age = jsonChildNode.optString("Age");
 				String about  = jsonChildNode.optString("About"); 
 				
-			//	String arsenal = jsonObject.toString(); 
+			
 				int userId = jsonChildNode.optInt("id");
 
 				int maps = jsonChildNode.optInt("group_id");
