@@ -12,5 +12,7 @@
     <item
         android:id="@+id/mapTypeHybrid"
         android:title="Hybrid"/>
+    
+  
 
 </menu>

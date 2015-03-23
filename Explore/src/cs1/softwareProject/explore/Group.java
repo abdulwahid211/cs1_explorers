@@ -27,9 +27,20 @@ public class Group {
 	}
 	
 	public int getIDs(){
-		return this.groupId;
+		return this.adminId;
 	}
 	
+	public String getName(){
+		return this.nameOfEvent;
+	}
+	
+	public int getgId(){
+		return this.groupId;
+	}
+	public String getLan(){
+		return this.language;
+	}
+
 	
 
 }

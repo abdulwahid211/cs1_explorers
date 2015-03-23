@@ -99,7 +99,7 @@ import android.widget.Toast;
 	
 	public void click(View v)
 	{
-		Intent intent = new Intent(v.getContext(), imageGallery.class);
+		Intent intent = new Intent(v.getContext(), ImageChooser.class);
 		startActivityForResult(intent, 0);
 	}
 	

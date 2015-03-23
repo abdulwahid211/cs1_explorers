@@ -9,8 +9,19 @@
     tools:context=".ImageChooser" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="155dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:src="@drawable/common_signin_btn_text_normal_dark" />
 
 </RelativeLayout>

@@ -44,9 +44,6 @@ public class ExploreMap extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
-	
-	//	flagsImg.put("Other", R.drawable.other);
 		super.onCreate(savedInstanceState);
 		StartExploreMap();
 		

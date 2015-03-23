@@ -1,6 +1,7 @@
 package cs1.softwareProject.explore;
 
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
@@ -21,11 +22,13 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,7 +113,7 @@ public class imageGallery extends Activity {
 	public void ChooseImage(View v){
 		choosed = true;
 		new makeImage(String.valueOf(a)).execute();
-		Intent i = new Intent(imageGallery.this, Login.class);
+		Intent i = new Intent(imageGallery.this, PreviewProfile.class);
 		startActivity(i);
 		
 	}
@@ -221,7 +224,7 @@ public class imageGallery extends Activity {
 	
 class makeImage extends AsyncTask<String, String, String> {
 
-		
+		int a = R.drawable.arabic;
 		String image_no;
 
 		makeImage(String no) {
@@ -239,6 +242,11 @@ class makeImage extends AsyncTask<String, String, String> {
 			pDialog.setCancelable(true);
 			pDialog.show();
 		}
+		public byte[] getBytesFromBitmap(Bitmap bitmap) {
+		    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		    bitmap.compress(CompressFormat.PNG, 70, stream);
+		    return stream.toByteArray();
+		}
 
 		@Override
 		protected String doInBackground(String... args) {
@@ -246,9 +254,16 @@ class makeImage extends AsyncTask<String, String, String> {
 			int success;
 
 			try {
-
+               
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("user_image", image_no));
+				
+				Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.female_glass4);
+				String imgString = Base64.encodeToString(getBytesFromBitmap(largeIcon), 
+	                       Base64.NO_WRAP);
+				
+				
+				
+				params.add(new BasicNameValuePair("user_image", imgString));
 				Log.d("request!", "starting");
 
 				// Posting user data to script
@@ -290,5 +305,6 @@ class makeImage extends AsyncTask<String, String, String> {
 		}
 
 	}// end shit
+
 
 }
