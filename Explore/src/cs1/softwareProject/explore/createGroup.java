@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -32,7 +33,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class createGroup extends Activity implements OnClickListener {
-
+	
 	EditText nameEvent;
 	EditText location;
 	EditText age;
@@ -42,7 +43,8 @@ public class createGroup extends Activity implements OnClickListener {
 	EditText other;
 	Button createGroup;
 	Spinner spinner1;
-	String image ="";
+	Spinner spinner2;
+	String place =" ";
 	String nameOfEvent = "";
 	String nameOfLocation = "";
 	String ageGroup = "";
@@ -65,7 +67,7 @@ public class createGroup extends Activity implements OnClickListener {
 	
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
-	
+	public boolean a = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,15 +81,18 @@ public class createGroup extends Activity implements OnClickListener {
 		ps = (EditText) findViewById(R.id.postcode);
 		createGroup = (Button) findViewById(R.id.createGroup);
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		spinner2 = (Spinner) findViewById(R.id.spinner2);
 		createGroup.setOnClickListener(this);
 	    other = (EditText) findViewById(R.id.OtherText);
-	    
+	   
 	   accessWebService();
 	   spinner1.setOnItemSelectedListener(new CustomOtherCall());
 	
-		
+	
 		
 	}
+	
+	
 
 	public void onClick(View v) {
 		
@@ -98,9 +103,10 @@ public class createGroup extends Activity implements OnClickListener {
 		timeOfEvent = time.getText().toString();
 		des = description.getText().toString();
 		post = ps.getText().toString();
-	
+		place=String.valueOf(spinner2.getSelectedItem());
 		
 		if(spinner1.getSelectedItem().equals("Other")){
+			other.setVisibility(View.VISIBLE);
 			otherLanguage=other.getText().toString();
 		}
 		else{
@@ -112,7 +118,7 @@ public class createGroup extends Activity implements OnClickListener {
 				des.length() >1 && post.length()>1){
 			*/
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
-				ageGroup,post,otherLanguage, image).execute();
+				ageGroup,post,otherLanguage, place).execute();
 		
 		accessWebService();
 		nameEvent.setText("");
@@ -122,6 +128,7 @@ public class createGroup extends Activity implements OnClickListener {
 		description.setText("");
 		ps.setText("");
 		other.setText("");
+		
 		/*
 	//	}
 	//	else{
@@ -318,7 +325,7 @@ public class createGroup extends Activity implements OnClickListener {
 					String nation = jsonChildNode.optString("Nationality");
 					String age = jsonChildNode.optString("Age");
 					String about  = jsonChildNode.optString("About"); 
-					image = jsonChildNode.optString("image_no");
+					
 					adminId = jsonChildNode.optInt("id");
 				}
 

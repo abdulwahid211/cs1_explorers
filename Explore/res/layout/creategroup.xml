@@ -3,24 +3,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#18293B"
+    android:background="#FC8F00"
      >
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="638dp" >
-
-    <EditText
-        android:id="@+id/des"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/age"
-        android:layout_alignRight="@+id/age"
-        android:layout_below="@+id/age"
-        android:layout_marginTop="23dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint=" Description about the  event" />
+    android:layout_height="686dp" >
 
      <TextView
          android:id="@+id/TextView06"
@@ -40,19 +28,8 @@
          android:background="#FFFFFF"
          android:layout_below="@+id/TextView06"
          android:ems="10"
+         
          android:hint=" Language" />
-
-     <Spinner
-         android:id="@+id/spinner1"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/TextView05"
-         android:layout_alignRight="@+id/OtherText"
-         android:layout_below="@+id/TextView05"
-         android:layout_marginTop="14dp"
-         android:background="#FFFFFF"
-         android:entries="@array/language_arrays"
-         android:prompt="@string/language_prompt" />
 
      <EditText
          android:id="@+id/location"
@@ -64,43 +41,6 @@
          android:background="#FFFFFF"
          android:ems="10"
          android:hint=" Location Name" />
-
-     <EditText
-         android:id="@+id/postcode"
-         android:layout_width="wrap_content"
-         android:layout_height="30dp"
-         android:layout_alignLeft="@+id/location"
-         android:layout_below="@+id/location"
-         android:layout_marginTop="19dp"
-         android:background="#FFFFFF"
-         android:ems="10"
-         android:freezesText="true"
-         android:hint=" Post Code" >
-
-         <requestFocus />
-     </EditText>
-
-     <EditText
-         android:id="@+id/time"
-         android:layout_width="wrap_content"
-         android:layout_height="30dp"
-         android:layout_alignLeft="@+id/postcode"
-         android:layout_below="@+id/postcode"
-         android:layout_marginTop="18dp"
-         android:background="#FFFFFF"
-         android:ems="10"
-         android:hint=" Time and Date" />
-
-     <EditText
-         android:id="@+id/age"
-         android:layout_width="wrap_content"
-         android:layout_height="30dp"
-         android:layout_alignLeft="@+id/time"
-         android:layout_below="@+id/time"
-         android:layout_marginTop="18dp"
-         android:background="#FFFFFF"
-         android:ems="10"
-         android:hint="Age Group" />
 
      <Button
          android:id="@+id/createGroup"
@@ -115,16 +55,6 @@
          android:text="Submit"
          android:textColor="#FFFFFF" />
 
-     <TextView
-         android:id="@+id/TextView05"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/des"
-         android:layout_below="@+id/des"
-         android:layout_marginTop="14dp"
-         android:text="Please choose a Language "
-         android:textColor="#FFFFFF" />
-
      <EditText
          android:id="@+id/eventName"
          android:layout_width="wrap_content"
@@ -135,6 +65,97 @@
          android:background="#FFFFFF"
          android:ems="10"
          android:hint=" Event Name" />
+
+     <TextView
+         android:id="@+id/TextView01"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/location"
+         android:layout_below="@+id/location"
+         android:layout_marginTop="18dp"
+         android:text="Please pick a category "
+         android:textColor="#FFFFFF" />
+
+     <Spinner
+         android:id="@+id/spinner2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/TextView01"
+         android:layout_alignRight="@+id/postcode"
+         android:layout_below="@+id/TextView01"
+         android:background="#FFFFFF"
+         android:entries="@array/place_arrays"
+         android:prompt="@string/language_prompt" />
+
+     <EditText
+         android:id="@+id/postcode"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/TextView01"
+         android:layout_below="@+id/spinner2"
+         android:layout_marginTop="17dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:freezesText="true"
+         android:hint=" Post Code" >
+
+         <requestFocus />
+     </EditText>
+
+     <EditText
+         android:id="@+id/time"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/postcode"
+         android:layout_below="@+id/postcode"
+         android:layout_marginTop="16dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint=" Time and Date" />
+
+     <EditText
+         android:id="@+id/age"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"
+         android:layout_alignLeft="@+id/time"
+         android:layout_below="@+id/time"
+         android:layout_marginTop="20dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint="Age Group" />
+
+     <EditText
+         android:id="@+id/des"
+         android:layout_width="250dp"
+         android:layout_height="100dp"
+         android:layout_alignLeft="@+id/age"
+         android:layout_alignRight="@+id/age"
+         android:layout_below="@+id/age"
+         android:layout_marginTop="17dp"
+         android:background="#FFFFFF"
+         android:ems="10"
+         android:hint=" Description about the  event" />
+
+     <TextView
+         android:id="@+id/TextView05"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/des"
+         android:layout_below="@+id/des"
+         android:layout_marginTop="16dp"
+         android:text="Please choose a Language "
+         android:textColor="#FFFFFF" />
+
+     <Spinner
+         android:id="@+id/spinner1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/TextView05"
+         android:layout_alignRight="@+id/des"
+         android:layout_below="@+id/TextView05"
+         android:background="#FFFFFF"
+         android:entries="@array/language_arrays"
+         android:prompt="@string/language_prompt" />
 
 </RelativeLayout>
 

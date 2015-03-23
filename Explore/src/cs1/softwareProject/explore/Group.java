@@ -5,7 +5,7 @@ public class Group {
 	public int groupId;
 	public int adminId;
 	public String nameOfEvent;
-	public String image;
+	public int image;
 	public String description;
 	public String time;
 	public String location;
@@ -13,7 +13,7 @@ public class Group {
 	public String postCode;
 	public String language;
 	
-	public Group(int gid, int aid, String groupName,String in ,String pos,String t,String des ,String age,String im, String lan ){
+	public Group(int gid, int aid, String groupName,String in ,String pos,String t,String des ,String age,int im, String lan ){
 		this.groupId =gid;
 		this.language = lan;
 		this.postCode = pos;

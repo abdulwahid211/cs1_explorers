@@ -95,7 +95,7 @@ public class GroupProfile extends Activity {
 		String time = intent.getStringExtra("time");
 		String description = intent.getStringExtra("description");
 		String ageGroup = intent.getStringExtra("ageGroup");
-		String image = intent.getStringExtra("Image");
+		int image = intent.getIntExtra("Image", 0);
 
 		
 		actionBar.setTitle(name);
@@ -121,10 +121,14 @@ public class GroupProfile extends Activity {
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
 		
-		byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
-		Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
-		im.setImageBitmap(bit);
+	//	byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
+	//	Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+		//im.setImageBitmap(bit);
      // im.setImageResource(R.drawable.california_snow);
+		
+		
+		im.setImageResource(sendImage(image));
+		
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -211,7 +215,25 @@ public class GroupProfile extends Activity {
 	
 	
 	
-	
+
+	public int sendImage(int a){
+		if( a == R.drawable.img2 ){
+			return R.drawable.hindi;
+		}
+		if( a == R.drawable.img2){
+			return R.drawable.arabic;
+		}
+		if( a == R.drawable.img3){
+			return R.drawable.italian;
+		}
+		if( a == R.drawable.img0){
+			return R.drawable.japanese;
+		}
+		
+		
+		return R.drawable.english;
+		
+	}
 	
 	
 	public boolean onOptionsItemSelected(MenuItem item) {

@@ -48,9 +48,9 @@ public class groupAdapter extends ArrayAdapter<Group> {
         }
 		// image for the group profile
 		ImageView image = (ImageView) view.findViewById(R.id.list_image);
-		byte[] decodedByte = Base64.decode(c.image , Base64.DEFAULT);
-		Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
-		image.setImageBitmap(bit);
+		////byte[] decodedByte = Base64.decode(c.image , Base64.DEFAULT);
+	//	Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+		image.setBackgroundResource(c.image);
 		
 		
 		TextView tv = (TextView) view.findViewById(R.id.title);

@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -42,6 +43,7 @@ public class showGroup extends ListActivity {
 	static final int MENU_DISABLE_SCROLL = 1;
 	static final int MENU_SET_MODE = 2;
 	static final int MENU_DEMO = 3;
+	public 	HashMap <String,Integer> groupImg;
 
 	private PullToRefreshListView mPullRefreshListView;
 
@@ -66,6 +68,7 @@ public class showGroup extends ListActivity {
 		// actionBar.setTitle("All Events");
 		accessWebService();
 		setListAdapter(adapter);
+		
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
 		// Set a listener to be invoked when the list should be refreshed.
@@ -121,7 +124,8 @@ public class showGroup extends ListActivity {
 
 		// Need to use the Actual ListView when registering for Context Menu
 		registerForContextMenu(actualListView);
-
+		//groupImg.put("Shisha",R.drawable.img1);
+		//setUserImage();
 		
 	}
 	
@@ -136,7 +140,30 @@ public class showGroup extends ListActivity {
 		accessWebService();
 		
 	}
+	
+	
 
+	public int sendImage(String a){
+		if(a.equals("Shisha")){
+			return R.drawable.img1;
+		}
+		if(a.equals("Library")){
+			return R.drawable.img2;
+		}
+		if(a.equals("Night Club")){
+			return R.drawable.img3;
+		}
+		if(a.equals("Cafe")){
+			return R.drawable.img2;
+		}
+		if(a.equals("Other")){
+			return R.drawable.japanese;
+		}
+		
+		
+		return R.drawable.img0;
+		
+	}
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		super.onListItemClick(l, v, position, id);
@@ -145,10 +172,11 @@ public class showGroup extends ListActivity {
 		Group c = user_group.get(pos);
 
 		Intent intent = new Intent(this, GroupProfile.class);
+	    intent.putExtra("Image", c.image);
 		intent.putExtra("groupId", c.groupId);
 		intent.putExtra("adminId", c.adminId);
 		intent.putExtra("EventName", c.nameOfEvent);
-		intent.putExtra("Image", c.image);
+		//intent.putExtra("Image", c.image);
 		intent.putExtra("location", c.location);
 		intent.putExtra("time", c.time);
 		intent.putExtra("ageGroup", c.ageGroup);
@@ -255,11 +283,11 @@ public class showGroup extends ListActivity {
 				String pos = jsonChildNode.optString("postCode");
 				String lan = jsonChildNode.optString("language");
 				user_group.add(new Group(groupId, adminId, eventName, location,
-						pos, time, des, ageGroup, image_no,
+						pos, time, des, ageGroup, sendImage(image_no),
 						lan));
 			}
 
-		//	BubbleSort(user_group);
+			BubbleSort(user_group);
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					"Failed to display data! " + e.toString(),
@@ -275,8 +303,8 @@ public class showGroup extends ListActivity {
 
 			for (int j = 0; j < i; j++) {
 
-				if (list.get(j).nameOfEvent
-						.compareTo(list.get(j + 1).nameOfEvent) > 0) {
+				if (list.get(j).nameOfEvent.toUpperCase()
+						.compareTo(list.get(j + 1).nameOfEvent.toUpperCase()) > 0) {
 					a = list.get(j);
 
 					list.set(j, list.get(j + 1));
