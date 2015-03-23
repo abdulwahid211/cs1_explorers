@@ -252,7 +252,7 @@ public class showGroup extends ListActivity {
 				String pos = jsonChildNode.optString("postCode");
 				String lan = jsonChildNode.optString("language");
 				user_group.add(new Group(groupId, adminId, eventName, location,
-						pos, time, des, ageGroup, R.drawable.california_snow,
+						pos, time, des, ageGroup, image_no,
 						lan));
 			}
 

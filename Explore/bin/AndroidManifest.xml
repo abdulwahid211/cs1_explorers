@@ -69,11 +69,17 @@
         </activity>
         <activity android:name=".PreviewProfile" >
         </activity>
-         <activity android:name=".maleImage" >
+         <activity android:name=".maleImage"
+          android:screenOrientation="portrait"
+              >
         </activity>
-         <activity android:name=".femaleImage" >
+         <activity android:name=".femaleImage" 
+          android:screenOrientation="portrait"
+             >
         </activity>
-        <activity android:name=".ImageChooser" >
+        <activity android:name=".ImageChooser" 
+            android:screenOrientation="portrait"
+            >
         </activity>
        
         

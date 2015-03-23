@@ -17,6 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -41,6 +42,7 @@ public class createGroup extends Activity implements OnClickListener {
 	EditText other;
 	Button createGroup;
 	Spinner spinner1;
+	String image ="";
 	String nameOfEvent = "";
 	String nameOfLocation = "";
 	String ageGroup = "";
@@ -105,11 +107,12 @@ public class createGroup extends Activity implements OnClickListener {
 			otherLanguage=String.valueOf(spinner1.getSelectedItem());
 		}
 		
-
+/*
 		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
 				des.length() >1 && post.length()>1){
+			*/
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
-				ageGroup,post,otherLanguage).execute();
+				ageGroup,post,otherLanguage, image).execute();
 		
 		accessWebService();
 		nameEvent.setText("");
@@ -119,16 +122,15 @@ public class createGroup extends Activity implements OnClickListener {
 		description.setText("");
 		ps.setText("");
 		other.setText("");
-		
-		}
-		else{
+		/*
+	//	}
+	//	else{
 			Toast.makeText(getApplicationContext(),
 					"You must enter fill everything!",
 					Toast.LENGTH_SHORT).show();
-		}
+	//	}
+*/
 
-	///Intent i = new Intent(createGroup.this, Tabs_menu.class);
-		//startActivity(i);
 		
 
 	}
@@ -155,10 +157,12 @@ public class createGroup extends Activity implements OnClickListener {
 		String des;
 		String post;
 		String language;
+		String img ;
 		boolean failure = false;
 
 		CreateGroup(int adId, String groupName, String in, String t,
-				String des, String age, String p, String lanuage) {
+				String des, String age, String p, String lanuage, String img ) {
+			this.img = img;
 			this.language = lanuage;
             this.post =p;
 			this.nameOfEvent = groupName;
@@ -196,6 +200,7 @@ public class createGroup extends Activity implements OnClickListener {
 				params.add(new BasicNameValuePair("ageGroup", ageGroup));
 				params.add(new BasicNameValuePair("postCode", post));
 				params.add(new BasicNameValuePair("language", language));
+				params.add(new BasicNameValuePair("image_no", img));
 				Log.d("request!", "starting");
 
 				// Posting user data to script
@@ -307,6 +312,13 @@ public class createGroup extends Activity implements OnClickListener {
 
 				if (username.equals(Login.getRealUser())
 						&& password.equals(Login.getRealPass())) {
+					String fname = jsonChildNode.optString("FirstName");
+					String lname = jsonChildNode.optString("LastName");
+					String professional = jsonChildNode.optString("Occupation");
+					String nation = jsonChildNode.optString("Nationality");
+					String age = jsonChildNode.optString("Age");
+					String about  = jsonChildNode.optString("About"); 
+					image = jsonChildNode.optString("image_no");
 					adminId = jsonChildNode.optInt("id");
 				}
 

@@ -37,6 +37,7 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -94,7 +95,7 @@ public class GroupProfile extends Activity {
 		String time = intent.getStringExtra("time");
 		String description = intent.getStringExtra("description");
 		String ageGroup = intent.getStringExtra("ageGroup");
-		int image = intent.getIntExtra("Image", 0);
+		String image = intent.getStringExtra("Image");
 
 		
 		actionBar.setTitle(name);
@@ -119,8 +120,11 @@ public class GroupProfile extends Activity {
 		tv4.setText(ageGroup);
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
-		im.setImageResource(image);
-
+		/*
+		byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
+		Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+		im.setImageBitmap(bit);
+*/      im.setImageResource(R.drawable.california_snow);
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -201,23 +205,10 @@ public class GroupProfile extends Activity {
 		registerForContextMenu(actualListView);
 		
 		
-		
-		
-		
-		
-		
-		
-		setUserImage();
 		 getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
-	public void setUserImage(){
-		userImg.put("0",R.drawable.img1);
-		userImg.put("1",R.drawable.img2);
-		userImg.put("2",R.drawable.img3);
-		userImg.put("3",R.drawable.img0);
-		
-	}
+	
 	
 	
 	
