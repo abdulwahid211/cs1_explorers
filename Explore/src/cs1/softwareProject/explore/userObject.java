@@ -10,10 +10,10 @@ public class userObject {
 	public String nationality;
 	public String about;
 	public String occupation;
-	public int image;
+	public String image;
 	public int id;
 
-	userObject(int id, String u, String fname, String lname, int img,
+	userObject(int id, String u, String fname, String lname, String img,
 			String age, String nationality, String occu, String about) {
 		this.image = img;
 		this.about = about;

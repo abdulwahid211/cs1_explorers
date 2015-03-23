@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 
 
+
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -34,6 +36,7 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -52,10 +55,10 @@ public class femaleImage extends Activity {
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
-	
+	String imgString;
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
-	private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/send_image.php";
+	private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/userImage.php";
 	
 	
 	
@@ -926,7 +929,7 @@ public class femaleImage extends Activity {
 		      height = c.getHeight(); 
 		    } 
 
-		    cs = Bitmap.createBitmap(600, 700, Bitmap.Config.ARGB_8888);
+		    cs = Bitmap.createBitmap(1400,1400, Bitmap.Config.ARGB_8888);
 
 		    Canvas comboImage = new Canvas(cs);
 
@@ -951,6 +954,26 @@ public class femaleImage extends Activity {
 			
 			return combineImages(bmp, hatBit, glassesBit);
 		}
+		public byte[] getBytesFromBitmap(Bitmap bitmap) {
+		    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		    bitmap.compress(CompressFormat.PNG, 70, stream);
+		    return stream.toByteArray();
+		}
+		
+		public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+		    int width = bm.getWidth();
+		    int height = bm.getHeight();
+		    float scaleWidth = ((float) newWidth) / width;
+		    float scaleHeight = ((float) newHeight) / height;
+		    // CREATE A MATRIX FOR THE MANIPULATION
+		    Matrix matrix = new Matrix();
+		    // RESIZE THE BIT MAP
+		    matrix.postScale(scaleWidth, scaleHeight);
+
+		    // "RECREATE" THE NEW BITMAP
+		    Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+		    return resizedBitmap;
+		}
 		
 		public void sendImage()
 		{
@@ -971,65 +994,18 @@ public class femaleImage extends Activity {
 					
 					//Or the other way is to place this next part within the onclick function so once this function is
 					//pressed, the edited bitmap will be sent to the database.
-			        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-			        sendCombinedImages().compress(Bitmap.CompressFormat.PNG, 90, stream1); //compress to which format you want.
-			        byte [] byte_arr = stream1.toByteArray();
+					   ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+				       
+				        imgString = Base64.encodeToString(getBytesFromBitmap(sendCombinedImages()), 
+			                       Base64.NO_WRAP);
+				        byte [] byte_arr = stream1.toByteArray();
 			         image_str = Base64.encodeToString(byte_arr, Base64.DEFAULT);
 			         CreateGroup cs = new CreateGroup();
 			         cs.execute();
 			         
 			       
-					/*-----------------Ending converting image.---------------*/
-					/*
-					//Creating an ArrayList.
-					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 					
-					//Storing the string variables we created within the ArrayL
-					nameValuePairs.add(new BasicNameValuePair("image",image_str));
-					
-					//Setting up a connection.
-					try
-					{
-						//Setting up a http client.
-						HttpClient httpClient = new DefaultHttpClient();
-						
-						//Setting up the http post method.
-						//Sending the url for the database.
-						//Sending the ip address of the localhost.
-						//Also adding the php file which connects android with mysql.
-						
-						//The default ip of the android emulator is 10.0.2.2
-						//The ip of a phone will be different.
-						HttpPost post = new HttpPost("http://doc.gold.ac.uk/~ma301ma/ExplorerAppPhp/send_image.php");
-						
-						//Passing the nameValuePairs ArrayList within the HttpPost.
-						post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-						
-						//Getting the response.
-						HttpResponse response = httpClient.execute(post);
-						
-						//Setting up the entity.
-						HttpEntity entity = response.getEntity();
-						
-						//Setting up content inside and InputStream.
-						stream = entity.getContent();
-						
-						//Displaying a message if the data has been entered in successfully.
-						String message = "The data has been entered successfully.";
-						
-						Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-						
-
-						Intent intent = new Intent(v.getContext(), PreviewProfile.class);
-						startActivityForResult (intent, 0);
-						
-					}//End of try block.
-					catch(IOException clientException)//Catching any exceptions that arise from the try block.
-					{
-						clientException.printStackTrace();
-					}//End of catch block.
-					*/
-			         Intent intent = new Intent(v.getContext(), PreviewProfile.class);
+			         Intent intent = new Intent(v.getContext(), Login.class);
 					 startActivityForResult (intent, 0);
 				}//End of onClick() function.
 				
@@ -1059,7 +1035,7 @@ public class femaleImage extends Activity {
 				try {
 
 					List<NameValuePair> params = new ArrayList<NameValuePair>();
-					params.add(new BasicNameValuePair("ProfileImage", image_str));
+					params.add(new BasicNameValuePair("image_no", imgString));
 					
 					Log.d("request!", "starting");
 

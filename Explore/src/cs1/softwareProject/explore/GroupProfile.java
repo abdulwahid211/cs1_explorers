@@ -519,7 +519,7 @@ String m ="";
 				// list all the attributes of the group
 				if(userId !=0){
 				joined_user.add(new userObject(userId, userName,fname, lname,
-						userImg.get(image_no), age, nation, professional,about));
+						image_no, age, nation, professional,about));
 				}
 				if(maps !=0 && values !=0){
 				map.add(maps);

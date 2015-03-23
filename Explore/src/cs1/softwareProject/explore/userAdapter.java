@@ -1,8 +1,12 @@
 package cs1.softwareProject.explore;
 import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +39,12 @@ public class userAdapter extends ArrayAdapter<userObject> {
 		View view = layin.inflate(R.layout.user_item, null);
 		
 		ImageView image = (ImageView) view.findViewById(R.id.hello);
-		image.setImageResource(c.image);
+		byte[] decodedByte = Base64.decode(c.image , Base64.DEFAULT);
+		Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+		
+		
+		image.setImageBitmap(bit);
+		
 		
 		TextView tv = (TextView) view.findViewById(R.id.hello2);
 		tv.setText(c.getFullName());

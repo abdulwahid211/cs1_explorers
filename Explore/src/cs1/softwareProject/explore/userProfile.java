@@ -5,10 +5,13 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ public class userProfile extends Activity {
 	String occupation = intent.getStringExtra("occupation");
 	String nationality = intent.getStringExtra("nationality");
 	String about = intent.getStringExtra("about");
-	int image = intent.getIntExtra("image",0);
+	String image = intent.getStringExtra("image");
 	
 	
 		
@@ -53,7 +56,10 @@ public class userProfile extends Activity {
     
     
     ImageView im = (ImageView) findViewById(R.id.imageView1);	
-    im.setImageResource(image);
+    byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
+	Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+    
+	im.setImageBitmap(bit);
     
     getActionBar().setDisplayHomeAsUpEnabled(true);
 	

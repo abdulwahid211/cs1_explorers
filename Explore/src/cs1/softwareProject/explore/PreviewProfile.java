@@ -98,7 +98,7 @@ public void DisplayData() {
 	
 	try {
 		String image_no = null;
-String m ="";
+        
 		JSONObject jsonResponse = new JSONObject(jsonResult);
 		
 		// name of the user group

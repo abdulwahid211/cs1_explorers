@@ -1086,7 +1086,7 @@ public class maleImage extends Activity {
 		      height = c.getHeight(); 
 		    } 
 
-		    cs = Bitmap.createBitmap(1200, 1200, Bitmap.Config.ARGB_8888); 
+		    cs = Bitmap.createBitmap(1400, 1400, Bitmap.Config.ARGB_8888); 
 
 		    Canvas comboImage = new Canvas(cs); 
 
@@ -1159,9 +1159,7 @@ public class maleImage extends Activity {
 					//Or the other way is to place this next part within the onclick function so once this function is
 					//pressed, the edited bitmap will be sent to the database.
 			        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-			        Bitmap c = sendCombinedImages().createScaledBitmap(sendCombinedImages(), 120, 120, false);
-			        //sendCombinedImages() = getResizedBitmap(sendCombinedImages(),700, 700);
-			       // sendCombinedImages();
+			       
 			        imgString = Base64.encodeToString(getBytesFromBitmap(sendCombinedImages()), 
 		                       Base64.NO_WRAP);
 			        byte [] byte_arr = stream1.toByteArray();
@@ -1171,8 +1169,8 @@ public class maleImage extends Activity {
 			         CreateGroup cs = new CreateGroup();
 			         cs.execute();
 					
-			    //     Intent intent = new Intent(v.getContext(), PreviewProfile.class);
-					//	startActivityForResult (intent, 0);
+			        Intent intent = new Intent(v.getContext(), Login.class);
+						startActivityForResult (intent, 0);
 				}//End of onClick() function.
 				
 			});//End of submit.setOnClickListener.
