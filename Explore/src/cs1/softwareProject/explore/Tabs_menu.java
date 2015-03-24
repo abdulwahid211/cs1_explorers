@@ -39,7 +39,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         setContentView(R.layout.main);
         actionBar = getActionBar();
         actionBar.setTitle("                 All Events");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(24, 41, 59)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
        someView = findViewById(R.id.mylayout);
      // Find the root view
     //   root = someView.getRootView();
@@ -137,19 +137,20 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 		if(tabId.equals("First")){
 	//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
 		actionBar.setTitle("                 All Events");
-		someView.setBackgroundColor(Color.parseColor("#F7F7F7"));
+		
+		someView.setBackgroundColor(Color.parseColor("#FBAD47"));
 		}
 		if(tabId.equals("Second")){
 		//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
 			actionBar.setTitle("                     Map");
-			someView.setBackgroundColor(Color.parseColor("#18293B"));
+			someView.setBackgroundColor(Color.parseColor("#FBAD47"));
 			}
 		if(tabId.equals("Third")){
 		//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
 			//root.setBackgroundColor(getResources().getColor(Color.parseColor("#FFFFFF")));
 			
 			actionBar.setTitle("              Create an Event");
-			someView.setBackgroundColor(Color.parseColor("#18293B"));
+			someView.setBackgroundColor(Color.parseColor("#FBAD47"));
 		}
 		
 	}

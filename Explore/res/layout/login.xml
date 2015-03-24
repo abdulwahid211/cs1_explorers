@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#18293B" >
+    android:background="#FFA52E" >
 
     <Button
         android:id="@+id/login"
@@ -12,33 +12,27 @@
         android:layout_above="@+id/register"
         android:layout_alignLeft="@+id/password"
         android:layout_alignRight="@+id/password"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:background="@drawable/buttons"
         android:layout_marginBottom="107dp"
         android:textColor="#FFFFFF"
         android:text="Login" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:listSelector="@drawable/forms"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_above="@+id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp"
-        android:background="#FFFFFF"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/forms"
         android:ems="10"
+        android:textStyle="bold"
         android:hint=" Password"
         android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_above="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignRight="@+id/password"
-        android:layout_marginBottom="16dp"
-        android:background="#FFFFFF"
-        android:ems="5"
-        android:hint=" Username" />
 
     <TextView
         android:id="@+id/textView2"
@@ -55,12 +49,29 @@
 
     <Button
         android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-         android:background="#FFFFFF"
+        android:background="#FFFFFF"
+        android:textSize="20dp"
         android:layout_alignParentRight="true"
         android:text=" Press here to register" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/password"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/forms"
+        android:ems="5"
+        android:hint=" Username"
+        android:textStyle="bold" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

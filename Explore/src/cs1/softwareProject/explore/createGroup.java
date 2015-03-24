@@ -113,10 +113,10 @@ public class createGroup extends Activity implements OnClickListener {
 			otherLanguage=String.valueOf(spinner1.getSelectedItem());
 		}
 		
-/*
+
 		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
 				des.length() >1 && post.length()>1){
-			*/
+			
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
 				ageGroup,post,otherLanguage, place).execute();
 		
@@ -129,14 +129,14 @@ public class createGroup extends Activity implements OnClickListener {
 		ps.setText("");
 		other.setText("");
 		
-		/*
-	//	}
-	//	else{
+		
+		}
+		else{
 			Toast.makeText(getApplicationContext(),
 					"You must enter fill everything!",
 					Toast.LENGTH_SHORT).show();
-	//	}
-*/
+		}
+
 
 		
 

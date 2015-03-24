@@ -303,8 +303,8 @@ public class showGroup extends ListActivity {
 
 			for (int j = 0; j < i; j++) {
 
-				if (list.get(j).nameOfEvent.toUpperCase()
-						.compareTo(list.get(j + 1).nameOfEvent.toUpperCase()) > 0) {
+				if (list.get(j).language.toUpperCase()
+						.compareTo(list.get(j + 1).language.toUpperCase()) > 0) {
 					a = list.get(j);
 
 					list.set(j, list.get(j + 1));

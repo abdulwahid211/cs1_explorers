@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#18293B" >
+    android:background="#FBAD47" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -10,40 +10,44 @@
 
         <EditText
             android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="520dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="55dp"
             android:layout_alignLeft="@+id/password"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/about"
             android:layout_marginTop="28dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
-            android:hint="  Username" />
+            android:hint="  Username"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/postcode"
             android:layout_alignRight="@+id/about"
             android:layout_below="@+id/username"
             android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint=" Password"
             android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/postcode"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/time"
             android:layout_alignRight="@+id/time"
             android:layout_below="@+id/password"
             android:layout_marginTop="18dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
             android:freezesText="true"
+            android:textStyle="bold"
             android:hint="  First Name" >
 
             <requestFocus />
@@ -51,72 +55,80 @@
 
         <EditText
             android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/age"
             android:layout_alignRight="@+id/about"
             android:layout_below="@+id/postcode"
             android:layout_marginTop="21dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint=" Last Name" />
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/nation"
             android:layout_alignRight="@+id/about"
             android:layout_below="@+id/time"
             android:layout_marginTop="20dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint=" Age" />
 
         <EditText
             android:id="@+id/nation"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/occu"
             android:layout_alignRight="@+id/about"
             android:layout_below="@+id/age"
             android:layout_marginTop="18dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint=" Nationality" />
 
         <EditText
             android:id="@+id/occu"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignLeft="@+id/about"
             android:layout_alignRight="@+id/about"
             android:layout_below="@+id/nation"
             android:layout_marginTop="22dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint=" Occupation" />
 
         <EditText
             android:id="@+id/about"
             android:layout_width="250dp"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_below="@+id/occu"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/forms"
             android:ems="10"
+            android:textStyle="bold"
             android:hint="Feel free to explain about yourself........" />
 
         <Button
             android:id="@+id/register"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/about"
+            android:layout_marginTop="42dp"
+            android:background="#D58319"
+            android:text="Next"
             android:textColor="#FFFFFF"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="Register" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

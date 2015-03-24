@@ -348,6 +348,11 @@ public class GroupProfile extends Activity {
 				oragnisedUsers.remove(i);
 			}
 		}
+		for (int i = 0; i < oragnisedUsers.size(); i++) {
+			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
+				oragnisedUsers.remove(i);
+			}
+		}
 		
 /// remove unknown ids 
 	

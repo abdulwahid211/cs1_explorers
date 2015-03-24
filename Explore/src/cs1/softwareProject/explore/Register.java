@@ -14,6 +14,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -68,6 +70,7 @@ import android.widget.Toast;
 		 /// remove the action bar 
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("Please Register Your Details");
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 	//	actionBar.setLogo(R.drawable.arrow);
       // actionBar.hide();
 		
