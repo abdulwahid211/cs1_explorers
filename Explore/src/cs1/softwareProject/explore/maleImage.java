@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -16,6 +17,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 
 
@@ -51,6 +53,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -275,11 +278,14 @@ import android.widget.ImageView.ScaleType;
 		hatColourChanger();
 		glassesColourChanger();
 		beardColourChanger();
-		
+		// getActionBar().setDisplayHomeAsUpEnabled(true);
 		//The forward and backwards buttons will initially be set to false.
 		imageSectionForward.setEnabled(false);
 		imageSectionBackwards.setEnabled(false);
+		
 	}//End of onCreate() function.
+	
+	
 	
 	public void displayImage()
 	{
@@ -292,6 +298,8 @@ import android.widget.ImageView.ScaleType;
 		 wholeImage.setImageBitmap(bmp);
 		 
 	}//End of function.
+	
+	
 	
 	//Function to mask.
 		//------------------Next is to create the forward, back, etc functions.----------------//

@@ -67,7 +67,7 @@ public class ImageChooser extends Activity {
 		setContentView(R.layout.image_chooser);
 		
 		ActionBar actionBar = getActionBar();
-		actionBar.setTitle("Please pick a gender avatar");
+		actionBar.setTitle("Please pick a gender");
 		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 		
 		
