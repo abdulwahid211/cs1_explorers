@@ -480,6 +480,7 @@ public class GroupProfile extends Activity {
 	
 	public void DisplayData() {
 	//	adapter.clear();
+		 Tabs_menu a = new Tabs_menu();
 		joined_user.clear();
 		map.clear();
 		value.clear();
@@ -492,7 +493,7 @@ public class GroupProfile extends Activity {
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
-		
+				int userId = jsonChildNode.optInt("id");
 				String userName = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 				String fname = jsonChildNode.optString("FirstName");
@@ -504,7 +505,7 @@ public class GroupProfile extends Activity {
 				String about  = jsonChildNode.optString("About"); 
 				
 			
-				int userId = jsonChildNode.optInt("id");
+				
 
 				int maps = jsonChildNode.optInt("group_id");
 				int values = jsonChildNode.optInt("user_id");
@@ -523,9 +524,8 @@ public class GroupProfile extends Activity {
 
 				// Log.d("this is the value","My beautiful wife:"
 				// +String.valueOf(joined_user.get(0).getIDs()));
-
-				 if(Login.getRealUser().equals(userName) &&
-				 Login.getRealPass().equals(password)){
+				if (userName.contains(a.real_user) && password.contains(a.real_pass)) {
+				
 				 user_id = userId ;
 				 }
 

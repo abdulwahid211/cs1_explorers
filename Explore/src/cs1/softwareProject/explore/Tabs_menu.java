@@ -70,7 +70,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
        
         //Third tab
         
-        intent[1] = new Intent().setClass(this, ExploreMap.class);
+        intent[1] = new Intent().setClass(this, createGroup.class);
         spec = tabHost.newTabSpec("Second").setIndicator("Second")
                       .setContent(intent[1]);
         tabHost.addTab(spec);

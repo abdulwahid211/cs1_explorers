@@ -53,8 +53,8 @@ public class createGroup extends Activity implements OnClickListener {
 	String post="";
 	String otherLanguage= "";
 	String Language="";
-	public static int adminId;
-
+	public  int adminId;
+  
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
@@ -67,12 +67,17 @@ public class createGroup extends Activity implements OnClickListener {
 	
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
+	
+	
+	
+	ArrayList<userObject> user = new ArrayList<userObject>();
+	
 	public boolean a = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.creategroup);
-
+		 accessWebService();
 		nameEvent = (EditText) findViewById(R.id.eventName);
 		location = (EditText) findViewById(R.id.location);
 		age = (EditText) findViewById(R.id.age);
@@ -85,7 +90,7 @@ public class createGroup extends Activity implements OnClickListener {
 		createGroup.setOnClickListener(this);
 	    other = (EditText) findViewById(R.id.OtherText);
 	   
-	   accessWebService();
+	  // accessWebService();
 	   spinner1.setOnItemSelectedListener(new CustomOtherCall());
 	
 	
@@ -96,7 +101,7 @@ public class createGroup extends Activity implements OnClickListener {
 
 	public void onClick(View v) {
 		
-
+		//accessWebService();
 		nameOfEvent = nameEvent.getText().toString();
 		nameOfLocation = location.getText().toString();
 		ageGroup = age.getText().toString();
@@ -117,10 +122,11 @@ public class createGroup extends Activity implements OnClickListener {
 		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
 				des.length() >1 && post.length()>1){
 			*/
+		
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
 				ageGroup,post,otherLanguage, place).execute();
 		
-		accessWebService();
+	
 		nameEvent.setText("");
 		location.setText("");
 		age.setText("");
@@ -146,7 +152,7 @@ public class createGroup extends Activity implements OnClickListener {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		accessWebService();
+	//	accessWebService();
 	}
 	
 	public int getUserId(){
@@ -165,8 +171,10 @@ public class createGroup extends Activity implements OnClickListener {
 		String post;
 		String language;
 		String img ;
+		int x;
+		String x1;
 		boolean failure = false;
-
+		Tabs_menu a;
 		CreateGroup(int adId, String groupName, String in, String t,
 				String des, String age, String p, String lanuage, String img ) {
 			this.img = img;
@@ -178,6 +186,17 @@ public class createGroup extends Activity implements OnClickListener {
 			admin_id = Integer.toString(adId);
 			this.timeOfEvent = t;
 			this.des = des;
+			a = new Tabs_menu();
+			
+			for(int i =0; i<user.size();i++){
+				if(a.getRealUser().contains(user.get(i).username)){
+					x = 100;
+				}
+			}
+			
+			
+			x1 =String.valueOf(adminId);
+			
 
 		}
 
@@ -193,13 +212,14 @@ public class createGroup extends Activity implements OnClickListener {
 
 		@Override
 		protected String doInBackground(String... args) {
-
+                 
 			int success;
 
 			try {
+				
 
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("admin_id", admin_id));
+				params.add(new BasicNameValuePair("admin_id",x1));
 				params.add(new BasicNameValuePair("eventName", nameOfEvent));
 				params.add(new BasicNameValuePair("location", nameOfLocation));
 				params.add(new BasicNameValuePair("time", timeOfEvent));
@@ -311,28 +331,27 @@ public class createGroup extends Activity implements OnClickListener {
 			// name of the table
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
 			Intent intent = getIntent();
-			String Uname = intent.getStringExtra("username");
-			String Pss = intent.getStringExtra("password");
+			
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
 				// list all the attributes
+				//adminId = Integer.parseInt(jsonChildNode.optString("id"));
+				int o = jsonChildNode.optInt("id");
 				String username = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 
-				if (username.contains(a.getRealUser()) && password.contains(a.getRealPass())) {
+				if (true) {
+					adminId = o;
+					/*
 					String fname = jsonChildNode.optString("FirstName");
 					String lname = jsonChildNode.optString("LastName");
 					String professional = jsonChildNode.optString("Occupation");
 					String nation = jsonChildNode.optString("Nationality");
 					String age = jsonChildNode.optString("Age");
 					String about  = jsonChildNode.optString("About"); 
-					adminId = Integer.parseInt(jsonChildNode.optString("id"));
+					*/
 				}
-				else{
-					Toast.makeText(getApplicationContext(),
-							"Faggot! ",
-							Toast.LENGTH_SHORT).show();
-				}
+					
 
 			}
 		} catch (JSONException e) {

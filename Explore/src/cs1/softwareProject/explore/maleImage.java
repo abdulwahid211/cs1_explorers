@@ -1090,10 +1090,10 @@ public class maleImage extends Activity {
 
 		    Canvas comboImage = new Canvas(cs); 
 
-		    comboImage.drawBitmap(c, 0f,  0f, null); 
-		    comboImage.drawBitmap(s, 140f, 80f, null); 
-		    comboImage.drawBitmap(a, 170f, 220f, null);
-		    comboImage.drawBitmap(b, 170f, 260f, null);
+		    comboImage.drawBitmap(c, 10f, -15f, null); 
+		    comboImage.drawBitmap(s,  325f, 230f, null); 
+		    comboImage.drawBitmap(a, 400f, 510f, null);
+		    comboImage.drawBitmap(b, 400f, 575f, null);
 
 		    return cs; 
 		  } 
@@ -1212,7 +1212,7 @@ public class maleImage extends Activity {
 					// json success element
 					success = json.getInt(TAG_SUCCESS);
 					if (success == 1) {
-						Log.d("Group Created!", json.toString());
+						Log.d("Image Created!", json.toString());
 
 					//	finish();
 						return json.getString(TAG_MESSAGE);

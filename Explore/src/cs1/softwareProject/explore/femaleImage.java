@@ -934,8 +934,8 @@ public class femaleImage extends Activity {
 		    Canvas comboImage = new Canvas(cs);
 
 		    comboImage.drawBitmap(c, 10f,  -15f, null); 
-		    comboImage.drawBitmap(s, 120f, 110f, null); 
-		    comboImage.drawBitmap(a, 170f, 220f, null);
+		    comboImage.drawBitmap(s, 270f, 250f, null);
+		    comboImage.drawBitmap(a, 370f, 470f, null);
 
 		    return cs; 
 		  } 
