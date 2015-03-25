@@ -1,11 +1,11 @@
 package cs1.softwareProject.explore;
 
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -24,6 +24,10 @@ import org.json.JSONObject;
 
 
 
+
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -41,7 +45,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -54,7 +60,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 
-public class maleImage extends Activity {
+@SuppressLint("NewApi") public class maleImage extends Activity {
 	
 	
 	
@@ -65,14 +71,13 @@ public class maleImage extends Activity {
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
 	private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/userImage.php";
-	public 
 	String imgString;
 	
 	
 	
 
 	//Creating three arrays with different images for the different sections of the image.
-	int hatSection[] = {R.drawable.male_hair_0/*2130837590*/, R.drawable.male_afro/*2130837585*/, R.drawable.male_fringe/*2130837588*/ , R.drawable.male_mohawk/*2130837591*/, R.drawable.male_spiky/*2130837592*/, R.drawable.male_bald/*2130837586*/};
+	int hatSection[] = {R.drawable.male_hair_0/*2130837590*/, R.drawable.male_afro/*2130837585*/, R.drawable.male_fringe/*2130837588*/ , R.drawable.male_mohawk/*2130837591*/, R.drawable.male_spiky/*2130837592*/};
 	//male_hair_0, male_afro, male_fringe, male_mohawk, male_spiky, male_bald
 	
 	int glassesSection[] = {R.drawable.empty_image /*2130837587*/, R.drawable.glass1 /*2130837579*/, R.drawable.glass2 /*2130837580*/, R.drawable.glass3 /*2130837581*/, R.drawable.glass4 /*2130837582*/};
@@ -158,10 +163,14 @@ public class maleImage extends Activity {
 	  Point p1 = new Point();
 	  floodFill f = new floodFill();
 	
-	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.maleface);
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("Please customise your image");
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
+		
 		
 		//Getting the id of the ImageView and placing it within the wholeImage ImageView.
 		wholeImage = (ImageView) findViewById(R.id.overallImage);
@@ -222,13 +231,6 @@ public class maleImage extends Activity {
         colourSpectrum[3] = (ImageView) findViewById(R.id.colourSpectrum3);
         colourSpectrum[4] = (ImageView) findViewById(R.id.colourSpectrum4);
         colourSpectrum[5] = (ImageView) findViewById(R.id.colourSpectrum5);
-        //colourSpectrum[0] = (ImageView) findViewById(R.id.colourBack);
-       /* colourSpectrum[1] = (ImageView) findViewById(R.id.colourBlue);
-        colourSpectrum[2] = (ImageView) findViewById(R.id.colourGreen);
-        colourSpectrum[3] = (ImageView) findViewById(R.id.colourRed);
-        colourSpectrum[4] = (ImageView) findViewById(R.id.colourWhite);
-        colourSpectrum[5] = (ImageView) findViewById(R.id.colourYellow);*/
-		
 		
 		//Calling the function that displays the image chosen by the user.
 		displayImage();
@@ -254,12 +256,12 @@ public class maleImage extends Activity {
 		
 		//colourSpectrum();
 		
-		colourBlack();
+		/*colourBlack();
 		colourBlue();
 		colourGreen();
 		colourRed();
 		colourWhite();
-		colourYellow();
+		colourYellow();*/
 		
 		//Functions for the coloured squared images and getting their colours.
 		blackColourTouch();
@@ -273,6 +275,10 @@ public class maleImage extends Activity {
 		hatColourChanger();
 		glassesColourChanger();
 		beardColourChanger();
+		
+		//The forward and backwards buttons will initially be set to false.
+		imageSectionForward.setEnabled(false);
+		imageSectionBackwards.setEnabled(false);
 	}//End of onCreate() function.
 	
 	public void displayImage()
@@ -321,6 +327,10 @@ public class maleImage extends Activity {
 					buttonTwo.setEnabled(true);
 					buttonThree.setEnabled(true);
 					buttonFour.setEnabled(true);
+					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+					imageSectionForward.setEnabled(true);
+					imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -340,6 +350,10 @@ public class maleImage extends Activity {
 					buttonOne.setEnabled(true);
 					buttonThree.setEnabled(true);
 					buttonFour.setEnabled(true);
+					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+					imageSectionForward.setEnabled(true);
+					imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -360,6 +374,9 @@ public class maleImage extends Activity {
 					buttonTwo.setEnabled(true);
 					buttonFour.setEnabled(true);
 					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+					imageSectionForward.setEnabled(true);
+					imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -380,6 +397,9 @@ public class maleImage extends Activity {
 					buttonTwo.setEnabled(true);
 					buttonThree.setEnabled(true);
 					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+					imageSectionForward.setEnabled(true);
+					imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -396,7 +416,7 @@ public class maleImage extends Activity {
 					
 					if(hatIncrement >= hatSection.length)
 					{
-						hatIncrement = 5;
+						hatIncrement = 4;
 					}
 					
 					//masking(hatBit, 2130837558 , hatImage/* int first_image_type*/);
@@ -597,7 +617,7 @@ public class maleImage extends Activity {
 		public void colourBlack()
 		{
 			Bitmap blackColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			Bitmap resizedbitmap=  Bitmap.createBitmap(blackColour, 0, 0, 100, 100);
+			Bitmap resizedbitmap=  Bitmap.createBitmap(blackColour, 0, 0, 200, 200);
 			
 			//colourSpectrum[0].setImageBitmap(Bitmap.createScaledBitmap(black, 100, 100, false));
 			//colourSpectrum[0].setImageBitmap(black);
@@ -607,7 +627,7 @@ public class maleImage extends Activity {
 		public void colourGreen()
 		{
 			Bitmap greenColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			Bitmap resizedbitmap1=  Bitmap.createBitmap(greenColour, 100, 0, 50, 100);
+			Bitmap resizedbitmap1=  Bitmap.createBitmap(greenColour, 150, 0, 120, 200);
 			
 			colourSpectrum[1].setImageBitmap(resizedbitmap1);
 		}
@@ -616,7 +636,7 @@ public class maleImage extends Activity {
 		{
 			Bitmap blueColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
 			
-			Bitmap resizedbitmap5 =  Bitmap.createBitmap(blueColour, 300, 0, 50, 100);
+			Bitmap resizedbitmap5 =  Bitmap.createBitmap(blueColour, 650, 0, 120, 200);
 			
 			colourSpectrum[5].setImageBitmap(resizedbitmap5);
 		}
@@ -625,7 +645,7 @@ public class maleImage extends Activity {
 		{
 			Bitmap redColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
 			
-			Bitmap resizedbitmap4 =  Bitmap.createBitmap(redColour, 250, 0, 50, 100);
+			Bitmap resizedbitmap4 =  Bitmap.createBitmap(redColour, 520, 0, 120, 200);
 			
 			colourSpectrum[4].setImageBitmap(resizedbitmap4);
 		}
@@ -634,7 +654,7 @@ public class maleImage extends Activity {
 		{
 			Bitmap whiteColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
 			
-			Bitmap resizedbitmap2=  Bitmap.createBitmap(whiteColour, 150, 0, 50, 100);
+			Bitmap resizedbitmap2=  Bitmap.createBitmap(whiteColour, 300, 0, 120, 200);
 			
 			colourSpectrum[2].setImageBitmap(resizedbitmap2);
 		}
@@ -643,7 +663,7 @@ public class maleImage extends Activity {
 		{
 			Bitmap yellowColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
 			
-			Bitmap resizedbitmap3 =  Bitmap.createBitmap(yellowColour, 200, 0, 50, 100);
+			Bitmap resizedbitmap3 =  Bitmap.createBitmap(yellowColour, 400, 0, 120, 200);
 			
 			colourSpectrum[3].setImageBitmap(resizedbitmap3);
 		}
@@ -1169,7 +1189,7 @@ public class maleImage extends Activity {
 			         CreateGroup cs = new CreateGroup();
 			         cs.execute();
 					
-			        Intent intent = new Intent(v.getContext(), Login.class);
+			        Intent intent = new Intent(v.getContext(), PreviewProfile.class);
 						startActivityForResult (intent, 0);
 				}//End of onClick() function.
 				
@@ -1184,7 +1204,7 @@ public class maleImage extends Activity {
 			protected void onPreExecute() {
 				super.onPreExecute();
 				pDialog = new ProgressDialog(maleImage.this);
-				pDialog.setMessage("Creating a image...");
+				pDialog.setMessage("Creating an image...");
 				pDialog.setIndeterminate(false);
 				pDialog.setCancelable(true);
 				pDialog.show();
@@ -1212,7 +1232,7 @@ public class maleImage extends Activity {
 					// json success element
 					success = json.getInt(TAG_SUCCESS);
 					if (success == 1) {
-						Log.d("Image Created!", json.toString());
+						Log.d("Group Created!", json.toString());
 
 					//	finish();
 						return json.getString(TAG_MESSAGE);

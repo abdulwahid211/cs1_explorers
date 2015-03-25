@@ -1,11 +1,12 @@
 package cs1.softwareProject.explore;
 
+
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -21,6 +22,11 @@ import org.json.JSONObject;
 
 
 
+
+
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -38,7 +44,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -51,7 +59,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 
-public class femaleImage extends Activity {
+@SuppressLint("NewApi") public class femaleImage extends Activity {
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
@@ -140,10 +148,14 @@ public class femaleImage extends Activity {
 	  Point p1 = new Point();
 	  floodFill f = new floodFill();
 	
-	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.femaleface);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("Please customise your image");
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 		
 		//Getting the id of the ImageView and placing it within the wholeImage ImageView.
 		wholeImage = (ImageView) findViewById(R.id.overallImage);
@@ -212,12 +224,12 @@ public class femaleImage extends Activity {
 		
 		//colourSpectrum();
 		
-		colourBlack();
+		/*colourBlack();
 		colourBlue();
 		colourGreen();
 		colourRed();
 		colourWhite();
-		colourYellow();
+		colourYellow();*/
 		
 		//Functions for the coloured squared images and getting their colours.
 		blackColourTouch();
@@ -230,6 +242,11 @@ public class femaleImage extends Activity {
 		//Functions to allow for the changing of the colours for the different sections of the image.
 		hatColourChanger();
 		glassesColourChanger();
+		
+		//The forward and backwards buttons will initially be set to false.
+		imageSectionForward.setEnabled(false);
+		imageSectionBackwards.setEnabled(false);
+		
 	}//End of onCreate() function.
 	
 	public void overLay(Bitmap overall, Bitmap hair)
@@ -291,6 +308,10 @@ public class femaleImage extends Activity {
 					buttonOne.setEnabled(false);
 					buttonTwo.setEnabled(true);
 					buttonThree.setEnabled(true);
+					
+				    //The forward and backwards buttons will be set to true once a button is pressed.
+				    imageSectionForward.setEnabled(true);
+				    imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -309,6 +330,10 @@ public class femaleImage extends Activity {
 					buttonTwo.setEnabled(false);
 					buttonOne.setEnabled(true);
 					buttonThree.setEnabled(true);
+					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+				    imageSectionForward.setEnabled(true);
+				    imageSectionBackwards.setEnabled(true);
 				}
 				
 			});
@@ -327,6 +352,10 @@ public class femaleImage extends Activity {
 					buttonThree.setEnabled(false);
 					buttonOne.setEnabled(true);
 					buttonTwo.setEnabled(true);
+					
+					//The forward and backwards buttons will be set to true once a button is pressed.
+				    imageSectionForward.setEnabled(true);
+				    imageSectionBackwards.setEnabled(true);
 					
 				}
 				
@@ -491,63 +520,62 @@ public class femaleImage extends Activity {
 		}//End of function.
 		
 		
-		
 		//------------Functions for displaying the coloured squared images begins.--------------//
-		public void colourBlack()
-		{
-			Bitmap blackColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			Bitmap resizedbitmap=  Bitmap.createBitmap(blackColour, 0, 0, 100, 100);
-			
-			//colourSpectrum[0].setImageBitmap(Bitmap.createScaledBitmap(black, 100, 100, false));
-			//colourSpectrum[0].setImageBitmap(black);
-			colourSpectrum[0].setImageBitmap(resizedbitmap);
-		}
-		
-		public void colourGreen()
-		{
-			Bitmap greenColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			Bitmap resizedbitmap1=  Bitmap.createBitmap(greenColour, 100, 0, 50, 100);
-			
-			colourSpectrum[1].setImageBitmap(resizedbitmap1);
-		}
-		
-		public void colourBlue()
-		{
-			Bitmap blueColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			
-			Bitmap resizedbitmap5 =  Bitmap.createBitmap(blueColour, 300, 0, 50, 100);
-			
-			colourSpectrum[5].setImageBitmap(resizedbitmap5);
-		}
-		
-		public void colourRed()
-		{
-			Bitmap redColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			
-			Bitmap resizedbitmap4 =  Bitmap.createBitmap(redColour, 250, 0, 50, 100);
-			
-			colourSpectrum[4].setImageBitmap(resizedbitmap4);
-		}
-		
-		public void colourWhite()
-		{
-			Bitmap whiteColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			
-			Bitmap resizedbitmap2=  Bitmap.createBitmap(whiteColour, 150, 0, 50, 100);
-			
-			colourSpectrum[2].setImageBitmap(resizedbitmap2);
-		}
-		
-		public void colourYellow()
-		{
-			Bitmap yellowColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
-			
-			Bitmap resizedbitmap3 =  Bitmap.createBitmap(yellowColour, 200, 0, 50, 100);
-			
-			colourSpectrum[3].setImageBitmap(resizedbitmap3);
-		}
-		
-		//-----------Functions for displaying the coloured squared images ends.------------//
+				public void colourBlack()
+				{
+					Bitmap blackColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					Bitmap resizedbitmap=  Bitmap.createBitmap(blackColour, 0, 0, 200, 200);
+					
+					//colourSpectrum[0].setImageBitmap(Bitmap.createScaledBitmap(black, 100, 100, false));
+					//colourSpectrum[0].setImageBitmap(black);
+					colourSpectrum[0].setImageBitmap(resizedbitmap);
+				}
+				
+				public void colourGreen()
+				{
+					Bitmap greenColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					Bitmap resizedbitmap1=  Bitmap.createBitmap(greenColour, 150, 0, 120, 200);
+					
+					colourSpectrum[1].setImageBitmap(resizedbitmap1);
+				}
+				
+				public void colourBlue()
+				{
+					Bitmap blueColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					
+					Bitmap resizedbitmap5 =  Bitmap.createBitmap(blueColour, 650, 0, 120, 200);
+					
+					colourSpectrum[5].setImageBitmap(resizedbitmap5);
+				}
+				
+				public void colourRed()
+				{
+					Bitmap redColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					
+					Bitmap resizedbitmap4 =  Bitmap.createBitmap(redColour, 520, 0, 120, 200);
+					
+					colourSpectrum[4].setImageBitmap(resizedbitmap4);
+				}
+				
+				public void colourWhite()
+				{
+					Bitmap whiteColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					
+					Bitmap resizedbitmap2=  Bitmap.createBitmap(whiteColour, 300, 0, 120, 200);
+					
+					colourSpectrum[2].setImageBitmap(resizedbitmap2);
+				}
+				
+				public void colourYellow()
+				{
+					Bitmap yellowColour = BitmapFactory.decodeResource(getResources(), R.drawable.colourspectrum);
+					
+					Bitmap resizedbitmap3 =  Bitmap.createBitmap(yellowColour, 400, 0, 120, 200);
+					
+					colourSpectrum[3].setImageBitmap(resizedbitmap3);
+				}
+				
+				//-----------Functions for displaying the coloured squared images ends.------------//
 		
 		//----------Functions to detect if the coloured squared images have been pressed begins.-----------//
 		public void blackColourTouch()
@@ -1005,7 +1033,7 @@ public class femaleImage extends Activity {
 			         
 			       
 					
-			         Intent intent = new Intent(v.getContext(), Login.class);
+			         Intent intent = new Intent(v.getContext(), PreviewProfile.class);
 					 startActivityForResult (intent, 0);
 				}//End of onClick() function.
 				

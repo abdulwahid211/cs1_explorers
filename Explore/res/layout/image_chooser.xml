@@ -7,51 +7,46 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.imageCustomisation.imagecustomisation.MainActivity" 
-   android:background="#FFA52E">
-
-       
+   android:background="#FBAD47">
     
+     <Button
+         android:id="@+id/nextPage"
+         android:layout_width="120dip"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="380dip"
+         android:layout_marginLeft="100dip"
+         android:textSize="25dip"
+         android:text="Next" />
+     
      <ImageView
          android:id="@+id/firstImage"
          android:layout_width="wrap_content"
-         android:layout_height="match_parent"
+         android:layout_height="wrap_content"
          android:src="@drawable/male__face" />
-
-   <ImageButton
-       android:id="@+id/previousImage"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBottom="@+id/firstImage"
-       android:layout_alignParentLeft="true"
-       android:layout_marginBottom="157dp"
-       android:layout_marginLeft="27dp"
-       android:src="@android:drawable/ic_media_rew" />
-
-   <ImageButton
-       android:id="@+id/nextImage"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentRight="true"
-       android:layout_alignTop="@+id/previousImage"
-       android:layout_marginRight="17dp"
-       android:src="@android:drawable/ic_media_ff" />
-
-    <Button
-        android:id="@+id/nextPage"
-        android:layout_width="200px"
-        android:layout_height="100px"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="150dp"
-        android:textSize="30px"
-        android:text="Next" />
-
-      <TextView
+     
+       <TextView
           android:id="@+id/text"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:layout_alignParentTop="true"
-          android:textSize="30dp"
+          android:textSize="30dip"
           android:text="Male" />
+       
+       <ImageButton
+       android:id="@+id/nextImage"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="180dip"
+       android:layout_marginLeft="250dip"
+       android:src="@android:drawable/ic_media_ff" />
+       
+         <ImageButton
+       android:id="@+id/previousImage"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="180dip"
+       android:src="@android:drawable/ic_media_rew" />
+
+    
+
 
 </RelativeLayout>

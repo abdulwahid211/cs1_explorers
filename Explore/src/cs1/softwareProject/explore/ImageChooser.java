@@ -1,5 +1,7 @@
 package cs1.softwareProject.explore;
 
+
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,11 +9,18 @@ import java.util.Arrays;
 
 import java.util.List;
 
+
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 //import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,10 +61,19 @@ public class ImageChooser extends Activity {
 		//The first index is of the male face. The second index is of the female face.
 		int imageArray[] = { R.drawable.male__face/*2130837584*/, R.drawable.female__face/*2130837565*/};
 
-	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.image_chooser);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("Please pick a gender avatar");
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
+		
+		
+		
+		
+		
 		
 		firstImage = (ImageView) findViewById(R.id.firstImage);
 		//secondImage = (ImageView) findViewById(R.id.secondImage);

@@ -3,215 +3,158 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#FFA52E">
+    android:background="#FBAD47">
     
-     <TextView
-        android:id="@+id/Costomise"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:text="Customise your image."
-        android:textSize="30dp" />
-
-    <TextView
+        <TextView
         android:id="@+id/text"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_marginTop="80dp"
         android:textSize="30dp" />
 
     <TextView
         android:id="@+id/nameOfColour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="40dp"
         android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/overallImage"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/male__face" />
 
     <ImageView
         android:id="@+id/hatChanger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="135px"
-        android:layout_marginTop="450px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dip"
          />
 
     <ImageView
         android:id="@+id/glassesChanger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="170px"
-        android:layout_marginTop="595px" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dip"
+        />
 
     <ImageView
         android:id="@+id/beardChanger"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="170px"
-        android:layout_marginTop="620px" />
-
-    <TextView
-        android:id="@+id/numberOne"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_marginTop="500px"
-        android:layout_marginLeft="250px"
-        android:text="1"
-        android:textColor="#000000"
-        android:textSize="40px" />
-
-    <TextView
-        android:id="@+id/numberTwo"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_marginTop="600px"
-        android:layout_marginLeft="220px"
-        android:text="2"
-        android:textColor="#000000"
-        android:textSize="40px" />
-
-    <TextView
-        android:id="@+id/numberThree"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_marginTop="710px"
-        android:layout_marginLeft="250px"
-        android:text="3"
-        android:textColor="#000000"
-        android:textSize="40px" />
-    
-     <TextView
-        android:id="@+id/numberFour"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_marginTop="640px"
-        android:layout_marginLeft="280px"
-        android:text="4"
-        android:textColor="#000000"
-        android:textSize="40px" />
+        android:layout_height="wrap_content"        
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dip"
+        />
 
     <ImageView
         android:id="@+id/colourSpectrum"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"/>
+        android:layout_height="wrap_content"/>
     
     <ImageView
         android:id="@+id/colourSpectrum1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="100px"/>
+        android:layout_marginLeft="50dip"/>
     
     <ImageView
         android:id="@+id/colourSpectrum2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="150px"/>
+        android:layout_marginLeft="100dip"/>
     
     <ImageView
         android:id="@+id/colourSpectrum3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="200px"/>
+        android:layout_marginLeft="135dip"/>
     
      <ImageView
         android:id="@+id/colourSpectrum4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="250px"/>
-     
-      <ImageView
+        android:layout_marginLeft="175dip"/>
+        
+        
+        <ImageView
         android:id="@+id/colourSpectrum5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="300px"/>
+         android:layout_marginLeft="215dip"/>
 
       <TextView
           android:id="@+id/colourName"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="1000px"
-          android:layout_marginLeft="300px"
           android:text="Choose your colour."
+          android:layout_marginTop="560dip"
+          android:layout_marginLeft="80dip"
           android:textSize="30px" />
 
       <Button
           android:id="@+id/ButtonOne"
-          android:layout_width="100px"
-          android:layout_height="70px"
-          android:layout_alignParentLeft="true"
-          android:layout_alignTop="@+id/nameOfColour"
-          android:text="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Hair"
           android:textColor="#000000"
-          android:textSize="40px" />
+          android:layout_marginLeft="15dip"
+          android:layout_marginTop="390dip"
+          android:textSize="20dip" />
 
       <Button
           android:id="@+id/ButtonFour"
-          android:layout_width="100px"
-          android:layout_height="70px"
-          android:layout_alignBaseline="@+id/ButtonThree"
-          android:layout_alignBottom="@+id/ButtonThree"
-          android:layout_toRightOf="@+id/numberFour"
-          android:text="4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"                 
+          android:layout_marginLeft="245dip"
+          android:layout_marginTop="390dip"
+          android:text="Skin"
           android:textColor="#000000"
-          android:textSize="40px" />
+          android:textSize="20dip" />
 
       <Button
           android:id="@+id/ButtonThree"
-          android:layout_width="100px"
-          android:layout_height="70px"
-          android:layout_alignBaseline="@+id/ButtonTwo"
-          android:layout_alignBottom="@+id/ButtonTwo"
-          android:layout_alignLeft="@+id/numberTwo"
-          android:text="3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"         
+          android:layout_marginLeft="170dip"
+          android:layout_marginTop="390dip"
+          android:text="Beard"
           android:textColor="#000000"
-          android:textSize="40px" />
+          android:textSize="20dip" />
 
       <Button
           android:id="@+id/ButtonTwo"
-          android:layout_width="100px"
-          android:layout_height="70px"
-          android:layout_alignTop="@+id/nameOfColour"
-          android:layout_toLeftOf="@+id/ButtonThree"
-          android:text="2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Glasses"
+          android:layout_marginLeft="75dip"
+          android:layout_marginTop="390dip"
           android:textColor="#000000"
-          android:textSize="40px" />
+          android:textSize="20dip" />
 
       <Button
           android:id="@+id/nextButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_below="@+id/numberTwo"
-          android:layout_toRightOf="@+id/ButtonThree"
+          android:layout_marginLeft="120dip"
+          android:layout_marginTop="450dip"
           android:text="Next"
-          android:textSize="30dp" />
+          android:textSize="20dip" />
 
       <ImageButton
           android:id="@+id/backButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_alignRight="@+id/ButtonOne"
-          android:layout_alignTop="@+id/forwardButton"
-          android:onClick="back"
+          android:layout_marginTop="200dip"
+          android:layout_marginLeft="15dip"
           android:src="@android:drawable/ic_media_rew" />
 
       <ImageButton
           android:id="@+id/forwardButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginLeft="250dp"
-          android:layout_marginTop="250dp"
-          android:onClick="forward"
+          android:layout_marginTop="200dip"
+          android:layout_marginLeft="260dip"
           android:src="@android:drawable/ic_media_ff" />
 
 </RelativeLayout>
