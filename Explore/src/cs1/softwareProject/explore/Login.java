@@ -157,9 +157,13 @@ public class Login extends Activity implements OnClickListener{
 					Editor edit = sp.edit();
 					edit.putString("username", username);
 					edit.commit();
+					
+					
 					// once the login is a success go to the comments 
                 	Intent i = new Intent(Login.this, Tabs_menu.class);
-                	finish();
+                	i.putExtra("username",username );
+                	i.putExtra("password",password );
+                	//finish();
     				startActivity(i);
                 	return json.getString(TAG_MESSAGE);
                 }

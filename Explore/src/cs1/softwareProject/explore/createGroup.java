@@ -113,10 +113,10 @@ public class createGroup extends Activity implements OnClickListener {
 			otherLanguage=String.valueOf(spinner1.getSelectedItem());
 		}
 		
-
+/*
 		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
 				des.length() >1 && post.length()>1){
-			
+			*/
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
 				ageGroup,post,otherLanguage, place).execute();
 		
@@ -129,14 +129,14 @@ public class createGroup extends Activity implements OnClickListener {
 		ps.setText("");
 		other.setText("");
 		
-		
+		/*
 		}
 		else{
 			Toast.makeText(getApplicationContext(),
 					"You must enter fill everything!",
 					Toast.LENGTH_SHORT).show();
 		}
-
+*/
 
 		
 
@@ -305,28 +305,33 @@ public class createGroup extends Activity implements OnClickListener {
 
 	// / display the user details
 	public void DisplayData() {
-
+ Tabs_menu a = new Tabs_menu();
 		try {
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			// name of the table
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
-
+			Intent intent = getIntent();
+			String Uname = intent.getStringExtra("username");
+			String Pss = intent.getStringExtra("password");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
 				// list all the attributes
 				String username = jsonChildNode.optString("username");
 				String password = jsonChildNode.optString("password");
 
-				if (username.equals(Login.getRealUser())
-						&& password.equals(Login.getRealPass())) {
+				if (username.contains(a.getRealUser()) && password.contains(a.getRealPass())) {
 					String fname = jsonChildNode.optString("FirstName");
 					String lname = jsonChildNode.optString("LastName");
 					String professional = jsonChildNode.optString("Occupation");
 					String nation = jsonChildNode.optString("Nationality");
 					String age = jsonChildNode.optString("Age");
 					String about  = jsonChildNode.optString("About"); 
-					
-					adminId = jsonChildNode.optInt("id");
+					adminId = Integer.parseInt(jsonChildNode.optString("id"));
+				}
+				else{
+					Toast.makeText(getApplicationContext(),
+							"Faggot! ",
+							Toast.LENGTH_SHORT).show();
 				}
 
 			}

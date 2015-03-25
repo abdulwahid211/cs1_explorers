@@ -229,8 +229,6 @@ public class GroupProfile extends Activity {
 		if( a == R.drawable.img0){
 			return R.drawable.japanese;
 		}
-		
-		
 		return R.drawable.english;
 		
 	}
@@ -249,14 +247,8 @@ public class GroupProfile extends Activity {
 		Log.d("MainActivity", "onResumeGP()");
 		//accessWebService();
 	}
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-	//	user_group.clear();
-	//	accessWebService();
-		Log.d("MainActivity", "onPauseGP()");
-	}
+	
+	
 
 	public void joinGroup(View v) {
 		
@@ -289,25 +281,11 @@ public class GroupProfile extends Activity {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	@SuppressWarnings("null")
 	public List<userObject> oragnisedUserId(int groupId,
 			List<userObject> relUsers) {
 		List<userObject> oragnisedUsers = relUsers;
-		List<userObject> oragnisedUsers2 = null;
+		
 
 		HashSet<Integer> newSet = new HashSet<Integer>();
 
@@ -348,11 +326,7 @@ public class GroupProfile extends Activity {
 				oragnisedUsers.remove(i);
 			}
 		}
-		for (int i = 0; i < oragnisedUsers.size(); i++) {
-			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
-				oragnisedUsers.remove(i);
-			}
-		}
+		
 		
 /// remove unknown ids 
 	
@@ -510,7 +484,7 @@ public class GroupProfile extends Activity {
 		map.clear();
 		value.clear();
 		try {
-String m ="";
+
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			
 			// name of the user group

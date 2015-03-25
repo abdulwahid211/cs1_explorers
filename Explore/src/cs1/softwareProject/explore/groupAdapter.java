@@ -44,7 +44,7 @@ public class groupAdapter extends ArrayAdapter<Group> {
 		View view = layin.inflate(R.layout.group_item, null);
 		if(position%2==0)
         {
-            view.setBackgroundColor(Color.parseColor("#BBC5CC"));
+          //  view.setBackgroundColor(Color.parseColor("#F5DCBA"));
         }
 		// image for the group profile
 		ImageView image = (ImageView) view.findViewById(R.id.list_image);

@@ -38,20 +38,20 @@ public class userProfile extends Activity {
 	
 		
 	ActionBar actionBar = getActionBar();
-	actionBar.setTitle(fname+" "+lname);
-    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(24, 41, 59)));
+	actionBar.setTitle("                 "+fname+" "+lname);
+    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
     
-    //TextView tv1 = (TextView) findViewById(R.id.nation);	
-    //tv1.setText(nationality);
+    TextView tv1 = (TextView) findViewById(R.id.textView2);	
+    tv1.setText("               Nationality: "+nationality);
     
     TextView tv2 = (TextView) findViewById(R.id.age);	
-    tv2.setText("Age: "+age+" years old\n\n"+"Occupation: "+occupation+"\n\n"+"Nationality: "+nationality);
+    tv2.setText("                Age: "+age);
     
-   // TextView tv3 = (TextView) findViewById(R.id.occu);	
-    //tv3.setText("Occupation: "+occupation);
+   TextView tv3 = (TextView) findViewById(R.id.occu);	
+    tv3.setText("                Occupation: "+occupation);
     
     TextView tv4 = (TextView) findViewById(R.id.about);	
-    tv4.append(about);
+    tv4.append("About: "+about);
     
     
     

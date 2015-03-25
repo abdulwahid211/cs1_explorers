@@ -1,41 +1,104 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/momo"
+    android:background="#FFA52E"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="681dp" >
+
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="560dp"
-        android:layout_height="200dp"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="116dp"
+        android:layout_marginLeft="50dp"
         android:src="@drawable/california_snow" />
 
     <TextView
         android:id="@+id/age"
-        android:layout_width="190dp"
-        android:layout_height="156dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="-192dp"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="255dp"
+        android:background="@drawable/forms"
         android:ems="10"
         android:hint=" Age"
-        android:textColor="#FFFFEA"
-        android:textSize="18dp"
+        android:paddingTop="13dp"
+        android:textSize="15dp"
         android:textStyle="bold" />
 
 
 
     <TextView
-        android:id="@+id/about"
-        android:layout_width="350dp"
-        android:textSize="17dp"
-        android:layout_height="320dp"
-        android:layout_marginTop="120dp"
-        android:textColor="#FFFFEA"
-        android:ems="10"
-        android:hint="Feel free to explain about yourself........" />
+        android:id="@+id/textView2"
+        android:background="@drawable/forms"
+         android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="5dp"
+        android:paddingTop="14dp"
+        android:layout_marginTop="315dp"
+        android:text="Nationality"
+        android:textSize="15dp"
+        android:textStyle="bold" />
     
+    <TextView
+        android:id="@+id/occu"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/age"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/forms"
+        android:paddingTop="13dp"
+        android:text="Occupation"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="340dp"
+        android:layout_height="220dp"
+        android:background="@drawable/forms"
+        android:layout_marginTop="436dp"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:textSize="15dp"
+       android:textStyle="bold"
+        android:hint="Feel free to explain about yourself........"
+        />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        
+        android:layout_alignTop="@+id/age"
+        android:src="@drawable/calendar" />
+
+    
+    <ImageView
+        android:id="@+id/icon2"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="62dp"
+        
+        android:layout_alignTop="@+id/age"
+        android:src="@drawable/planet" />
+    
+    
+     <ImageView
+        android:id="@+id/icon3"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="62dp"
+        
+        android:layout_alignTop="@+id/textView2"
+        android:src="@drawable/occu" />
+</RelativeLayout>
+</ScrollView>

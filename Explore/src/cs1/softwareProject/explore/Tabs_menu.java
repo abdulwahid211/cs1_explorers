@@ -31,12 +31,20 @@ import android.widget.TabHost.OnTabChangeListener;
 
 public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 	ActionBar actionBar;
+	 public  String real_user ="";
+	    public  String real_pass ="";
 	View someView;
 	 View root;
     @TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.main);
+        Intent i = getIntent();
+		String Uname = i.getStringExtra("username");
+		String Pss = i.getStringExtra("password");
+		setRealUser(Uname);
+    	setRealPass(Pss);
         actionBar = getActionBar();
         actionBar.setTitle("                 All Events");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
@@ -67,6 +75,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
                       .setContent(intent[1]);
         tabHost.addTab(spec);
      
+        
         intent[2] = new Intent().setClass(this, createGroup.class);
         spec = tabHost.newTabSpec("Third").setIndicator("Third")
                       .setContent(intent[2]);
@@ -87,6 +96,19 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
         
         
     }
+    
+    public  void setRealUser(String a){
+		real_user =a;
+	}
+	public  void setRealPass(String a){
+		real_pass =a;
+	}
+	public String getRealUser(){
+		return real_user;
+	}
+	public String getRealPass(){
+		return real_pass;
+	}
     
     @Override
     protected void onPause() {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFA52E" >
+    android:background="@drawable/explory" >
 
     <Button
         android:id="@+id/login"
@@ -18,34 +18,6 @@
         android:layout_marginBottom="107dp"
         android:textColor="#FFFFFF"
         android:text="Login" />
-
-    <EditText
-        android:id="@+id/password"
-        android:listSelector="@drawable/forms"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/forms"
-        android:ems="10"
-        android:textStyle="bold"
-        android:hint=" Password"
-        android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:text="Explore "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/register"
@@ -71,7 +43,33 @@
         android:hint=" Username"
         android:textStyle="bold" >
 
-        <requestFocus />
+       
     </EditText>
+
+    <ImageView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:src="@drawable/text"
+        
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/forms"
+        android:ems="10"
+        android:hint=" Password"
+        android:inputType="textPassword"
+        android:listSelector="@drawable/forms"
+        android:textStyle="bold" />
 
 </RelativeLayout>

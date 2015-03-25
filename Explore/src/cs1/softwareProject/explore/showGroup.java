@@ -287,7 +287,7 @@ public class showGroup extends ListActivity {
 						lan));
 			}
 
-			BubbleSort(user_group);
+		//	BubbleSort(user_group);
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					"Failed to display data! " + e.toString(),
