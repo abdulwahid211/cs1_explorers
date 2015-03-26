@@ -45,14 +45,18 @@
         android:layout_marginTop="170dip" />
 
 
-   <Button
-          android:id="@+id/nextButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="120dip"
-          android:layout_marginTop="450dip"
-          android:text="Next"
-          android:textSize="20dip" />
+    <Button
+        android:id="@+id/nextButton"
+        android:background="@drawable/buttons"
+        android:layout_width="600dip"
+        android:layout_height="300dip"
+        android:layout_marginLeft="-20dip"
+        android:layout_marginTop="520dip"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:text="Submit"
+        android:textSize="35dp"
+        />
 
    <ImageButton
           android:id="@+id/backButton"
