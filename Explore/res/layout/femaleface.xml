@@ -59,20 +59,22 @@
         />
 
    <ImageButton
-          android:id="@+id/backButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="200dip"
-          android:layout_marginLeft="15dip"
-          android:src="@android:drawable/ic_media_rew" />
+        android:id="@+id/backButton"
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="200dip"
+        android:background="@drawable/buttons"
+        android:src="@android:drawable/ic_media_rew" />
 
       <ImageButton
-          android:id="@+id/forwardButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="200dip"
-          android:layout_marginLeft="250dip"
-          android:src="@android:drawable/ic_media_ff" />
+        android:id="@+id/forwardButton"
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:layout_marginLeft="280dip"
+        android:layout_marginTop="200dip"
+        android:background="@drawable/buttons"
+        android:src="@android:drawable/ic_media_ff" />
 
     <Button
         android:id="@+id/ButtonOne"
