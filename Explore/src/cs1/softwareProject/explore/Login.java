@@ -43,13 +43,14 @@ public class Login extends Activity implements OnClickListener{
     
     public static String real_user ="";
     public static String real_pass ="";
-    
+    public static int id; 
     private static final String LOGIN_URL = "http://doc.gold.ac.uk/~ma301ma/IgorFile/login.php";
   //  private static final String LOGIN_URL = "http://10.0.2.2/PhpFiles/login.php";
 
   
     //JSON element ids from repsonse of php script:
     private static final String TAG_SUCCESS = "success";
+    private static final String TAG_ID = "id";
     private static final String TAG_MESSAGE = "message";
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
@@ -128,6 +129,7 @@ public class Login extends Activity implements OnClickListener{
 			// TODO Auto-generated method stub
 			 // Check for success tag
             int success;
+            
             String username = user.getText().toString();
             String password = pass.getText().toString();
             
@@ -149,6 +151,7 @@ public class Login extends Activity implements OnClickListener{
 
                 // json success tag
                 success = json.getInt(TAG_SUCCESS);
+                id = json.getInt(TAG_ID);
                 if (success == 1) {
                 	
                 	Log.d("Login Successful!", json.toString());
@@ -164,9 +167,9 @@ public class Login extends Activity implements OnClickListener{
                 	Intent i = new Intent(Login.this, Tabs_menu.class);
                 	i.putExtra("username",username );
                 	i.putExtra("password",password );
-                	//finish();
+                	String a = String.valueOf(id);
     				startActivity(i);
-                	return json.getString(TAG_MESSAGE);
+                	return a;
                 }
                 else{
                 	Log.d("Login Failure!", json.getString(TAG_MESSAGE));

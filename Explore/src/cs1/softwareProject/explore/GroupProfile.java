@@ -125,12 +125,7 @@ public class GroupProfile extends Activity {
 		tv4.setText(ageGroup);
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
-		
-	//	byte[] decodedByte = Base64.decode(image , Base64.DEFAULT);
-	//	Bitmap bit = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
-		//im.setImageBitmap(bit);
-     // im.setImageResource(R.drawable.california_snow);
-		
+
 		
 		im.setImageResource(sendImage(image));
 		
@@ -256,8 +251,9 @@ public class GroupProfile extends Activity {
 	
 
 	public void joinGroup(View v) {
+		Login a = new Login();
 		
-		new JoinedGroup(group_id, user_id).execute();
+		new JoinedGroup(group_id,a.id).execute();
 
 	}
 	
@@ -525,14 +521,7 @@ public class GroupProfile extends Activity {
 				map.add(maps);
 				value.add(values);
 				}
-				// Log.d("THIS IS THE GANSTA:",String.valueOf(values) );
-
-				// Log.d("this is the value","My beautiful wife:"
-				// +String.valueOf(joined_user.get(0).getIDs()));
-				if (userName.contains(a.real_user) && password.contains(a.real_pass)) {
-				
-				 user_id = userId ;
-				 }
+			
 
 			}
 
