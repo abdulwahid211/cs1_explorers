@@ -53,13 +53,15 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
     //   root = someView.getRootView();
 
         TabHost tabHost = getTabHost();
+      //  setTabColor(tabHost);
         TabHost.TabSpec spec;
         Intent intent [] = new Intent[3];
- 
+        
+        someView.setBackgroundColor(Color.parseColor("#FBAD47"));
        // first tab
         intent[0] = new Intent().setClass(this, showGroup.class);
-        spec = tabHost.newTabSpec("First").setIndicator("First")
-                .setContent(intent[0]);
+        spec = tabHost.newTabSpec("First").setIndicator(
+        		null,getResources().getDrawable(R.drawable.calendar)).setContent(intent[0]);
         
         tabHost.addTab(spec);
         
@@ -70,15 +72,15 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
        
         //Third tab
         
-        intent[1] = new Intent().setClass(this, createGroup.class);
-        spec = tabHost.newTabSpec("Second").setIndicator("Second")
-                      .setContent(intent[1]);
+        intent[1] = new Intent().setClass(this, ExploreMap.class);
+        spec = tabHost.newTabSpec("Second").setIndicator(
+        		null,getResources().getDrawable(R.drawable.mapsy)).setContent(intent[1]);
         tabHost.addTab(spec);
      
         
         intent[2] = new Intent().setClass(this, createGroup.class);
-        spec = tabHost.newTabSpec("Third").setIndicator("Third")
-                      .setContent(intent[2]);
+        spec = tabHost.newTabSpec("Third").setIndicator(
+        		null,getResources().getDrawable(R.drawable.pen)).setContent(intent[2]);
         tabHost.addTab(spec);
         
         
@@ -118,14 +120,9 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
     }
 
     
-    /*
-    public static void setTabColor(TabHost tabhost) {
-        for(int i=0;i<tabhost.getTabWidget().getChildCount();i++) {
-            tabhost.getTabWidget().getChildAt(i).setBackgroundColor(R.drawable.bac_tab); //unselected
-        }
-    }
+   
     
-    */
+    
     @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -156,11 +153,12 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 	@SuppressLint("NewApi") public void onTabChanged(String tabId ) {
 		@SuppressWarnings("deprecation")
 		TabHost tabhost = getTabHost() ;
+		
 		if(tabId.equals("First")){
 	//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
 		actionBar.setTitle("                 All Events");
 		
-		someView.setBackgroundColor(Color.parseColor("#FBAD47"));
+		someView.setBackgroundColor(Color.parseColor("#F5C484"));
 		}
 		if(tabId.equals("Second")){
 		//	tabhost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#66CCFF")); //unselected
@@ -172,7 +170,7 @@ public class Tabs_menu extends TabActivity implements OnTabChangeListener  {
 			//root.setBackgroundColor(getResources().getColor(Color.parseColor("#FFFFFF")));
 			
 			actionBar.setTitle("              Create an Event");
-			someView.setBackgroundColor(Color.parseColor("#FBAD47"));
+			someView.setBackgroundColor(Color.parseColor("#F5C484"));
 		}
 		
 	}

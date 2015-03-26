@@ -171,7 +171,7 @@ import android.widget.ImageView.ScaleType;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.maleface);
 		ActionBar actionBar = getActionBar();
-		actionBar.setTitle("Please customise your image");
+		actionBar.setTitle("Customise your male image");
 		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 		
 		

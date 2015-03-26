@@ -154,7 +154,7 @@ import android.widget.ImageView.ScaleType;
 		setContentView(R.layout.femaleface);
 		
 		ActionBar actionBar = getActionBar();
-		actionBar.setTitle("Please customise your image");
+		actionBar.setTitle("Customise your female image");
 		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 		
 		//Getting the id of the ImageView and placing it within the wholeImage ImageView.

@@ -11,8 +11,8 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-       
-        android:background="#F7F7F7"
+       android:tabStripEnabled="false"
+       android:background="#F5C484"
         
         >
 
@@ -20,15 +20,19 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            
             android:layout_weight="0.90"
-            android:padding="5dp" />
+             />
 
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
+            
             android:layout_weight="0"
-            android:layout_marginBottom="-4dp"
+            android:padding="-6dp"
+            android:layout_marginBottom="-7dp"
+            android:tabStripEnabled="false"
             android:background="@drawable/tab_selector"
             />
 
