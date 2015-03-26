@@ -1197,7 +1197,7 @@ import android.widget.ImageView.ScaleType;
 			         CreateGroup cs = new CreateGroup();
 			         cs.execute();
 					
-			        Intent intent = new Intent(v.getContext(), PreviewProfile.class);
+			        Intent intent = new Intent(v.getContext(), Login.class);
 						startActivityForResult (intent, 0);
 				}//End of onClick() function.
 				

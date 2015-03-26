@@ -668,29 +668,31 @@ containing a value of this type.
         public static final int italian=0x7f020058;
         public static final int japanese=0x7f020059;
         public static final int layout_bg=0x7f02005a;
-        public static final int list_selector=0x7f02005b;
-        public static final int male__face=0x7f02005c;
-        public static final int male_afro=0x7f02005d;
-        public static final int male_bald=0x7f02005e;
-        public static final int male_fringe=0x7f02005f;
-        public static final int male_hair_0=0x7f020060;
-        public static final int male_mohawk=0x7f020061;
-        public static final int male_spiky=0x7f020062;
-        public static final int malebeard1=0x7f020063;
-        public static final int malebeard2=0x7f020064;
-        public static final int mandarin=0x7f020065;
-        public static final int mapsy=0x7f020066;
-        public static final int occu=0x7f020067;
-        public static final int other=0x7f020068;
-        public static final int pen=0x7f020069;
-        public static final int planet=0x7f02006a;
-        public static final int portoguese=0x7f02006b;
-        public static final int powered_by_google_dark=0x7f02006c;
-        public static final int powered_by_google_light=0x7f02006d;
-        public static final int spanish=0x7f02006e;
-        public static final int spinner=0x7f02006f;
-        public static final int tab_selector=0x7f020070;
-        public static final int text=0x7f020071;
+        public static final int list=0x7f02005b;
+        public static final int list_selector=0x7f02005c;
+        public static final int male__face=0x7f02005d;
+        public static final int male_afro=0x7f02005e;
+        public static final int male_bald=0x7f02005f;
+        public static final int male_fringe=0x7f020060;
+        public static final int male_hair_0=0x7f020061;
+        public static final int male_mohawk=0x7f020062;
+        public static final int male_spiky=0x7f020063;
+        public static final int malebeard1=0x7f020064;
+        public static final int malebeard2=0x7f020065;
+        public static final int mandarin=0x7f020066;
+        public static final int mapsy=0x7f020067;
+        public static final int occu=0x7f020068;
+        public static final int other=0x7f020069;
+        public static final int pen=0x7f02006a;
+        public static final int planet=0x7f02006b;
+        public static final int portoguese=0x7f02006c;
+        public static final int powered_by_google_dark=0x7f02006d;
+        public static final int powered_by_google_light=0x7f02006e;
+        public static final int shisha=0x7f02006f;
+        public static final int spanish=0x7f020070;
+        public static final int spinner=0x7f020071;
+        public static final int tab_selector=0x7f020072;
+        public static final int text=0x7f020073;
     }
     public static final class id {
         public static final int ButtonFour=0x7f070060;
@@ -997,6 +999,7 @@ containing a value of this type.
          */
         public static final int AppBaseTheme=0x7f090005;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090006;
         public static final int Theme_IAPTheme=0x7f090000;

@@ -38,6 +38,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -83,8 +85,7 @@ public class GroupProfile extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.groupprofile);
-		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayUseLogoEnabled(false);
+		
 		 userImg = new HashMap <String,Integer>();
 		accessWebService();
 		Intent intent = getIntent();
@@ -97,8 +98,12 @@ public class GroupProfile extends Activity {
 		String ageGroup = intent.getStringExtra("ageGroup");
 		int image = intent.getIntExtra("Image", 0);
 
-		
-		actionBar.setTitle(name);
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("                 "+name);
+		actionBar.setDisplayUseLogoEnabled(false);
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
+	    
+	    
 		// oragnisedUsers = oragnisedUserId(group_id,userJoint,joined_user);
 		// joined_user = oragnisedUserId(74,userJoint,joined_user);
 		 adapter = new userAdapter(this, R.layout.user_item,
