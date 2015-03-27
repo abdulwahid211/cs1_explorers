@@ -94,9 +94,20 @@ import android.widget.Toast;
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
+		if(user.length()>1 && pass.length()>1 && fname.length()>1 && lname.length()>1 && age.length()>1 && 
+				nation.length()>1 && occup.length()>1 && about.length()>1){
+		
+		
 		new CreateUser().execute();
 		
 		click(v);
+		}
+	
+		else{
+			Toast.makeText(getApplicationContext(),
+					"Please fill all the required fields!",
+					Toast.LENGTH_SHORT).show();
+		}
 
 	}
 	

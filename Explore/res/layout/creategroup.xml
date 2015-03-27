@@ -66,10 +66,10 @@
          android:layout_alignLeft="@+id/location"
          android:layout_below="@+id/location"
          android:layout_marginTop="18dp"
+         android:text="Select category "
+         android:textColor="#FFFFFF"
          android:textSize="17dp"
-          android:textStyle="bold"
-         android:text="Please pick a category "
-         android:textColor="#FFFFFF" />
+         android:textStyle="bold" />
 
      <Spinner
          android:id="@+id/spinner2"
@@ -110,17 +110,18 @@
          android:ems="10"
          android:hint=" Time and Date" />
 
-     <EditText
+     <Spinner
          android:id="@+id/age"
          android:layout_width="250dp"
          android:layout_height="40dp"
-         android:textStyle="bold"
          android:layout_alignLeft="@+id/time"
          android:layout_below="@+id/time"
          android:layout_marginTop="20dp"
-         android:background="@drawable/forms"
+         android:background="@drawable/spinner"
          android:ems="10"
-         android:hint="Age Group" />
+         android:entries="@array/age_arrays"
+         android:prompt="@string/language_prompt" 
+          />
 
      <EditText
          android:id="@+id/des"
@@ -143,10 +144,10 @@
          android:layout_alignLeft="@+id/des"
          android:layout_below="@+id/des"
          android:layout_marginTop="16dp"
+         android:text="Select Language "
+         android:textColor="#FFFFFF"
          android:textSize="17dp"
-         android:textStyle="bold"
-         android:text="Please choose a Language "
-         android:textColor="#FFFFFF" />
+         android:textStyle="bold" />
 
      <Spinner
          android:id="@+id/spinner1"
@@ -171,6 +172,17 @@
          android:background="@drawable/forms"
          android:ems="10"
          android:hint=" Event Name" />
+
+     <TextView
+         android:id="@+id/TextView02"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/time"
+         android:layout_below="@+id/time"
+         android:text="Select age group"
+         android:textColor="#FFFFFF"
+         android:textSize="17dp"
+         android:textStyle="bold" />
 
 </RelativeLayout>
 

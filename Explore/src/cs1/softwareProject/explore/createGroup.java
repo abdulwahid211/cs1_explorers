@@ -44,6 +44,7 @@ public class createGroup extends Activity implements OnClickListener {
 	Button createGroup;
 	Spinner spinner1;
 	Spinner spinner2;
+	Spinner spinner3;
 	String place =" ";
 	String nameOfEvent = "";
 	String nameOfLocation = "";
@@ -80,7 +81,7 @@ public class createGroup extends Activity implements OnClickListener {
 		 accessWebService();
 		nameEvent = (EditText) findViewById(R.id.eventName);
 		location = (EditText) findViewById(R.id.location);
-		age = (EditText) findViewById(R.id.age);
+		spinner3 = (Spinner) findViewById(R.id.age);
 		time = (EditText) findViewById(R.id.time);
 		description = (EditText) findViewById(R.id.des);
 		ps = (EditText) findViewById(R.id.postcode);
@@ -104,7 +105,7 @@ public class createGroup extends Activity implements OnClickListener {
 		//accessWebService();
 		nameOfEvent = nameEvent.getText().toString();
 		nameOfLocation = location.getText().toString();
-		ageGroup = age.getText().toString();
+		ageGroup = String.valueOf(spinner3.getSelectedItem());
 		timeOfEvent = time.getText().toString();
 		des = description.getText().toString();
 		post = ps.getText().toString();
@@ -118,10 +119,10 @@ public class createGroup extends Activity implements OnClickListener {
 			otherLanguage=String.valueOf(spinner1.getSelectedItem());
 		}
 		
-/*
-		if(nameOfEvent.length() >1 && nameOfLocation.length() >1 && ageGroup.length() >1 && timeOfEvent.length() > 1 && 
+
+		if(nameOfEvent.length() >1 && nameOfLocation.length() >1  && timeOfEvent.length() > 1 && 
 				des.length() >1 && post.length()>1){
-			*/
+			
 		
 		new CreateGroup(adminId, nameOfEvent, nameOfLocation, timeOfEvent, des,
 				ageGroup,post,otherLanguage, place).execute();
@@ -129,20 +130,20 @@ public class createGroup extends Activity implements OnClickListener {
 	
 		nameEvent.setText("");
 		location.setText("");
-		age.setText("");
+		
 		time.setText("");
 		description.setText("");
 		ps.setText("");
 		other.setText("");
 		
-		/*
+		
 		}
 		else{
 			Toast.makeText(getApplicationContext(),
-					"You must enter fill everything!",
+					"Please fill all the required fields!",
 					Toast.LENGTH_SHORT).show();
 		}
-*/
+
 
 		
 
@@ -330,27 +331,15 @@ public class createGroup extends Activity implements OnClickListener {
 			JSONObject jsonResponse = new JSONObject(jsonResult);
 			// name of the table
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
-			Intent intent = getIntent();
+			
 			
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
 				JSONObject jsonChildNode = jsonUserDetails.getJSONObject(i);
 				// list all the attributes
 				//adminId = Integer.parseInt(jsonChildNode.optString("id"));
 				int o = jsonChildNode.optInt("id");
-				String username = jsonChildNode.optString("username");
-				String password = jsonChildNode.optString("password");
-
-				if (true) {
-					adminId = o;
-					/*
-					String fname = jsonChildNode.optString("FirstName");
-					String lname = jsonChildNode.optString("LastName");
-					String professional = jsonChildNode.optString("Occupation");
-					String nation = jsonChildNode.optString("Nationality");
-					String age = jsonChildNode.optString("Age");
-					String about  = jsonChildNode.optString("About"); 
-					*/
-				}
+				
+			
 					
 
 			}

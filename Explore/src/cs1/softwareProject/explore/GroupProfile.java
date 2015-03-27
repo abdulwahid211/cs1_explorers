@@ -123,7 +123,7 @@ public class GroupProfile extends Activity {
 		tv1.setText("Post Code: " + postCode.toUpperCase());
 
 		TextView tv2 = (TextView) findViewById(R.id.textView3);
-		tv2.setText("Event Time: " + time);
+		tv2.setText("Time & Date: " + time);
 
 		TextView tv3 = (TextView) findViewById(R.id.textView4);
 		tv3.setText("Description: " + description);
@@ -199,9 +199,9 @@ public class GroupProfile extends Activity {
 
 		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(
 				this);
-		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
-		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
-		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
+		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.woosh);
+		soundListener.addSoundEvent(State.RESET, R.raw.woosh);
+		soundListener.addSoundEvent(State.REFRESHING, R.raw.woosh);
 		mPullRefreshListView.setOnPullEventListener(soundListener);
 
 		ListView actualListView = mPullRefreshListView.getRefreshableView();

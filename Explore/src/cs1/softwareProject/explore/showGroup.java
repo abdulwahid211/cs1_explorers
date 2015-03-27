@@ -127,10 +127,10 @@ public class showGroup extends ListActivity {
 
 		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(
 				this);
-	//	soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
-	//	soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
-	//	soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
-	//	mPullRefreshListView.setOnPullEventListener(soundListener);
+		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.woosh);
+		soundListener.addSoundEvent(State.RESET, R.raw.woosh);
+		soundListener.addSoundEvent(State.REFRESHING, R.raw.woosh);
+		mPullRefreshListView.setOnPullEventListener(soundListener);
 
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 
