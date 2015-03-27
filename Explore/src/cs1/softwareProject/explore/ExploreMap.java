@@ -268,7 +268,7 @@ public class ExploreMap extends FragmentActivity {
 			double lng1 = add.getLongitude();
 
 			// gotoUserLocation(lat1, lng1, zoom);
-			setFlagMarker(name, lat1, lng1, language, location, imageFlag);
+			setFlagMarker(name, lat1, lng1, language, postCode1, imageFlag);
 			
 			
 
@@ -304,7 +304,7 @@ public class ExploreMap extends FragmentActivity {
 
 	
 	private void setFlagMarker(String nameEvent, double lat, double lng,
-			String country, String locationName, int flagImage) {
+			String lan, String locationName, int flagImage) {
 		
 		
 	
@@ -313,8 +313,8 @@ public class ExploreMap extends FragmentActivity {
 				.position(new LatLng(lat, lng))
 				.icon(BitmapDescriptorFactory
 						.fromResource(flagImage));
-		if (country.length() > 0) {
-			userMarker.snippet(country + "\n" + locationName);
+		if (lan.length() > 0) {
+			userMarker.snippet(lan + "\n" + locationName);
 			
 		}
 		
