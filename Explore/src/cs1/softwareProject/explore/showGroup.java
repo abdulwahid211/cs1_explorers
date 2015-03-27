@@ -189,6 +189,8 @@ public class showGroup extends ListActivity {
 		intent.putExtra("adminId", c.adminId);
 		intent.putExtra("EventName", c.nameOfEvent);
 		intent.putExtra("location", c.location);
+		intent.putExtra("language", c.language);
+		intent.putExtra("postCode", c.postCode);
 		intent.putExtra("time", c.time);
 		intent.putExtra("ageGroup", c.ageGroup);
 		intent.putExtra("description", c.description);

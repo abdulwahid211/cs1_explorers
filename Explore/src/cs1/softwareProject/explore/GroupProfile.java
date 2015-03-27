@@ -91,12 +91,14 @@ public class GroupProfile extends Activity {
 		Intent intent = getIntent();
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.userView);
 		group_id = intent.getIntExtra("groupId", 0);
-		String location = intent.getStringExtra("location");
+		String postCode = intent.getStringExtra("postCode");
 		String name = intent.getStringExtra("EventName");
 		String time = intent.getStringExtra("time");
 		String description = intent.getStringExtra("description");
 		String ageGroup = intent.getStringExtra("ageGroup");
 		int image = intent.getIntExtra("Image", 0);
+		String location = intent.getStringExtra("location");
+		String lanuage = intent.getStringExtra("language");
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("                 "+name);
@@ -104,25 +106,35 @@ public class GroupProfile extends Activity {
 	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
 	    
 	    
-		// oragnisedUsers = oragnisedUserId(group_id,userJoint,joined_user);
-		// joined_user = oragnisedUserId(74,userJoint,joined_user);
 		 adapter = new userAdapter(this, R.layout.user_item,
 				joined_user);
 		//userList = (ListView) findViewById(R.id.userView);
 		mPullRefreshListView.setAdapter(adapter);
 
+		TextView tv12 = (TextView) findViewById(R.id.lan);
+		tv12.setText("Language: "+lanuage);
+		
+		TextView tv13 = (TextView) findViewById(R.id.lc);
+		tv13.setText("Location: "+location);
+		
+		
+		
+		
+		
+		
+		
+		
 		TextView tv1 = (TextView) findViewById(R.id.textView2);
-		String test = "ID " + String.valueOf(user_id);
-		tv1.setText(test);
+		tv1.setText("Post Code: "+postCode.toUpperCase());
 
 		TextView tv2 = (TextView) findViewById(R.id.textView3);
-		tv2.setText(time);
+		tv2.setText("Event Time: "+time);
 
 		TextView tv3 = (TextView) findViewById(R.id.textView4);
-		tv3.setText(description);
+		tv3.setText("Description: "+ description);
 
 		TextView tv4 = (TextView) findViewById(R.id.textView5);
-		tv4.setText(ageGroup);
+		tv4.setText("Age group: "+ageGroup);
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
 
