@@ -18,4 +18,4 @@ Run instructions:
 on this IDE.
 2) Upload APK, run the application.
 
-https://www.youtube.com/watch?v=ElOVWjT6JWA
+
