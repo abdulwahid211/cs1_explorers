@@ -228,12 +228,12 @@ import android.widget.ImageView.ScaleType;
         
         colourName = (TextView) findViewById(R.id.colourName);
         
-        colourSpectrum[0] = (ImageView) findViewById(R.id.colourSpectrum);
+       /* colourSpectrum[0] = (ImageView) findViewById(R.id.colourSpectrum);
         colourSpectrum[1] = (ImageView) findViewById(R.id.colourSpectrum1);
         colourSpectrum[2] = (ImageView) findViewById(R.id.colourSpectrum2);
         colourSpectrum[3] = (ImageView) findViewById(R.id.colourSpectrum3);
         colourSpectrum[4] = (ImageView) findViewById(R.id.colourSpectrum4);
-        colourSpectrum[5] = (ImageView) findViewById(R.id.colourSpectrum5);
+        colourSpectrum[5] = (ImageView) findViewById(R.id.colourSpectrum5);*/
 		
 		//Calling the function that displays the image chosen by the user.
 		displayImage();
@@ -267,17 +267,17 @@ import android.widget.ImageView.ScaleType;
 		colourYellow();*/
 		
 		//Functions for the coloured squared images and getting their colours.
-		blackColourTouch();
+		/*blackColourTouch();
 		greenColourTouch();
 		whiteColourTouch();
 		yellowColourTouch();
 		redColourTouch();
-		blueColourTouch();
+		blueColourTouch();*/
 		
 		//Functions to allow for the changing of the colours for the different sections of the image.
-		hatColourChanger();
-		glassesColourChanger();
-		beardColourChanger();
+		//hatColourChanger();
+		//glassesColourChanger();
+		//beardColourChanger();
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
 		//The forward and backwards buttons will initially be set to false.
 		imageSectionForward.setEnabled(false);

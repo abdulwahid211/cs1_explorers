@@ -69,6 +69,18 @@ public class showGroup extends ListActivity {
 		accessWebService();
 		setListAdapter(adapter);
 		
+		
+		
+		Toast.makeText(getApplicationContext(),
+				"Please Pull down to refresh page!",
+				1).show();
+		 
+		
+		
+		
+		
+		
+		
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
 		// Set a listener to be invoked when the list should be refreshed.
@@ -145,7 +157,7 @@ public class showGroup extends ListActivity {
 
 	public int sendImage(String a){
 		if(a.equals("Shisha")){
-			return R.drawable.img1;
+			return R.drawable.tsq;
 		}
 		if(a.equals("Library")){
 			return R.drawable.img2;
@@ -176,7 +188,6 @@ public class showGroup extends ListActivity {
 		intent.putExtra("groupId", c.groupId);
 		intent.putExtra("adminId", c.adminId);
 		intent.putExtra("EventName", c.nameOfEvent);
-		//intent.putExtra("Image", c.image);
 		intent.putExtra("location", c.location);
 		intent.putExtra("time", c.time);
 		intent.putExtra("ageGroup", c.ageGroup);

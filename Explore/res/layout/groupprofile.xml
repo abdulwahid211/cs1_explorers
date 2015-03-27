@@ -1,11 +1,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="1800dp"
-    
-    
-     android:background="#F5C484"
+    android:background="#F5C484"
     android:orientation="vertical" >
 
+    
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="400dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="-8dp"
+        android:layout_marginLeft="-22dp"
+        android:src="@drawable/california_snow" />
+     <Button
+        android:id="@+id/button1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="-232dp"
+        android:onClick="joinGroup"
+        android:text="Join" />
+    
     <TextView
         android:id="@+id/abzy211"
         android:layout_width="wrap_content"
@@ -13,13 +33,7 @@
         android:layout_marginBottom="20dp"
         android:text="Name of Event" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginRight="64dp"
-        android:src="@drawable/california_snow" />
+
 
     <TextView
         android:id="@+id/textView2"
@@ -48,16 +62,7 @@
         android:layout_marginRight="30dp"
         android:text="Age Group:" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-5dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="5dp"
-        android:onClick="joinGroup"
-        android:text="Join" />
+   
 
     <TextView
         android:id="@+id/textView5"
@@ -76,14 +81,14 @@
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/userView"
         android:layout_width="367dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="125dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="280dp"
         android:layout_marginLeft="-2dp"
         android:background="@drawable/list"
         android:cacheColorHint="#00000000"
         android:listSelector="@drawable/list_selector"
         android:divider="#19000000"
-        android:dividerHeight="4dp"
+        android:dividerHeight="6dp"
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"

@@ -33,7 +33,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="cs1.softwareProject.explore.Login"
+            android:name="cs1.softwareProject.explore.showGroup"
             android:screenOrientation="portrait"
           >
             <intent-filter>
@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cs1.softwareProject.explore.Tabs_menu"
+            android:name="cs1.softwareProject.explore.Login"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -58,7 +58,7 @@
             android:name="cs1.softwareProject.explore.Register"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name=".showGroup" 
+        <activity android:name=".Tabs_menu" 
             android:screenOrientation="portrait"
             >
         </activity>

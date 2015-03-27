@@ -229,7 +229,7 @@ public class GroupProfile extends Activity {
 		if( a == R.drawable.img0){
 			return R.drawable.japanese;
 		}
-		return R.drawable.english;
+		return R.drawable.shisha;
 		
 	}
 	
