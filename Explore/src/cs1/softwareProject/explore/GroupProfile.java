@@ -56,7 +56,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class GroupProfile extends Activity {
-    public 	HashMap <String,Integer> userImg;
+	public HashMap<String, Integer> userImg;
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private String jsonResult;
@@ -65,9 +65,10 @@ public class GroupProfile extends Activity {
 	private PullToRefreshListView mPullRefreshListView;
 	userAdapter adapter;
 	/*
-	private static final String url = "http://10.0.2.2/PhpFiles/mrX.php";
-	private static final String LOGIN_URL_userJoined = "http://10.0.2.2/PhpFiles/submitUserJoined.php";
-	*/
+	 * private static final String url = "http://10.0.2.2/PhpFiles/mrX.php";
+	 * private static final String LOGIN_URL_userJoined =
+	 * "http://10.0.2.2/PhpFiles/submitUserJoined.php";
+	 */
 	private static final String url = "http://doc.gold.ac.uk/~ma301ma/IgorFile/mrX.php";
 	private static final String LOGIN_URL_userJoined = "http://doc.gold.ac.uk/~ma301ma/IgorFile/submitUserJoined.php";
 
@@ -81,12 +82,14 @@ public class GroupProfile extends Activity {
 	int user_id;
 	int group_id;
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") protected void onCreate(Bundle savedInstanceState) {
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressLint("NewApi")
+	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.groupprofile);
-		
-		 userImg = new HashMap <String,Integer>();
+
+		userImg = new HashMap<String, Integer>();
 		accessWebService();
 		Intent intent = getIntent();
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.userView);
@@ -101,52 +104,43 @@ public class GroupProfile extends Activity {
 		String lanuage = intent.getStringExtra("language");
 
 		ActionBar actionBar = getActionBar();
-		actionBar.setTitle("                 "+name);
+		actionBar.setTitle("                 " + name);
 		actionBar.setDisplayUseLogoEnabled(false);
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(210, 120, 2)));
-	    
-	    
-		 adapter = new userAdapter(this, R.layout.user_item,
-				joined_user);
-		//userList = (ListView) findViewById(R.id.userView);
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color
+				.rgb(210, 120, 2)));
+
+		adapter = new userAdapter(this, R.layout.user_item, joined_user);
+		// userList = (ListView) findViewById(R.id.userView);
 		mPullRefreshListView.setAdapter(adapter);
 
 		TextView tv12 = (TextView) findViewById(R.id.lan);
-		tv12.setText("Language: "+lanuage);
-		
+		tv12.setText("Language: " + lanuage);
+
 		TextView tv13 = (TextView) findViewById(R.id.lc);
-		tv13.setText("Location: "+location);
-		
-		
-		
-		
-		
-		
-		
-		
+		tv13.setText("Location: " + location);
+
 		TextView tv1 = (TextView) findViewById(R.id.textView2);
-		tv1.setText("Post Code: "+postCode.toUpperCase());
+		tv1.setText("Post Code: " + postCode.toUpperCase());
 
 		TextView tv2 = (TextView) findViewById(R.id.textView3);
-		tv2.setText("Event Time: "+time);
+		tv2.setText("Event Time: " + time);
 
 		TextView tv3 = (TextView) findViewById(R.id.textView4);
-		tv3.setText("Description: "+ description);
+		tv3.setText("Description: " + description);
 
 		TextView tv4 = (TextView) findViewById(R.id.textView5);
-		tv4.setText("Age group: "+ageGroup);
+		tv4.setText("Age group: " + ageGroup);
 
 		ImageView im = (ImageView) findViewById(R.id.imageView1);
 
-		
 		im.setImageResource(sendImage(image));
-		
+
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view,
 					int position, long arg) {
-				userObject c = joined_user.get(position-1);
+				userObject c = joined_user.get(position - 1);
 
 				Intent intent = new Intent(GroupProfile.this, userProfile.class);
 				intent.putExtra("userId", c.id);
@@ -161,7 +155,7 @@ public class GroupProfile extends Activity {
 				startActivity(intent);
 			}
 		});
-		
+
 		// Set a listener to be invoked when the list should be refreshed.
 		mPullRefreshListView
 				.setOnRefreshListener(new OnRefreshListener<ListView>() {
@@ -175,18 +169,16 @@ public class GroupProfile extends Activity {
 								DateUtils.FORMAT_SHOW_TIME
 										| DateUtils.FORMAT_SHOW_DATE
 										| DateUtils.FORMAT_ABBREV_ALL);
-						
-					
 
 						// Update the LastUpdatedLabel
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 
 						// Do work to refresh the list here.
-						 new GetDataTask().execute();
-							accessWebService();
-							mPullRefreshListView.setAdapter(adapter);
-							//setListAdapter(adapter);
+						new GetDataTask().execute();
+						accessWebService();
+						mPullRefreshListView.setAdapter(adapter);
+						// setListAdapter(adapter);
 					}
 				});
 
@@ -200,90 +192,94 @@ public class GroupProfile extends Activity {
 								Toast.LENGTH_SHORT).show();
 					}
 				});
-		
-		
-		
+
 		/**
 		 * Add Sound Event Listener
 		 */
-		
-		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
+
+		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(
+				this);
 		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
 		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
 		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
 		mPullRefreshListView.setOnPullEventListener(soundListener);
-		
-		
-		
 
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 
 		// Need to use the Actual ListView when registering for Context Menu
 		registerForContextMenu(actualListView);
-		
-		
-		 getActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-	
-	
-	
 
-	public int sendImage(int a){
-		if( a == R.drawable.img2 ){
-			return R.drawable.hindi;
-		}
-		if( a == R.drawable.img2){
-			return R.drawable.arabic;
-		}
-		if( a == R.drawable.img3){
-			return R.drawable.italian;
-		}
-		if( a == R.drawable.img0){
-			return R.drawable.japanese;
-		}
-		return R.drawable.shisha;
-		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
-	
-	
+
+	public int sendImage(int a) {
+		// shisha
+		if (a == R.drawable.shishaa) {
+			return R.drawable.shisha;
+		}
+		// museum
+		if (a == R.drawable.tsq) {
+			return R.drawable.mus;
+		}
+		// bar
+		if (a == R.drawable.glass) {
+			return R.drawable.barb;
+		}
+		// coffe
+		if (a == R.drawable.coffee) {
+			return R.drawable.coffff;
+		}
+		// Entertainment
+		if (a == R.drawable.musician) {
+			return R.drawable.enter;
+		}
+		// restr
+		if (a == R.drawable.knif) {
+			return R.drawable.res;
+		}
+		// other
+		return R.drawable.mystery;
+
+	}
+
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    onBackPressed();
-	    return true;
+		onBackPressed();
+		return true;
 	}
-	
+
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		accessWebService();
-		//mPullRefreshListView.setAdapter(adapter);
+		// mPullRefreshListView.setAdapter(adapter);
 		Log.d("MainActivity", "onResumeGP()");
-		//accessWebService();
+		// accessWebService();
 	}
-	
-	
 
 	public void joinGroup(View v) {
 		Login a = new Login();
-		
-		new JoinedGroup(group_id,a.id).execute();
+
+		new JoinedGroup(group_id, a.id).execute();
 
 	}
-	
-	private class GetDataTask extends AsyncTask<List<userObject>, Void, List<userObject>> {
-	      
+
+	private class GetDataTask extends
+			AsyncTask<List<userObject>, Void, List<userObject>> {
+
 		@Override
 		protected List<userObject> doInBackground(List<userObject>... params) {
 			// Simulates a background job.
 			try {
-				Thread.sleep(2000);	
-				//setListAdapter(adapter);
+				Thread.sleep(2000);
+				// setListAdapter(adapter);
 			} catch (InterruptedException e) {
 			}
 			return joined_user;
 		}
 
 		protected void onPostExecute(List<userObject> result) {
-			//((LinkedList<Group>) user_group).addFirst("Added after refresh...");
+			// ((LinkedList<Group>)
+			// user_group).addFirst("Added after refresh...");
 			adapter.notifyDataSetChanged();
 
 			// Call onRefreshComplete when the list has been refreshed.
@@ -292,13 +288,11 @@ public class GroupProfile extends Activity {
 			super.onPostExecute(result);
 		}
 	}
-	
-	
+
 	@SuppressWarnings("null")
 	public List<userObject> oragnisedUserId(int groupId,
 			List<userObject> relUsers) {
 		List<userObject> oragnisedUsers = relUsers;
-		
 
 		HashSet<Integer> newSet = new HashSet<Integer>();
 
@@ -309,17 +303,16 @@ public class GroupProfile extends Activity {
 			}
 		}
 
-		
-
 		for (int i = 0; i < oragnisedUsers.size(); i++) {
 			if (!newSet.contains(oragnisedUsers.get(i).getIDs())) {
 				/*
-				Log.d("THIS IS THE TEST:",
-						String.valueOf(oragnisedUsers.get(i).getIDs()) + " "
-								+ oragnisedUsers.get(i).getUsername());
-				Log.d("this is the value", "Wadz:" + "true baby");*/
+				 * Log.d("THIS IS THE TEST:",
+				 * String.valueOf(oragnisedUsers.get(i).getIDs()) + " " +
+				 * oragnisedUsers.get(i).getUsername());
+				 * Log.d("this is the value", "Wadz:" + "true baby");
+				 */
 				oragnisedUsers.remove(i);
-				
+
 			}
 
 		}
@@ -339,10 +332,8 @@ public class GroupProfile extends Activity {
 				oragnisedUsers.remove(i);
 			}
 		}
-		
-		
-/// remove unknown ids 
-	
+
+		// / remove unknown ids
 
 		return oragnisedUsers;
 
@@ -475,32 +466,30 @@ public class GroupProfile extends Activity {
 	}
 
 	private String getStringFromBitmap(Bitmap bitmapPicture) {
-		 /*
+		/*
 		 * This functions converts Bitmap picture to a string which can be
 		 * JSONified.
-		 * */
-		 final int COMPRESSION_QUALITY = 100;
-		 String encodedImage;
-		 ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
-		 bitmapPicture.compress(Bitmap.CompressFormat.PNG, COMPRESSION_QUALITY,
-		 byteArrayBitmapStream);
-		 byte[] b = byteArrayBitmapStream.toByteArray();
-		 encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-		 return encodedImage;
-		 }
-	
-	
-	
+		 */
+		final int COMPRESSION_QUALITY = 100;
+		String encodedImage;
+		ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
+		bitmapPicture.compress(Bitmap.CompressFormat.PNG, COMPRESSION_QUALITY,
+				byteArrayBitmapStream);
+		byte[] b = byteArrayBitmapStream.toByteArray();
+		encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+		return encodedImage;
+	}
+
 	public void DisplayData() {
-	//	adapter.clear();
-		 Tabs_menu a = new Tabs_menu();
+		// adapter.clear();
+		Tabs_menu a = new Tabs_menu();
 		joined_user.clear();
 		map.clear();
 		value.clear();
 		try {
 
 			JSONObject jsonResponse = new JSONObject(jsonResult);
-			
+
 			// name of the user group
 			JSONArray jsonUserDetails = jsonResponse.optJSONArray("userInfo");
 			for (int i = 0; i < jsonUserDetails.length(); i++) {
@@ -515,25 +504,21 @@ public class GroupProfile extends Activity {
 				String professional = jsonChildNode.optString("Occupation");
 				String nation = jsonChildNode.optString("Nationality");
 				String age = jsonChildNode.optString("Age");
-				String about  = jsonChildNode.optString("About"); 
-				
-			
-				
+				String about = jsonChildNode.optString("About");
 
 				int maps = jsonChildNode.optInt("group_id");
 				int values = jsonChildNode.optInt("user_id");
 				// list all the attributes of the group
 
 				// list all the attributes of the group
-				if(userId !=0){
-				joined_user.add(new userObject(userId, userName,fname, lname,
-						image_no, age, nation, professional,about));
+				if (userId != 0) {
+					joined_user.add(new userObject(userId, userName, fname,
+							lname, image_no, age, nation, professional, about));
 				}
-				if(maps !=0 && values !=0){
-				map.add(maps);
-				value.add(values);
+				if (maps != 0 && values != 0) {
+					map.add(maps);
+					value.add(values);
 				}
-			
 
 			}
 

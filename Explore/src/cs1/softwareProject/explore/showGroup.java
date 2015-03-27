@@ -157,23 +157,26 @@ public class showGroup extends ListActivity {
 
 	public int sendImage(String a){
 		if(a.equals("Shisha")){
+			return R.drawable.shishaa;
+		}
+		if(a.equals("Museum")){
 			return R.drawable.tsq;
 		}
-		if(a.equals("Library")){
-			return R.drawable.img2;
-		}
-		if(a.equals("Night Club")){
-			return R.drawable.img3;
+		if(a.equals("Bar")){
+			return R.drawable.glass;
 		}
 		if(a.equals("Cafe")){
-			return R.drawable.img2;
+			return R.drawable.coffee;
 		}
-		if(a.equals("Other")){
-			return R.drawable.japanese;
+		if(a.equals("Entertainment")){
+			return R.drawable.musician;
+		}
+		if(a.equals("Restaurant")){
+			return R.drawable.knif;
 		}
 		
 		
-		return R.drawable.img0;
+		return R.drawable.questionmark;
 		
 	}
 	protected void onListItemClick(ListView l, View v, int position, long id) {
