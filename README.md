@@ -11,7 +11,11 @@ http://doc.gold.ac.uk/~ma301ma/explore/Explore.apk
  Alternatively you can access the APK through the git repository: cs1_explorers/Explore/bin/
 Explore.apk
 5) PHP and SQL files can be found in the git repository (the folder is named PhpFiles).
+6) Working app demonstration : https://www.youtube.com/watch?v=ElOVWjT6JWA
+
 Run instructions:
 1) Do not try to use the Eclipse emulator to run the code. Google maps v2 does not load correctly
 on this IDE.
 2) Upload APK, run the application.
+
+https://www.youtube.com/watch?v=ElOVWjT6JWA
